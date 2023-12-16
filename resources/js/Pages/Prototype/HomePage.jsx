@@ -22,9 +22,7 @@ export default function Home({ categories, units }) {
     return (
         <>
             <Head title="Home" />
-            <div>
-                <MenubarDemo />
-            </div>
+
             <main className="w-full h-full bg-white dark:bg-gray-900">
                 <ModeToggle />
                 <section className="w-full" id="hero-section">
@@ -64,4 +62,3 @@ export default function Home({ categories, units }) {
         </>
     );
 }
-
