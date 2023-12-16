@@ -2,15 +2,12 @@ import forms from "@tailwindcss/forms";
 import defaultTheme from "tailwindcss/defaultTheme";
 
 /** @type {import('tailwindcss').Config} */
-export default {
-    darkMode: "class",
+module.exports = {
+    darkMode: ["class"],
     content: [
-        "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
-        "./storage/framework/views/*.php",
-        "./resources/views/**/*.blade.php",
-        "./resources/js/**/*.tsx",
+        "./resources/**/*.blade.php",
+        "./resources/**/*.{vue,js,ts,jsx,tsx}",
     ],
-
     theme: {
         container: {
             center: true,
@@ -21,7 +18,6 @@ export default {
         },
         extend: {
             colors: {
-                colornav: "#292833",
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
                 ring: "hsl(var(--ring))",
@@ -57,12 +53,9 @@ export default {
                 },
             },
             borderRadius: {
-                lg: `var(--radius)`,
-                md: `calc(var(--radius) - 2px)`,
+                lg: "var(--radius)",
+                md: "calc(var(--radius) - 2px)",
                 sm: "calc(var(--radius) - 4px)",
-            },
-            fontFamily: {
-                sans: ["Figtree", ...defaultTheme.fontFamily.sans],
             },
             keyframes: {
                 "accordion-down": {
@@ -80,6 +73,5 @@ export default {
             },
         },
     },
-
-    plugins: [forms, require("tailwindcss-animate")],
+    plugins: [require("tailwindcss-animate")],
 };
