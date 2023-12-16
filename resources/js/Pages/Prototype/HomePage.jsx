@@ -9,7 +9,7 @@ export default function Home({ categories, units }) {
     const renderProduct = () => {
         return Array.from({ length: 9 }, (_, index) =>
             index === 8 ? (
-                <div className="md:col-span-2 md:place-self-center ">
+                <div className="col-span-1 md:col-span-2 place-self-center md:place-self-center xl:col-span-1  ">
                     <ProductCard key={index} />
                 </div>
             ) : (
@@ -40,7 +40,7 @@ export default function Home({ categories, units }) {
                     className="w-full h-full py-[50px] px-4"
                     id="products-section"
                 >
-                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 place-items-stretch justify-items-center">
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-6 gap-y-12 place-items-stretch justify-items-center">
                         {renderProduct()}
                     </div>
                 </section>

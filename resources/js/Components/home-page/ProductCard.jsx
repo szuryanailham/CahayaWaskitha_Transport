@@ -1,13 +1,6 @@
 import { cn } from "@/lib/utils";
 
-import {
-    Card,
-    CardContent,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card";
-import { Clock, Fuel, User2 } from "lucide-react";
+import { Card, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
 import { Button } from "../ui/button";
 
 const ProductCard = ({ className, name, src, price }) => {
@@ -76,7 +69,7 @@ const ProductCard = ({ className, name, src, price }) => {
                                 </figure>
                             </div>
                         </CardContent>
-                        <CardFooter>
+                        <CardFooter className="p-6">
                             <div className="w-full flex justify-evenly mt-12 text-center">
                                 <Button
                                     size="lg"
@@ -86,7 +79,7 @@ const ProductCard = ({ className, name, src, price }) => {
                                 </Button>
                                 <Button
                                     size="lg"
-                                    className="bg-gray-300 hover:bg-gray-300/80 dark:text-gray-100 dark:bg-gray-700 rounded-none text-lg font-semibold"
+                                    className="bg-gray-300 hover:bg-gray-300/80 dark:text-gray-100 dark:bg-gray-700 dark:hover:bg-gray-700/80 rounded-none text-lg font-semibold"
                                     variant="secondary"
                                 >
                                     Detail
