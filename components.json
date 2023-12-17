@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
     "$schema": "https://ui.shadcn.com/schema.json",
     "style": "default",
     "rsc": true,
@@ -15,20 +14,3 @@
         "utils": "@/lib/utils"
     }
 }
-=======
-  "$schema": "https://ui.shadcn.com/schema.json",
-  "style": "default",
-  "rsc": true,
-  "tsx": false,
-  "tailwind": {
-    "config": "tailwind.config.js",
-    "css": "resources/css/app.css",
-    "baseColor": "slate",
-    "cssVariables": true
-  },
-  "aliases": {
-    "components": "@/components",
-    "utils": "@/lib/utils"
-  }
-}
->>>>>>> daf489dc494e4db7797e9ff869d554fef560c2cf

@@ -20,15 +20,10 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
-<<<<<<< HEAD
-        "@radix-ui/react-menubar": "^1.0.4",
-        "@radix-ui/react-navigation-menu": "^1.1.4",
-=======
         "@inertiajs/inertia": "^0.11.1",
         "@inertiajs/inertia-react": "^0.8.1",
         "@radix-ui/react-dropdown-menu": "^2.0.6",
         "@radix-ui/react-menubar": "^1.0.4",
->>>>>>> daf489dc494e4db7797e9ff869d554fef560c2cf
         "@radix-ui/react-slot": "^1.0.2",
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.0.0",
