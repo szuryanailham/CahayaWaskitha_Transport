@@ -1,8 +1,8 @@
 import { Head } from "@inertiajs/react";
-import ModeToggle from "@/Components/ModeToggle";
 import ProductCard from "@/Components/home-page/ProductCard";
 import { Facebook, Instagram, Youtube } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Navbar from "@/Components/home-page/Navbar";
 
 export default function Home({ categories, units }) {
     console.log(categories, units);
@@ -22,9 +22,8 @@ export default function Home({ categories, units }) {
     return (
         <>
             <Head title="Home" />
-
-            <main className="w-full h-full bg-white dark:bg-gray-900">
-                <ModeToggle />
+            <Navbar />
+            <main className="w-full h-full bg-blue  dark:bg-gray-900">
                 <section className="w-full" id="hero-section">
                     <div className="w-full h-full">
                         <div className="w-full h-full flex justify-center">
