@@ -1,24 +1,72 @@
 import React from "react";
 import NavLink from "../NavLink";
 import ModeToggle from "../ModeToggle";
+import { IoMenu } from "react-icons/io5";
 menubar;
 
 function Navbar() {
     return (
-        <nav className=" max-w-screen-xl h-[60px] flex justify-between bg-navcolor mb-2 p-2">
-            {/* logo */}
-            <NavLink>Logo</NavLink>
-            {/* end logo */}
-            {/* Link item nav*/}
-            <div className="max-w-md flex h-10 gap-10 p-2 ">
-                <NavLink>Home</NavLink>
-                <NavLink>Profile</NavLink>
-                <NavLink>Testimony</NavLink>
-                {/* Toggle Mode */}
-                <ModeToggle />
-                {/* end Toggle Mode */}
+        <nav class="bg-navcolor border-gray-200 dark:bg-gray-900">
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+                <button class=" space-x-3 rtl:space-x-reverse">
+                    <img
+                        src="/images/logo_brand.svg"
+                        class="h-8"
+                        alt="Cahaya_waskitha"
+                    />
+                </button>
+                <button
+                    type="button"
+                    class="inline-flex items-center w-10 h-10 justify-center text-2xl text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                >
+                    <IoMenu />
+                </button>
+                <div class=" w-full md:block md:w-auto" id="navbar-default">
+                    <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                        <li>
+                            <a
+                                href="#"
+                                class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
+                                aria-current="page"
+                            >
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="#"
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                            >
+                                About
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="#"
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                            >
+                                Services
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="#"
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                            >
+                                Pricing
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="#"
+                                class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                            >
+                                <ModeToggle />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            {/* Link item nav */}
         </nav>
     );
     d;
