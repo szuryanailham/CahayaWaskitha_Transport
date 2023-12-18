@@ -12,8 +12,8 @@ function Navbar() {
     };
 
     return (
-        <nav class="z-10 w-full bg-navcolor border-gray-200 dark:bg-gray-900 fixed">
-            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <nav class="z-10 w-full mb-10 bg-navcolor border-gray-200 dark:bg-gray-900 sticky top-0">
+            <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
                 <button class=" space-x-3 rtl:space-x-reverse">
                     <img
                         src="/images/logo_brand.svg"

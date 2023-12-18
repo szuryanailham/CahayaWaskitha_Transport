@@ -23,7 +23,7 @@ export default function Home({ categories, units }) {
             <Head title="Home" />
 
             <main className="w-full h-full bg-blue  dark:bg-gray-900">
-                <Navbar className="mb-3" />
+                <Navbar className="" />
                 <section className="w-full" id="hero-section">
                     <div className="w-full h-full">
                         <div className="w-full h-full flex justify-center">
