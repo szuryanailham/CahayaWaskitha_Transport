@@ -23,8 +23,8 @@ export default function Home({ categories, units }) {
             <Head title="Home" />
 
             <main className="w-full h-full bg-blue  dark:bg-gray-900">
-                <Navbar />
-                {/* <section className="w-full" id="hero-section">
+                <Navbar className="mb-3" />
+                <section className="w-full" id="hero-section">
                     <div className="w-full h-full">
                         <div className="w-full h-full flex justify-center">
                             <img
@@ -34,16 +34,16 @@ export default function Home({ categories, units }) {
                             />
                         </div>
                     </div>
-                </section> */}
-                {/* <section
+                </section>
+                <section
                     className="w-full h-full py-[50px] px-4"
                     id="products-section"
                 >
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 place-items-stretch justify-items-center">
                         {renderProduct()}
                     </div>
-                </section> */}
-                {/* <footer className="w-full flex flex-col items-center ">
+                </section>
+                <footer className="w-full flex flex-col items-center ">
                     <div className="w-[403px]">
                         <h1 className="font-bold text-[36pt] leading-[150%] text-center">
                             Cahaya Waskitha Transport
@@ -56,7 +56,7 @@ export default function Home({ categories, units }) {
                         <Facebook className="w-[30px] h-[30px]" />
                     </div>
                     <Button />
-                </footer> */}
+                </footer>
             </main>
         </>
     );
