@@ -1,26 +1,17 @@
-import { Head } from "@inertiajs/react";
-import {
-    Menubar,
-    MenubarContent,
-    MenubarItem,
-    MenubarMenu,
-    MenubarSeparator,
-    MenubarShortcut,
-    MenubarTrigger,
-} from "@/components/ui/menubar";
-
+import AboutDesc from "@/Components/About/AboutDesc";
+import ContainerCards from "@/Components/About/ContainerCards";
+import Jumbotron from "@/Components/About/Jumbotron";
+import Navbar from "@/Components/home-page/Navbar";
+import { Car } from "lucide-react";
 export default function About() {
     return (
         <>
-            <Head title="About" />
-            <Menubar>
-                <MenubarMenu>
-                    <MenubarTrigger className="bg-red-700">Logo</MenubarTrigger>
-                    <MenubarTrigger>Home</MenubarTrigger>
-                    <MenubarTrigger>About</MenubarTrigger>
-                    <MenubarTrigger>Testimony</MenubarTrigger>
-                </MenubarMenu>
-            </Menubar>
+            <Navbar />
+            <div className="flex flex-col md:flex-row-reverse md:mt-3">
+                <Jumbotron />
+                <AboutDesc />
+            </div>
+            <ContainerCards />
         </>
     );
 }

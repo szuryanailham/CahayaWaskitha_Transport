@@ -11,13 +11,10 @@ import { useTheme } from "@/components/theme-provider";
 import { useRef, useState } from "react";
 
 export default function ModeToggle() {
-    const [darkMode, setDarkMode] = useState(false);
+    const [darkMode, setDarkMode] = useState(true);
+    console.log(darkMode);
     const { setTheme } = useTheme();
     const toggle = useRef(null);
-    const changeMode = () => {
-        setDarkMode(toggle.current.checked);
-        setTheme(darkMode ? "dark" : "light");
-    };
     return (
         // ================== NEW STYLE MODE TOGGLE =================
         <div className="">
@@ -26,14 +23,17 @@ export default function ModeToggle() {
                 className="hidden"
                 ref={toggle}
                 id="toggle"
-                onClick={changeMode}
+                onChange={() => {
+                    setDarkMode(toggle.current.checked);
+                    setTheme(darkMode ? "dark" : "light");
+                }}
             />
             <label htmlFor="toggle">
                 <div className="w-12 h-6 bg-slate-500 rounded-full flex items-center p-1 cursor-pointer">
                     <div
                         className={`w-6 h-6 rounded-full toggle-circle transition duration-300 flex items-center p-1 ${
                             darkMode
-                                ? " bg-white  -translate-x-1"
+                                ? " bg-white -translate-x-1"
                                 : "bg-blue-500 translate-x-3/4 p-1"
                         }`}
                     >

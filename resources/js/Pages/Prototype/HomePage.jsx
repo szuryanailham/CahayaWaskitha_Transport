@@ -1,7 +1,5 @@
 import { Head } from "@inertiajs/react";
 import ProductCard from "@/Components/home-page/ProductCard";
-import { Facebook, Instagram, Youtube } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import Navbar from "@/Components/home-page/Navbar";
 
 export default function Home({ categories, units }) {
@@ -21,10 +19,9 @@ export default function Home({ categories, units }) {
     return (
         <>
             <Head title="Home" />
-
             <main className="w-full h-full bg-blue  dark:bg-gray-900">
-                <Navbar className="" />
-                <section className="w-full" id="hero-section">
+                <Navbar />
+                <section className="w-full mt-20" id="hero-section">
                     <div className="w-full h-full">
                         <div className="w-full h-full flex justify-center">
                             <img
@@ -43,20 +40,6 @@ export default function Home({ categories, units }) {
                         {renderProduct()}
                     </div>
                 </section>
-                <footer className="w-full flex flex-col items-center ">
-                    <div className="w-[403px]">
-                        <h1 className="font-bold text-[36pt] leading-[150%] text-center">
-                            Cahaya Waskitha Transport
-                        </h1>
-                    </div>
-                    <div className="flex space-x-20 px-36 py-10">
-                        <Instagram className="w-[30px] h-[30px]" />
-                        <Youtube className="w-[30px] h-[30px]" />
-                        <Facebook className="w-[30px] h-[30px]" />
-                        <Facebook className="w-[30px] h-[30px]" />
-                    </div>
-                    <Button />
-                </footer>
             </main>
         </>
     );
