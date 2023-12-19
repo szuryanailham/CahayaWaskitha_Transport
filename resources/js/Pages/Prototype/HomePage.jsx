@@ -1,6 +1,7 @@
 import { Head } from "@inertiajs/react";
 import ProductCard from "@/Components/home-page/ProductCard";
 import Navbar from "@/Components/home-page/Navbar";
+import Footer from "@/Components/home-page/Footer";
 
 export default function Home({ categories, units }) {
     const renderProduct = () => {
@@ -41,6 +42,7 @@ export default function Home({ categories, units }) {
                     </div>
                 </section>
             </main>
+            <Footer />
         </>
     );
 }

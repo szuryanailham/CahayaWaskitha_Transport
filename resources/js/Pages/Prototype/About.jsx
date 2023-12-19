@@ -3,6 +3,7 @@ import Jumbotron from "@/Components/About/Jumbotron";
 import AboutDesc from "@/Components/About/AboutDesc";
 import ContainerCards from "@/Components/About/ContainerCards";
 import React from "react";
+import Footer from "@/Components/home-page/Footer";
 function About() {
     return (
         <>
@@ -12,6 +13,7 @@ function About() {
                 <AboutDesc />
             </div>
             <ContainerCards />
+            <Footer />
         </>
     );
 }
