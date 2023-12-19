@@ -13,9 +13,7 @@ export default function Home({ categories, units }) {
                     <ProductCard key={index} />
                 </div>
             ) : (
-                <div>
-                    <ProductCard key={index} />
-                </div>
+                <ProductCard key={index} />
             )
         );
     };
@@ -25,11 +23,14 @@ export default function Home({ categories, units }) {
 
             <main className="w-full h-full bg-white dark:bg-gray-800">
                 <ModeToggle />
-                <section className="w-full px-3" id="hero-section">
+                <section
+                    className="w-full px-4 md:px-6 xl:px-14"
+                    id="hero-section"
+                >
                     <div className="w-full h-full">
                         <div className="w-full h-full flex justify-center">
                             <img
-                                className="object-cover min-h-[124px] h-[150px] md:h-[330px] xl:h-[439px] max-w-[1171px] w-full object-top rounded-2xl "
+                                className="object-cover h-[124px] md:h-[330px] xl:h-[439px] w-full object-top rounded-2xl"
                                 src="/2880x1800-px-assassins-creed-Assassins-Creed-Black-Flag-video-games-1062323-wallhere.com (1) (1) (1).jpg"
                                 alt=""
                             />
@@ -64,8 +65,8 @@ export default function Home({ categories, units }) {
                 </section>
             </main>
             <footer className="w-full flex flex-col items-center ">
-                <div className="md:w-[403px] w-[224px]">
-                    <h1 className="font-bold text-[20pt] md:text-[30pt] xl:text-[36pt]  leading-[150%] text-center">
+                <div className="w-[224px] md:w-[403px] ">
+                    <h1 className="font-bold text-[20px] md:text-[30px] xl:text-[36px] leading-[150%] text-center">
                         Cahaya Waskitha Transport
                     </h1>
                 </div>
