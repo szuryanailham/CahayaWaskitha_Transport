@@ -1,16 +1,16 @@
 import React from "react";
 
-function CardProfile() {
+function CardProfile(props) {
     return (
         <div className="p-2">
             {/* logo CArd */}
             <img
-                className="mx-auto"
-                src="/images/icon_profile.svg"
-                alt="icon_satu"
+                className="mx-auto dark:text-white"
+                src={props.icon}
+                alt="Icons"
             />
             {/* Descrp Card */}
-            <div className="text-center text-sm p-2">
+            <div className="text-center text-sm p-5">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde,
                 provident.
             </div>

@@ -1,9 +1,9 @@
+import Navbar from "@/Components/home-page/Navbar";
+import Jumbotron from "@/Components/About/Jumbotron";
 import AboutDesc from "@/Components/About/AboutDesc";
 import ContainerCards from "@/Components/About/ContainerCards";
-import Jumbotron from "@/Components/About/Jumbotron";
-import Navbar from "@/Components/home-page/Navbar";
-import { Car } from "lucide-react";
-export default function About() {
+import React from "react";
+function About() {
     return (
         <>
             <Navbar />
@@ -15,3 +15,5 @@ export default function About() {
         </>
     );
 }
+
+export default About;
