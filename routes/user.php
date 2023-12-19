@@ -1,14 +1,14 @@
 <?php
 
 Route::namespace('App\Http\Controllers\User')->group(function () {
-    Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/unit/{slug}', 'HomeController@show');
 
-    Route::get('/unit/{slug}', 'UnitController@show');
-
+    Route::get('/checkout/{order:no_order}/success', 'CheckoutController@success')->name('checkout.success');
     Route::get('/checkout/{id}', 'CheckoutController@show');
     Route::post('/checkout', 'CheckoutController@store');
-    Route::get('/checkout/success', 'CheckoutController@success')->name('checkout.success');
 
     Route::get('/about', 'AboutController@index');
     Route::get('/testimony', 'TestimonyController@index');
+
+    Route::get('/{slug?}', 'HomeController@index')->name('home');
 });

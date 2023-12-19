@@ -8,6 +8,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Unit;
 
+// resources
+use App\Http\Resources\CategoryResource;
+use App\Http\Resources\UnitResource;
+
 // use
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -17,17 +21,19 @@ class HomeController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index(Request $request, $slug = null)
     {
         // Get all categories
         $categories = Category::all();
 
         // Initialize query builder for products
-        $unitsQuery = Unit::query()->with('category', 'featuredImage');
+        $unitsQuery = Unit::query()->with('category');
 
         // Filter by category
-        if ($request->category_id) {
-            $unitsQuery->where('category_id', $request->category_id);
+        if ($slug) {
+            $unitsQuery->whereHas('category', function ($query) use ($slug) {
+                $query->where('slug', $slug);
+            });
         }
 
         // Search by name
@@ -60,24 +66,22 @@ class HomeController extends Controller
         $per_page = $request->has('per_page') ? $request->per_page : 10;
         $units = $unitsQuery->paginate($per_page)->withQueryString();
 
-        dd(['categories' => $categories, 'units' => $units, 'request' => $request->all()]);
-
-        return Inertia::render('User/Home', [
-            'categories' => $categories,
-            'units' => $units
+        return Inertia::render('User/HomePage', [
+            'categories' => CategoryResource::collection($categories),
+            'units' => UnitResource::collection($units),
         ]);
     }
 
     public function show($slug)
     {
-        $unit = Unit::with('category', 'image')->where('slug', $slug)->first();
+        $unit = Unit::with('category')->where('slug', $slug)->first();
 
         if (!$unit) {
             return abort(404);
         }
 
-        return Inertia::render('User/Home', [
-            'unit' => $unit
+        return Inertia::render('User/UnitDetail', [
+            'unit' => new UnitResource($unit),
         ]);
     }
 }

@@ -13,11 +13,6 @@ class UnitImage extends Model
         'image',
     ];
 
-    protected $hidden = [
-        'created_at',
-        'updated_at',
-    ];
-
     public function unit()
     {
         return $this->belongsTo(Unit::class);

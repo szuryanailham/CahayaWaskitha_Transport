@@ -23,12 +23,6 @@ class Unit extends Model
         'status',
     ];
 
-    protected $hidden = [
-        'created_at',
-        'updated_at',
-        'deleted_at',
-    ];
-
     /**
      * Get the options for generating the slug.
      */
