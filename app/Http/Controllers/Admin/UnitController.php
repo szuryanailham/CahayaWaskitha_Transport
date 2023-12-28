@@ -91,7 +91,7 @@ class UnitController extends Controller
         }
 
         if ($unit) {
-            return redirect()->route('admin.unit.index')->with([
+            return redirect('/admin/unit')->with([
                 'message' => "Unit Successfully Added",
                 'type' => 'success'
             ]);
