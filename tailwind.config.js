@@ -19,6 +19,7 @@ module.exports = {
         extend: {
             colors: {
                 navcolor: "hsla(245, 12%, 18%, 1)",
+                inputcolor: "#F6F7F9",
                 colorToggle: "#3559E0",
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
