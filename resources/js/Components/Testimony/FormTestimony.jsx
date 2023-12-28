@@ -2,12 +2,11 @@ import React, { useState, useRef, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { Rating } from "@smastrom/react-rating";
 import { Textarea } from "@/Components/ui/textarea";
+import { Button } from "@/components/ui/button";
 import {
     Select,
     SelectContent,
-    SelectGroup,
     SelectItem,
-    SelectLabel,
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
@@ -29,7 +28,7 @@ function FormTestimony() {
         };
     }, []);
     return (
-        <form className="max-w-sc md:w-[60%] mx-auto p-5 mb-2">
+        <form className="w-full md:w-[60%] mx-auto p-2 mb-2 ">
             {/* Nama */}
             <Input id="name" type="text" placeholder="name....." />
             {/* email */}
@@ -66,6 +65,10 @@ function FormTestimony() {
             <div className="mt-3">
                 <label htmlFor="">Comment</label>
                 <Textarea />
+            </div>
+            {/* submit button */}
+            <div className="w-full flex flex-row justify-center mt-5">
+                <Button>Submit</Button>
             </div>
         </form>
     );
