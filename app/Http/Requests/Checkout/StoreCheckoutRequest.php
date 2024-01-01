@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Category;
+namespace App\Http\Requests\Checkout;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -24,7 +24,7 @@ class StoreCheckoutRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:100'],
             'address' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'numeric', 'min:10', 'max:13'],
+            'phone' => ['required', 'numeric', 'min_digits:10', 'max_digits:13'],
             'unit_id' => ['required', 'exists:unit,id'],
             'unit' => ['required', 'string'],
             'price' => ['required', 'numeric'],

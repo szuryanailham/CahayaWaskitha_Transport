@@ -9,6 +9,7 @@ class Order extends Model
     protected $table = 'order';
 
     protected $fillable = [
+        'no_order',
         'name',
         'address',
         'phone',
@@ -22,13 +23,6 @@ class Order extends Model
         'end_time',
         'duration',
         'total_price',
-        'status',
-    ];
-
-    protected $hidden = [
-        'created_at',
-        'updated_at',
-        'deleted_at',
     ];
 
     public function unit()

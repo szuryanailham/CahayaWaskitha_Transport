@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('order', function (Blueprint $table) {
             $table->id();
+            $table->string('no_order')->unique();
             $table->string('name');
             $table->string('address');
             $table->string('phone');
@@ -26,7 +27,6 @@ return new class extends Migration
             $table->time('end_time');
             $table->integer('duration');
             $table->integer('total_price');
-            $table->boolean('status')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });

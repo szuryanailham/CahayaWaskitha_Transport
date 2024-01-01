@@ -1,11 +1,9 @@
 import { Head } from "@inertiajs/react";
-import ModeToggle from "@/Components/ModeToggle";
 import ProductCard from "@/Components/home-page/ProductCard";
-import { Facebook, Instagram, Youtube } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import Navbar from "@/Components/home-page/Navbar";
+import Footer from "@/Components/home-page/Footer";
 
 export default function Home({ categories, units }) {
-    console.log(categories, units);
     const renderProduct = () => {
         return Array.from({ length: 9 }, (_, index) =>
             index === 8 ? (
@@ -22,7 +20,7 @@ export default function Home({ categories, units }) {
             <Head title="Home" />
 
             <main className="w-full h-full bg-white dark:bg-gray-800">
-                <ModeToggle />
+                <Navbar />
                 <section
                     className="w-full px-4 md:px-6 xl:px-14"
                     id="hero-section"
@@ -64,19 +62,7 @@ export default function Home({ categories, units }) {
                     </div>
                 </section>
             </main>
-            <footer className="w-full flex flex-col items-center ">
-                <div className="w-[224px] md:w-[403px] ">
-                    <h1 className="font-bold text-[20px] md:text-[30px] xl:text-[36px] leading-[150%] text-center">
-                        Cahaya Waskitha Transport
-                    </h1>
-                </div>
-                <div className="flex w-full justify-center space-x-10 md:space-x-16 xl:space-x-20 xl:px-36 py-10">
-                    <Instagram className="w-[30px] h-[30px]" />
-                    <Youtube className="w-[30px] h-[30px]" />
-                    <Facebook className="w-[30px] h-[30px]" />
-                    <Facebook className="w-[30px] h-[30px]" />
-                </div>
-            </footer>
+            <Footer />
         </>
     );
 }
