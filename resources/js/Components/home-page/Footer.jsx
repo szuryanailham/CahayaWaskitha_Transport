@@ -3,7 +3,7 @@ import { SlSocialFacebook, SlSocialYoutube } from "react-icons/sl";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 function Footer() {
     return (
-        <div>
+        <div className="w-full h-full ">
             <h1 className=" w-full font-bold mx-auto text-center text-2xl mb-10">
                 Cahaya Waskitha Transport
             </h1>

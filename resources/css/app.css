@@ -89,13 +89,8 @@ h1 {
     }
 }
 
-body {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+/* coba hapus ini */
+
 
 .checkmark {
     width: 56px;
