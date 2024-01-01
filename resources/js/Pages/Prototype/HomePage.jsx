@@ -18,9 +18,8 @@ export default function Home({ categories, units }) {
     return (
         <>
             <Head title="Home" />
-
+            <Navbar />
             <main className="w-full h-full bg-white dark:bg-gray-800">
-                <Navbar />
                 <section
                     className="w-full px-4 md:px-6 xl:px-14"
                     id="hero-section"

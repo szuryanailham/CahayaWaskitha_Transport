@@ -2,15 +2,15 @@ import { cn } from "@/lib/utils";
 import { Card, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
 import { Button } from "../ui/button";
 
-const ProductCard = ({ className, name, src, price }) => {
+const ProductCard = ({ className, name, src, price, capacity }) => {
     const harga = 100000;
     return (
         <Card className="max-w-[403px] min-h-[372px] w-full bg-transparent xl:bg-gray-100 dark:bg-gray-800/50 rounded-none shadow-card shadow relative">
             <CardContent className="flex w-full justify-between pt-4 xl:pt-0 xl:px-4 xl:absolute xl:left-0 xl:top-4 z-[2]">
-                <CardTitle className="font-bold">Toyota Innova</CardTitle>
+                <CardTitle className="font-bold">{name}</CardTitle>
                 <CardTitle className="break-words font-bold">
                     Rp
-                    {harga.toLocaleString("id-ID", {
+                    {price.toLocaleString("id-ID", {
                         currency: "IDR",
                     })}
                 </CardTitle>
@@ -46,7 +46,7 @@ const ProductCard = ({ className, name, src, price }) => {
                             alt="icon.svg"
                         />
                         <figcaption className="whitespace-nowrap max-lg:text-[10pt]">
-                            6 Orang
+                            {capacity} Orang
                         </figcaption>
                     </figure>
                     <figure className="items-center flex flex-col">
