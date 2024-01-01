@@ -10,11 +10,11 @@ const ProductCard = ({ className, name, src, price }) => {
                 <div className=" relative min-w-full">
                     <div className="h-full">
                         <Card className="max-w-[403px] min-h-[372px] w-full bg-white xl:bg-gray-100 dark:bg-gray-600 rounded-none shadow-card shadow relative">
-                            <CardContent className="flex w-full justify-between pt-9 xl:pt-0 xl:px-4 xl:absolute xl:left-0 xl:top-4  z-[2]  ">
-                                <CardTitle className="font-bold">
+                            <CardContent className="flex w-full justify-between pt-9 xl:pt-0 xl:px-4 xl:absolute xl:left-0 xl:top-4 z-[2]">
+                                <CardTitle className="font-bold text-m text-md">
                                     Toyota Innova
                                 </CardTitle>
-                                <CardTitle className="break-words font-bold ">
+                                <CardTitle className="break-words font-bold text-lg">
                                     Rp
                                     {harga.toLocaleString("id-ID", {
                                         currency: "IDR",
