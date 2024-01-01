@@ -10,7 +10,7 @@ export default function HomePage({ categories, units }) {
         <>
             <Head title="Home" />
             <Navbar />
-            <main className="w-full h-full bg-white dark:bg-gray-800 pt-16">
+            <main className="relative min-h-screen bg-white dark:bg-gray-800 pt-16">
                 <section
                     className="w-full px-4 md:px-6 xl:px-14"
                     id="hero-section"
@@ -43,7 +43,6 @@ export default function HomePage({ categories, units }) {
                         </Button>
                     </div>
                 </section>
-
                 <section
                     className="w-full h-full py-[30px] xl:py-[50px] px-2 xl:px-4"
                     id="products-section"
