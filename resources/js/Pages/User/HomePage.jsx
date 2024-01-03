@@ -2,7 +2,6 @@ import Footer from "@/Components/home-page/Footer";
 import { NavigationMenuDemo } from "@/Components/home-page/NavMenu";
 import Navbar from "@/Components/home-page/Navbar";
 import ProductCard from "@/Components/home-page/ProductCard";
-import { Button } from "@/Components/ui/button";
 import { Head, Link } from "@inertiajs/react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -59,7 +58,7 @@ export default function HomePage({ categories, units }) {
                     id="products-section"
                 >
                     {/* category */}
-                    <div className="w-full">
+                    <div className="w-full flex flex-row justify-center mb-4  ">
                         <NavigationMenuDemo
                             categories={categories?.data}
                             units={units.data}
@@ -67,7 +66,7 @@ export default function HomePage({ categories, units }) {
                         />
                         {/* category */}
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-6 gap-y-4 lg:gap-y-12 place-items-stretch justify-items-center">
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-6 gap-y-4 lg:gap-y-12 place-items-stretch justify-items-center mt-5">
                         {units?.data?.map((unit, index) =>
                             index === units?.data?.length - 1 ? (
                                 <div className="col-span-1 md:col-span-2 place-self-center md:place-self-center xl:col-span-1 ">
