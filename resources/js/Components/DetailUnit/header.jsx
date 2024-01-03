@@ -14,6 +14,7 @@ function header() {
             {/* list detial */}
             <h1>Steering : Manual</h1>
             <h1>Capacitas : 7 orang</h1>
+            <button></button>
             {/* detail unit image */}
         </div>
     );
