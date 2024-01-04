@@ -4,7 +4,7 @@ import "@smastrom/react-rating/style.css";
 
 function CardTestimony() {
     return (
-        <div className="w-[60%] h-[30%] md:w-[30%] md:gap-5 bg-white mt-3 flex flex-col justify-center items-center p-5 shadow-[0_3px_10px_rgb(0,0,0,0.2)] mx-auto">
+        <div className="w-[60%] h-[30%] md:w-[30%] md:gap-5 bg-white dark:bg-gray-800 mt-3 flex flex-col justify-center items-center p-5 shadow-[0_3px_10px_rgb(0,0,0,0.2)] mx-auto">
             {/*  photo icon */}
             <img
                 src="/images/avatar.png"

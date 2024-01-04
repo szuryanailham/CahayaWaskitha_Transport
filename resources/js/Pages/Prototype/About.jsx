@@ -8,7 +8,7 @@ function About() {
     return (
         <>
             <Navbar />
-            <div className="flex flex-col md:flex-row-reverse md:mt-3">
+            <div className="flex flex-col md:flex-row-reverse md:mt-3 p-5">
                 <Jumbotron />
                 <AboutDesc />
             </div>

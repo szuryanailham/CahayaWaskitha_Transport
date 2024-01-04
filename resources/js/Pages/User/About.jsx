@@ -2,6 +2,7 @@ import AboutDesc from "@/Components/About/AboutDesc";
 import ContainerCards from "@/Components/About/ContainerCards";
 import Jumbotron from "@/Components/About/Jumbotron";
 import Navbar from "@/Components/home-page/Navbar";
+import Footer from "@/Components/home-page/Footer";
 import React from "react";
 function About() {
     return (
@@ -12,6 +13,7 @@ function About() {
                 <AboutDesc />
             </div>
             <ContainerCards />
+            <Footer />
         </>
     );
 }
