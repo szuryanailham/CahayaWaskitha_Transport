@@ -18,8 +18,7 @@ class OrderController extends Controller
      */
     public function index(Request $request)
     {
-        $orders = Order::withTrashed()
-            ->when($request->q, function ($query) use ($request) {
+        $orders = Order::when($request->q, function ($query) use ($request) {
                 $query->where('name', 'LIKE', "%{$request->q}%")
                     ->orWhere('address', 'LIKE', "%{$request->q}%")
                     ->orWhere('phone', 'LIKE', "%{$request->q}%");

@@ -63,8 +63,12 @@ class HomeController extends Controller
         $unitsQuery->orderBy($sortField, $sortOrder);
 
         // Paginate the results and include the original query parameters
-        $per_page = $request->has('per_page') ? $request->per_page : 10;
-        $units = $unitsQuery->paginate($per_page)->withQueryString();
+        $perPage = $request->has('per_page') ? $request->per_page : 10;
+        $units = $unitsQuery->paginate($perPage)->withQueryString();
+
+        // skip & take
+        // $skip = $request->has('skip') ? $request->skip : 0;
+        // $units = $unitsQuery->skip($skip)->take($perPage)->get();
 
         return Inertia::render('User/HomePage', [
             'categories' => CategoryResource::collection($categories),
