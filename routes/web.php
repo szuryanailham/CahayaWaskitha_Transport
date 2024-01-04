@@ -36,12 +36,12 @@ use Inertia\Inertia;
 // });
 
 // require __DIR__ . '/auth.php';
+Route::namespace('App\Http\Controllers\Auth')->group(function () {
+    Route::get('login', 'LoginController@show')->name('login');
+    Route::post('login', 'LoginController@login');
+    Route::post('logout', 'LoginController@logout');
+});
+
 require __DIR__ . '/proto.php';
 require __DIR__ . '/user.php';
 require __DIR__ . '/admin.php';
-
-Route::namespace('App\Http\Controllers\Auth')->group(function () {
-    Route::get('login', 'LoginController@show')->name('auth.login.show');
-    Route::post('login', 'LoginController@login')->name('login');
-    Route::post('logout', 'LoginController@logout')->name('auth.login.logout');
-});
