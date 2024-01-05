@@ -2,17 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body,
-:root {
-    height: 100%;
-    box-sizing: border-box;
-}
-
-h1 {
-    font-family: "Poppins", sans-serif;
-}
-
 @layer base {
     :root {
         --background: 0 0% 100%;
@@ -90,7 +79,6 @@ h1 {
 }
 
 /* coba hapus ini */
-
 
 .checkmark {
     width: 56px;

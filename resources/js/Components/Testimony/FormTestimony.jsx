@@ -28,19 +28,24 @@ function FormTestimony() {
         };
     }, []);
     return (
-        <form className="w-full md:w-[60%] mx-auto p-2 mb-2 ">
+        <form className="w-full md:w-[60%] mx-auto p-10 md:p-2 mb-2 mt-3 ">
             {/* Nama */}
-            <Input id="name" type="text" placeholder="name....." />
+            <Input
+                id="name"
+                className="dark:bg-gray-800"
+                type="text"
+                placeholder="name....."
+            />
             {/* email */}
             <Input
-                className="mt-7"
+                className="mt-7 dark:bg-gray-800"
                 id="email"
                 type="email"
                 placeholder="email....."
             />
             {/* category */}
             <Select>
-                <SelectTrigger className="w-full mt-5">
+                <SelectTrigger className="w-full mt-5 dark:bg-gray-800">
                     <SelectValue placeholder="pilih category..." />
                 </SelectTrigger>
                 <SelectContent>
@@ -64,11 +69,11 @@ function FormTestimony() {
             {/* description */}
             <div className="mt-3">
                 <label htmlFor="">Comment</label>
-                <Textarea />
+                <Textarea className="dark:bg-gray-800" />
             </div>
             {/* submit button */}
             <div className="w-full flex flex-row justify-center mt-5">
-                <Button>Submit</Button>
+                <Button className="dark:bg-blue-500">Submit</Button>
             </div>
         </form>
     );

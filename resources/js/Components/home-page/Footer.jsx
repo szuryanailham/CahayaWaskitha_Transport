@@ -3,12 +3,12 @@ import { SlSocialFacebook, SlSocialYoutube } from "react-icons/sl";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 function Footer() {
     return (
-        <div className="w-full h-full ">
-            <h1 className=" w-full font-bold mx-auto text-center text-2xl mb-10">
+        <div className="w-full h-full mt-20">
+            <h1 className=" w-full font-bold mx-auto text-center text-2xl mb-20">
                 Cahaya Waskitha Transport
             </h1>
             {/* social media logo */}
-            <div className="flex justify-evenly text-2xl mb-20">
+            <div className="flex justify-evenly text-3xl md:text-4xl mb-20">
                 <SlSocialYoutube />
                 <FaInstagram />
                 <SlSocialFacebook />

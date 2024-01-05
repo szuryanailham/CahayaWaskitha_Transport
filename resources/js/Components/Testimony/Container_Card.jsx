@@ -14,7 +14,7 @@ function Container_Card() {
                 <CardTestimony />
             </div>
             <div>
-                <h1 className="text-center mt-5 font-bold text-xl">
+                <h1 className="text-center mt-10 font-bold text-xl">
                     Form Testimony
                 </h1>
                 <FormTestimony />
