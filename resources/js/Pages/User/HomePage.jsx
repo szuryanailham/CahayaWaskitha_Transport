@@ -10,7 +10,7 @@ export default function HomePage({ categories, units }) {
         <>
             <Head title="Home" />
             <Navbar />
-            <main className="relative min-h-screen bg-white dark:bg-gray-800 pt-16">
+            <main className="relative h-full bg-white dark:bg-gray-800 pt-16 shadow-blur">
                 <section
                     className="w-full px-4 md:px-6 xl:px-14"
                     id="hero-section"
