@@ -2,37 +2,38 @@ import React from "react";
 import { Button } from "../ui/button";
 function Detail() {
     return (
-        <>
-            {/* DETAIL IMAGE */}
-            <div className="mt-5">
+        <section className="flex flex-col-reverse md:flex-row h-full mt-24 md:px-4 xl:px-14">
+            <div className="p-6 md:p-8 w-full md:w-1/2">
+                <h1 className="text-3xl xl:text-4xl font-bold mb-3">
+                    Toyota Innova
+                </h1>
+                <p className="mb-1 leading-8">
+                    NISMO has become the embodiment of Nissan's outstanding
+                    performance, inspired by the most unforgiving proving
+                    ground, the "race track".
+                </p>
+
+                <div className="flex mt-4 gap-4">
+                    <h1>
+                        Steering : <strong>Manual</strong>
+                    </h1>
+                    <h1>
+                        Capacitas : <strong>7 orang</strong>
+                    </h1>
+                </div>
+                <div className="flex items-center justify-center p-8 md:p-16">
+                    <Button>Sewa segera</Button>
+                </div>
+            </div>
+            <div className="h-full xl:h-[330px] w-full min-w-[399px] md:w-1/2 pt-4 xl:p-4 overflow-hidden">
                 <img
-                    className="object-cover w-full md:w-[45%] p-10"
+                    className="object-cover w-full h-full"
                     src="/pngwing.com_3_1.png"
                     alt="card-img"
                     loading="lazy"
                 />
             </div>
-            {/* DETAIL IMAGE */}
-
-            {/* DETAIL TEXT */}
-            <div className="p-2">
-                {/* detail unit text  */}
-                <h1 className="text-3xl font-bold mb-3">Toyota Innova</h1>
-                {/* detial unit description */}
-                <p className="mb-1">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Saepe voluptatibus nam sequi autem ratione vel cumque facere
-                    alias ipsam perferendis.
-                </p>
-                {/* list detial */}
-                <div className="mt-4">
-                    <h1>Steering : Manual</h1>
-                    <h1>Capacitas : 7 orang</h1>
-                </div>
-                <Button>Sewa segera</Button>
-            </div>
-            {/* END DETAIL TEXT */}
-        </>
+        </section>
     );
 }
 

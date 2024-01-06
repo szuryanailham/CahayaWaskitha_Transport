@@ -8,8 +8,10 @@ export default function UnitDetail() {
         <>
             <Head title="Unit Detail" />
             <Navbar />
-            <Detail />
-            <ImageBody />
+            <main className="w-full h-full">
+                <Detail />
+                <ImageBody />
+            </main>
             <Footer />
         </>
     );
