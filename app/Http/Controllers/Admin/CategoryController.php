@@ -54,10 +54,14 @@ class CategoryController extends Controller
         // store to database
         $category = Category::create($input);
 
-        return redirect()->route('admin.category.index')->with([
-            'message' => "Category Successfully Added",
-            'type' => 'success'
-        ]);
+        if ($category) {
+            return redirect('/admin/category')->with([
+                'message' => "Category Successfully Added",
+                'type' => 'success'
+            ]);
+        }
+
+        return abort(500);
     }
 
     /**
@@ -83,12 +87,16 @@ class CategoryController extends Controller
         // update to database
         $category = Category::findOrFail($id);
 
-        $category->update($input);
+        $update = $category->update($input);
 
-        return redirect()->route('admin.category.index')->with([
-            'message' => "Category Successfully Updated",
-            'type' => 'success'
-        ]);
+        if ($update) {
+            return redirect('/admin/category')->with([
+                'message' => "Category Successfully Updated",
+                'type' => 'success'
+            ]);
+        }
+
+        return abort(500);
     }
 
     /**
@@ -98,21 +106,29 @@ class CategoryController extends Controller
     {
         $category = Category::findOrFail($id);
 
-        $category->delete();
+        $delete = $category->delete();
 
-        return back()->with([
-            'message' => "Category Successfully Deleted",
-            'type' => 'error'
-        ]);
+        if ($delete) {
+            return back()->with([
+                'message' => "Category Successfully Deleted",
+                'type' => 'error'
+            ]);
+        }
+
+        return abort(500);
     }
 
     public function restore($id)
     {
-        Category::withTrashed()->findOrFail($id)->restore();
+        $restore = Category::withTrashed()->findOrFail($id)->restore();
 
-        return back()->with([
-            'message' => "Category Successfully Restored",
-            'type' => 'success'
-        ]);
+        if ($restore) {
+            return back()->with([
+                'message' => "Category Successfully Restored",
+                'type' => 'success'
+            ]);
+        }
+
+        return abort(500);
     }
 }

@@ -1,97 +1,85 @@
-import { useEffect } from 'react';
-import Checkbox from '@/Components/Checkbox';
-import GuestLayout from '@/Layouts/GuestLayout';
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
-import PrimaryButton from '@/Components/PrimaryButton';
-import TextInput from '@/Components/TextInput';
-import { Head, Link, useForm } from '@inertiajs/react';
+import { useEffect } from "react";
+import { Head, useForm } from "@inertiajs/react";
+import Navbar from "@/Components/home-page/Navbar";
+import { Input } from "@/Components/ui/input";
+import { Button } from "@/Components/ui/button";
+import Footer from "@/Components/home-page/Footer";
 
-export default function Login({ status, canResetPassword }) {
+export default function Login() {
     const { data, setData, post, processing, errors, reset } = useForm({
-        email: '',
-        password: '',
+        email: "admin@test.com",
+        password: "admin1234",
         remember: false,
     });
 
     useEffect(() => {
         return () => {
-            reset('password');
+            reset("password");
         };
     }, []);
 
     const submit = (e) => {
         e.preventDefault();
 
-        post(route('login'));
+        post("/login");
     };
 
     return (
-        <GuestLayout>
-            <Head title="Log in" />
+        <>
+            <Head title="Login" />
 
-            {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
-
-            <form onSubmit={submit}>
-                <div>
-                    <InputLabel htmlFor="email" value="Email" />
-
-                    <TextInput
-                        id="email"
-                        type="email"
+            {
+                Object.values(errors).length > 0 && Object.values(errors)[0] // get first error message
+            }
+            {/* REVOLUTION KODE */}
+            <Navbar />
+            <div className="w-full md:w-[60%] mx-auto mb-2 h-fit mt-14 p-10">
+                {/* icon profile */}
+                <img className="mx-auto" src="/images/boy.svg" alt="profile" />
+                <h1 className="text-center text-xl font-bold mt-4 mb-3">
+                    Login As Admin
+                </h1>
+                {/* form */}
+                <form onSubmit={submit} className="flex flex-col jusify-center">
+                    {/* email */}
+                    <label htmlFor="email">Email</label>
+                    <Input
+                        className="mt-2"
                         name="email"
+                        type="email"
+                        placeholder="Username or Email"
                         value={data.email}
-                        className="mt-1 block w-full"
-                        autoComplete="username"
-                        isFocused={true}
-                        onChange={(e) => setData('email', e.target.value)}
+                        onChange={(e) => setData("email", e.target.value)}
+                        style={{ border: "1px solid black" }}
+                        autoFocus
                     />
-
-                    <InputError message={errors.email} className="mt-2" />
-                </div>
-
-                <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
-
-                    <TextInput
-                        id="password"
-                        type="password"
-                        name="password"
-                        value={data.password}
-                        className="mt-1 block w-full"
-                        autoComplete="current-password"
-                        onChange={(e) => setData('password', e.target.value)}
-                    />
-
-                    <InputError message={errors.password} className="mt-2" />
-                </div>
-
-                <div className="block mt-4">
-                    <label className="flex items-center">
-                        <Checkbox
-                            name="remember"
-                            checked={data.remember}
-                            onChange={(e) => setData('remember', e.target.checked)}
+                    {/* passowrd */}
+                    <div className="mt-5 mb-5">
+                        <label htmlFor="password">Passwprd</label>
+                        <Input
+                            name="password"
+                            type="password"
+                            placeholder="Password"
+                            value={data.password}
+                            onChange={(e) =>
+                                setData("password", e.target.value)
+                            }
+                            style={{ border: "1px solid black" }}
+                            className="text-black"
                         />
-                        <span className="ms-2 text-sm text-gray-600">Remember me</span>
-                    </label>
-                </div>
-
-                <div className="flex items-center justify-end mt-4">
-                    {canResetPassword && (
-                        <Link
-                            href={route('password.request')}
-                            className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                        >
-                            Forgot your password?
-                        </Link>
-                    )}
-
-                    <PrimaryButton className="ms-4" disabled={processing}>
-                        Log in
-                    </PrimaryButton>
-                </div>
-            </form>
-        </GuestLayout>
+                    </div>
+                    {/* button submit */}
+                    <Button
+                        className="mx-auto"
+                        type="submit"
+                        style={{ border: "1px solid black" }}
+                        disabled={processing}
+                    >
+                        {processing ? "Loading..." : "Login"}
+                    </Button>
+                </form>
+            </div>
+            <Footer />
+        </>
     );
 }
