@@ -61,6 +61,10 @@ export default function Checkout({ unit }) {
         post("/checkout");
     };
 
+    console.log(Object.values(errors));
+
+    console.log();
+
     return (
         <>
             <Head title="Checkout" />
@@ -84,7 +88,7 @@ export default function Checkout({ unit }) {
                     </div>
                 </section>
                 <form className="px-10 flex flex-col gap-8" onSubmit={submit}>
-                    <div className="w-full flex flex-col gap-8 items-center">
+                    <section className="w-full flex flex-col gap-8 items-center">
                         <div className="text-center">
                             <h2 className="font-bold text-2xl underline">
                                 Form Penyewaan
@@ -107,6 +111,10 @@ export default function Checkout({ unit }) {
                                     } w-full`}
                                     autoFocus
                                 />
+                                <span className="text-xs text-destructive">
+                                    {Object.values(errors).length > 0 &&
+                                        Object.values(errors)[0]}
+                                </span>
                             </div>
                             <div>
                                 <Label htmlFor="address">Alamat</Label>
@@ -119,6 +127,10 @@ export default function Checkout({ unit }) {
                                         errors.address ? "is-invalid" : ""
                                     } w-full resize-none bg-gray-100`}
                                 />
+                                <span className="text-xs text-destructive">
+                                    {Object.values(errors).length > 0 &&
+                                        Object.values(errors)[1]}
+                                </span>
                             </div>
 
                             <div>
@@ -133,6 +145,10 @@ export default function Checkout({ unit }) {
                                         errors.phone ? "is-invalid" : ""
                                     }w-full`}
                                 />
+                                <span className="text-xs text-destructive">
+                                    {Object.values(errors).length > 0 &&
+                                        Object.values(errors)[2]}
+                                </span>
                             </div>
                             <div className="w-full flex gap-4">
                                 <div>
@@ -144,8 +160,8 @@ export default function Checkout({ unit }) {
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="w-full flex flex-col gap-8 items-center">
+                    </section>
+                    <section className="w-full flex flex-col gap-8 items-center">
                         <div className="text-center">
                             <h2 className="font-bold text-2xl underline">
                                 Penjemputan
@@ -170,6 +186,10 @@ export default function Checkout({ unit }) {
                                             : ""
                                     }w-full resize-none bg-gray-100`}
                                 />
+                                <span className="text-xs text-destructive">
+                                    {Object.values(errors).length > 0 &&
+                                        Object.values(errors)[3]}
+                                </span>
                             </div>
                             <div>
                                 <Label htmlFor="start_time">
@@ -185,6 +205,10 @@ export default function Checkout({ unit }) {
                                         errors.start_time ? "is-invalid" : ""
                                     }w-full text-muted-foreground`}
                                 />
+                                <span className="text-xs text-destructive">
+                                    {Object.values(errors).length > 0 &&
+                                        Object.values(errors)[5]}
+                                </span>
                             </div>
                             <div>
                                 <Label htmlFor="start_date">
@@ -200,9 +224,13 @@ export default function Checkout({ unit }) {
                                         errors.start_date ? "is-invalid" : ""
                                     }w-full text-muted-foreground`}
                                 />
+                                <span className="text-xs text-destructive">
+                                    {Object.values(errors).length > 0 &&
+                                        Object.values(errors)[4]}
+                                </span>
                             </div>
                         </div>
-                    </div>
+                    </section>
                     <section className="w-full flex flex-col gap-8 items-center">
                         <div className="text-center">
                             <h2 className="font-bold text-2xl underline">
@@ -213,21 +241,6 @@ export default function Checkout({ unit }) {
                             </p>
                         </div>
                         <div className="w-full flex flex-col gap-4">
-                            <div>
-                                <Label htmlFor="end_date">
-                                    Tanggal Pengambilan
-                                </Label>
-                                <Input
-                                    id="end_date"
-                                    type="date"
-                                    name="end_date"
-                                    onChange={(e) => onHandleChange(e)}
-                                    placeholder="End Date"
-                                    className={`form-control ${
-                                        errors.end_date ? "is-invalid" : ""
-                                    }w-full text-muted-foreground`}
-                                />
-                            </div>
                             <div>
                                 <Label htmlFor="end_time">
                                     Waktu Pengambilan
@@ -242,11 +255,33 @@ export default function Checkout({ unit }) {
                                         errors.end_time ? "is-invalid" : ""
                                     }w-full text-muted-foreground`}
                                 />
+                                <span className="text-xs text-destructive">
+                                    {Object.values(errors).length > 0 &&
+                                        Object.values(errors)[7]}
+                                </span>
+                            </div>
+                            <div>
+                                <Label htmlFor="end_date">
+                                    Tanggal Pengambilan
+                                </Label>
+                                <Input
+                                    id="end_date"
+                                    type="date"
+                                    name="end_date"
+                                    onChange={(e) => onHandleChange(e)}
+                                    placeholder="End Date"
+                                    className={`form-control ${
+                                        errors.end_date ? "is-invalid" : ""
+                                    }w-full text-muted-foreground`}
+                                />
+                                <span className="text-xs text-destructive">
+                                    {Object.values(errors).length > 0 &&
+                                        Object.values(errors)[6]}
+                                </span>
                             </div>
                         </div>
                     </section>
-
-                    <div className="w-full flex flex-col gap-8 items-center">
+                    <section className="w-full flex flex-col gap-8 items-center">
                         <div className="text-center">
                             <h2 className="font-bold text-2xl underline">
                                 Durasi & Total Harga
@@ -290,7 +325,7 @@ export default function Checkout({ unit }) {
                                 />
                             </div>
                         </div>
-                    </div>
+                    </section>
 
                     <div className="w-full flex justify-center">
                         <Button size="lg" type="submit" disabled={processing}>
