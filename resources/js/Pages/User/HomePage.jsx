@@ -28,7 +28,7 @@ export default function HomePage({ categories, units }) {
                     {/* SLIDER AUTO FOR PROMO */}
                     <div className="w-full h-full mt-16">
                         <Slider {...settings}>
-                            <div className="bg-re">
+                            <div>
                                 <img
                                     className="object-cover h-[124px] md:h-[330px] xl:h-[439px] w-full object-top rounded-2xl"
                                     src="/2880x1800-px-assassins-creed-Assassins-Creed-Black-Flag-video-games-1062323-wallhere.com (1) (1) (1).jpg"
@@ -58,7 +58,7 @@ export default function HomePage({ categories, units }) {
                     id="products-section"
                 >
                     {/* category */}
-                    <div className="w-full flex flex-row justify-center mb-4  ">
+                    <div className="w-full flex justify-center  mb-4  ">
                         <NavigationMenuDemo
                             categories={categories?.data}
                             units={units.data}
