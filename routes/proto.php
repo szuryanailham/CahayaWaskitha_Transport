@@ -22,4 +22,7 @@ Route::prefix('/proto')->group(function () {
 
     // http://127.0.0.1:8000/proto/testimony
     Route::inertia('/testimony', 'Prototype/Testimony');
+
+    // http://127.0.0.1:8000/proto/dashboard
+    Route::inertia('/dashboard', 'Prototype/Dashboard/Dashboard');
 });
