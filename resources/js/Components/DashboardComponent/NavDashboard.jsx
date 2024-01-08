@@ -1,6 +1,18 @@
 import React from "react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuLabel,
+    DropdownMenuRadioGroup,
+    DropdownMenuRadioItem,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 function NavDashboard() {
+    const [position, setPosition] = React.useState("bottom");
     return (
         <div className="w-full flex">
             {/* search input */}
@@ -44,15 +56,46 @@ function NavDashboard() {
 
             {/* profile icon */}
             <div className="p-1 hidden md:flex items-center">
-                <div
-                    className="font-bold mr-3"
-                    style={{ whiteSpace: "nowrap" }}
-                >
-                    Bayu waskitha
-                </div>
-                <div className="w-10 h-10 bg-blue-300 rounded-full ml-1">
-                    <img src="" alt="" />
-                </div>
+                <DropdownMenu>
+                    <DropdownMenuTrigger
+                        className="p-3 hover:cursor-pointer"
+                        asChild
+                    >
+                        <h1 style={{ whiteSpace: "nowrap" }} variant="outline">
+                            Cahaya Waskitha
+                        </h1>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="w-56">
+                        <DropdownMenuRadioGroup
+                            value={position}
+                            onValueChange={setPosition}
+                        >
+                            <DropdownMenuRadioItem value="top">
+                                Home
+                            </DropdownMenuRadioItem>
+                            <DropdownMenuRadioItem value="bottom">
+                                Logout
+                            </DropdownMenuRadioItem>
+                            <DropdownMenuRadioItem value="right"></DropdownMenuRadioItem>
+                        </DropdownMenuRadioGroup>
+                    </DropdownMenuContent>
+                </DropdownMenu>
+                <Avatar>
+                    <AvatarImage src="" />
+                    <AvatarFallback>B</AvatarFallback>
+                </Avatar>
+
+                <img
+                    src="/images/dashboard/Notif.svg"
+                    alt="Notif-icon"
+                    className="p-3"
+                />
+                {/* home  */}
+                <img
+                    src="/images/dashboard/Home.svg"
+                    alt="Notif-icon"
+                    className="w-5 h-5 mr-5"
+                />
             </div>
 
             {/* notification */}

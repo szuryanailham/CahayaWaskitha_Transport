@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 function SidebarDashboard() {
-    const [open, isOpen] = useState(false);
-    const btnActive = () => {};
+    const [isOpen, setIsOpen] = useState(false);
+    const sidebarRef = useRef(null);
+    // function for change statae by button
+    const btnActive = () => {
+        setIsOpen((current) => !current);
+    };
+    console.log("Nilai saat ini:", isOpen);
     return (
         <>
             {/* button trigger */}
             <button
-                data-drawer-target="default-sidebar"
-                data-drawer-toggle="default-sidebar"
-                aria-controls="default-sidebar"
+                onClick={btnActive}
                 type="button"
                 className="inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
             >
@@ -30,12 +33,24 @@ function SidebarDashboard() {
             </button>
             {/* sidebar component */}
             <aside
-                id="default-sidebar"
-                className="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-full"
+                ref={sidebarRef}
+                className={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform ${
+                    isOpen ? `-translate-x-full` : ""
+                }  sm:translate-x-0`}
                 aria-label="Sidebar"
             >
                 <div className="h-full px-3 py-4 overflow-y-auto bg-gray-800">
                     <ul className="space-y-2 font-medium">
+                        {/* arrow Back */}
+                        <li
+                            onClick={btnActive}
+                            className="flex justify-end md:hidden"
+                        >
+                            <img
+                                src="/images/dashboard/back.svg"
+                                alt="back-icon"
+                            />
+                        </li>
                         {/* logo brandd */}
                         <li>
                             <a
@@ -47,6 +62,22 @@ function SidebarDashboard() {
                                     className="h-8 mb-3"
                                     alt="Cahaya_waskitha"
                                 />
+                            </a>
+                        </li>
+                        {/* Home */}
+                        <li>
+                            <a
+                                href="#"
+                                className=" flex md:hidden items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group hover:text-black"
+                            >
+                                <img
+                                    src="/images/dashboard/Home.svg"
+                                    className="h-7 w-7 mt-1"
+                                    alt="Dashboard"
+                                />
+                                <span className="flex-1 ms-3 whitespace-nowrap">
+                                    Home
+                                </span>
                             </a>
                         </li>
                         {/* Dashboard  */}
