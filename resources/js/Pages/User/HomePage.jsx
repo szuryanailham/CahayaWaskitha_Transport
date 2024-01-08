@@ -16,11 +16,13 @@ export default function HomePage({ categories, units }) {
         slidesToShow: 1,
         slidesToScroll: 1,
     };
+
+    console.log(units, categories);
     return (
         <>
             <Head title="Home" />
             <Navbar />
-            <main className="w-full dark:bg-gray-800">
+            <main className="w-full ">
                 <section
                     className="w-full px-4 md:px-6 xl:px-14"
                     id="hero-section"
@@ -75,6 +77,8 @@ export default function HomePage({ categories, units }) {
                                         capacity={unit.capacity}
                                         key={unit.slug}
                                         price={unit.price}
+                                        href={`/unit/${unit.slug}`}
+                                        href_sewa={`/checkout/${unit.id}`}
                                     />
                                 </div>
                             ) : (
@@ -83,6 +87,8 @@ export default function HomePage({ categories, units }) {
                                     capacity={unit.capacity}
                                     key={unit.slug}
                                     price={unit.price}
+                                    href_detail={`/unit/${unit.slug}`}
+                                    href_sewa={`/checkout/${unit.id}`}
                                 />
                             )
                         )}
