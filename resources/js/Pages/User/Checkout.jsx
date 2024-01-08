@@ -4,7 +4,7 @@ import { Button } from "@/Components/ui/button";
 import { Input } from "@/Components/ui/input";
 import { Label } from "@/Components/ui/label";
 import { Textarea } from "@/Components/ui/textarea";
-import { Head, useForm } from "@inertiajs/react";
+import { Head, Link, useForm } from "@inertiajs/react";
 import { ArrowBigLeft } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -61,10 +61,6 @@ export default function Checkout({ unit }) {
         post("/checkout");
     };
 
-    console.log(Object.values(errors));
-
-    console.log();
-
     return (
         <>
             <Head title="Checkout" />
@@ -82,15 +78,17 @@ export default function Checkout({ unit }) {
                     </div>
                     <div className="flex flex-col items-center gap-4">
                         <Button>Contact Us</Button>
-                        <Button className="w-fit p-2">
-                            <ArrowBigLeft />
-                        </Button>
+                        <Link href="/">
+                            <Button className="w-fit p-2">
+                                <ArrowBigLeft />
+                            </Button>
+                        </Link>
                     </div>
                 </section>
                 <form className="px-10 flex flex-col gap-8" onSubmit={submit}>
                     <section className="w-full flex flex-col gap-8 items-center">
                         <div className="text-center">
-                            <h2 className="font-bold text-2xl underline">
+                            <h2 className="font-bold text-xl md:text-2xl underline">
                                 Form Penyewaan
                             </h2>
                             <p className="text-muted-foreground">
@@ -163,7 +161,7 @@ export default function Checkout({ unit }) {
                     </section>
                     <section className="w-full flex flex-col gap-8 items-center">
                         <div className="text-center">
-                            <h2 className="font-bold text-2xl underline">
+                            <h2 className="font-bold text-xl md:text-2xl underline">
                                 Penjemputan
                             </h2>
                             <p className="text-muted-foreground">
@@ -233,7 +231,7 @@ export default function Checkout({ unit }) {
                     </section>
                     <section className="w-full flex flex-col gap-8 items-center">
                         <div className="text-center">
-                            <h2 className="font-bold text-2xl underline">
+                            <h2 className="font-bold text-xl md:text-2xl underline">
                                 Pengembalian
                             </h2>
                             <p className="text-muted-foreground">
@@ -283,7 +281,7 @@ export default function Checkout({ unit }) {
                     </section>
                     <section className="w-full flex flex-col gap-8 items-center">
                         <div className="text-center">
-                            <h2 className="font-bold text-2xl underline">
+                            <h2 className="font-bold text-xl md:text-2xl underline">
                                 Durasi & Total Harga
                             </h2>
                             <p className="text-muted-foreground">
@@ -327,11 +325,14 @@ export default function Checkout({ unit }) {
                         </div>
                     </section>
 
-                    <div className="w-full flex justify-center">
-                        <Button size="lg" type="submit" disabled={processing}>
-                            {processing ? "Loading..." : "Submit"}
-                        </Button>
-                    </div>
+                    <Button
+                        className="self-center"
+                        size="lg"
+                        type="submit"
+                        disabled={processing}
+                    >
+                        {processing ? "Loading..." : "Submit"}
+                    </Button>
                 </form>
             </main>
             <Footer />
