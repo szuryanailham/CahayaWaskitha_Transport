@@ -21,7 +21,7 @@ export function NavigationMenuDemo({ categories, units }) {
         <NavigationMenu>
             <NavigationMenuList>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger className="font-bold text-xs md:text-base">
+                    <NavigationMenuTrigger className="text-xs md:text-base">
                         Kategori
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -60,7 +60,7 @@ export function NavigationMenuDemo({ categories, units }) {
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger className="font-bold text-xs md:text-base">
+                    <NavigationMenuTrigger className="text-xs md:text-base">
                         List Kendaraan
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -102,10 +102,10 @@ const ListItem = ({ className, title, children, ...props }) => {
                     )}
                     {...props}
                 >
-                    <div className="text-sm font-medium leading-none">
+                    <h2 className="text-sm font-medium leading-none text-black">
                         {title}
-                    </div>
-                    <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                    </h2>
+                    <p className="line-clamp-2 text-sm leading-none text-muted-foreground">
                         {children}
                     </p>
                 </a>
