@@ -1,9 +1,15 @@
 import { cn } from "@/lib/utils";
 import { Card, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
 import { Button } from "../ui/button";
+import { Link } from "@inertiajs/react";
 
-const ProductCard = ({ className, name, src, price, capacity }) => {
-    const harga = 100000;
+const ProductCard = ({
+    name,
+    price,
+    capacity,
+    href_detail,
+    href_sewa,
+}) => {
     return (
         <Card className="max-w-[403px] w-full bg-transparent xl:bg-gray-100 dark:bg-gray-800/50 rounded-none shadow-card shadow relative">
             <CardContent className="flex w-full justify-between pt-4 xl:pt-0 xl:px-4 xl:absolute xl:left-0 xl:top-4 z-[2]">
@@ -65,19 +71,24 @@ const ProductCard = ({ className, name, src, price, capacity }) => {
             </CardContent>
             <CardFooter className="p-6">
                 <div className="w-full flex justify-evenly mt-4 xl:mt-12 text-center">
-                    <Button
-                        size="lg"
-                        className="rounded-none text-lg font-bold"
-                    >
-                        Sewa
-                    </Button>
-                    <Button
-                        size="lg"
-                        className="bg-gray-300 hover:bg-gray-300/80 dark:text-gray-100 dark:bg-gray-700 dark:hover:bg-gray-700/80 rounded-none text-lg font-semibold"
-                        variant="secondary"
-                    >
-                        Detail
-                    </Button>
+                    <Link href={href_sewa}>
+                        <Button
+                            size="lg"
+                            className="rounded-none text-lg font-bold"
+                        >
+                            Sewa
+                        </Button>
+                    </Link>
+
+                    <Link href={href_detail}>
+                        <Button
+                            size="lg"
+                            className="bg-gray-300 hover:bg-gray-300/80 dark:text-gray-100 dark:bg-gray-700 dark:hover:bg-gray-700/80 rounded-none text-lg font-semibold"
+                            variant="secondary"
+                        >
+                            Detail
+                        </Button>
+                    </Link>
                 </div>
             </CardFooter>
         </Card>
