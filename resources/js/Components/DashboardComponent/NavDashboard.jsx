@@ -16,7 +16,7 @@ function NavDashboard() {
     return (
         <div className="w-full flex">
             {/* search input */}
-            <form className="w-full">
+            <form className="w-full mt-2">
                 <div className="flex">
                     <div
                         id="search-dropdown"
@@ -94,7 +94,7 @@ function NavDashboard() {
                 <img
                     src="/images/dashboard/Home.svg"
                     alt="Notif-icon"
-                    className="w-5 h-5 mr-5"
+                    className="w-5 h-5 mr-10"
                 />
             </div>
 

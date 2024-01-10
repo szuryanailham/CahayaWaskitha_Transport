@@ -12,11 +12,11 @@ export default function Checkout() {
             <main className="w-full md:px-8 py-12">
                 <section className="w-full flex flex-col items-center gap-5">
                     <div className="w-[150px] h-[150px]">
-                        <img
+                        {/* <img
                             className="object-cover"
                             src="/images/Whatsapp.png"
                             alt="whatsapp.png"
-                        />
+                        /> */}
                     </div>
                     <div className="w-full md:w-[710px]">
                         <h1 className="text-xl font-bold text-center">

@@ -67,7 +67,11 @@ export default function Checkout({ unit }) {
             <Navbar />
             <main className="w-full mt-24">
                 <section className="w-full h-full flex flex-col items-center justify-center gap-4 mb-10">
-                    <img src="/images/Whatsapp.png" alt="whatsapp-img" />
+                    <img
+                        className="p-5"
+                        src="/images/Whatsapp.png"
+                        alt="whatsapp-img"
+                    />
                     <div className="p-4 md:p-0 w-full md:w-[710px] flex flex-col gap-4 justify-center text-center ">
                         <h1 className="font-bold text-3xl">Bayu Waskitha</h1>
                         <p>
