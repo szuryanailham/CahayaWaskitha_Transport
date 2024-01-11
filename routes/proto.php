@@ -29,4 +29,7 @@ Route::prefix('/proto')->group(function () {
     
     // http://127.0.0.1:8000/proto/dashboard/transaction
     Route::inertia('/dashboard/transaction', 'Prototype/Dashboard/AllTransaction_Des');
+
+        // http://127.0.0.1:8000/proto/dashboard/promo
+        Route::inertia('/dashboard/promo', 'Prototype/Dashboard/PromoForm');
 });
