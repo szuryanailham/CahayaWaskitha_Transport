@@ -17,11 +17,19 @@ function Footer() {
             <div className="w-[80%] md:w-[100%] m-auto flex flex-wrap justify-around ">
                 {/* Box 1 */}
                 <div className="text-left mt-8">
-                    <h3 className="font-bold">About</h3>
-                    <p className="text-slate-400 mt-5">Home</p>
-                    <p className="text-slate-400 mt-5">Profile</p>
-                    <p className="text-slate-400 mt-5">Testimony</p>
-                    <p className="text-slate-400 mt-5">Privace and Police</p>
+                    <h3 className="font-bold">Pages</h3>
+                    <p className="text-slate-400 mt-5">
+                        <a href={"/"}>Home</a>
+                    </p>
+                    <p className="text-slate-400 mt-5">
+                        <a href={"/profile"}>Profile</a>
+                    </p>
+                    <p className="text-slate-400 mt-5">
+                        <a href={"/testimony"}>Testimony</a>
+                    </p>
+                    <p className="text-slate-400 mt-5">
+                        <a href={"/"}>Privace and Police</a>
+                    </p>
                 </div>
                 {/* box 2 */}
                 <div className="text-right md:text-center mt-5">
@@ -35,10 +43,18 @@ function Footer() {
                 {/* box 3 */}
                 <div className="text-left mr-[60%] md:text-right md:mr-0 mt-5">
                     <h3 className="font-bold mt-5">Event</h3>
-                    <p className="text-slate-400 mt-5">Blog</p>
-                    <p className="text-slate-400 mt-5">Rent Car</p>
-                    <p className="text-slate-400 mt-5">Tour Package</p>
-                    <p className="text-slate-400 mt-5">Login as Admim </p>
+                    <p className="text-slate-400 mt-5">
+                        <a href="">Blog</a>
+                    </p>
+                    <p className="text-slate-400 mt-5">
+                        <a href={"/"}>Rental Car</a>
+                    </p>
+                    <p className="text-slate-400 mt-5">
+                        <a href="">Tour Page</a>
+                    </p>
+                    <p className="text-slate-400 mt-5">
+                        <a href={"/login"}>login As Admin</a>
+                    </p>
                 </div>
             </div>
             <div className="text-center w-full h-fit  p-3 mt-20">

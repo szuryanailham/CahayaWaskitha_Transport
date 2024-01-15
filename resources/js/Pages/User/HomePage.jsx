@@ -32,23 +32,23 @@ export default function HomePage({ categories, units }) {
                         <Slider {...settings}>
                             <div>
                                 <img
-                                    className="object-cover h-[124px] md:h-[330px] xl:h-[439px] w-full object-top rounded-2xl"
-                                    src="/2880x1800-px-assassins-creed-Assassins-Creed-Black-Flag-video-games-1062323-wallhere.com (1) (1) (1).jpg"
+                                    className=" md:object-cover h-[300px] md:h-[430px] xl:h-[439px] w-full object-top rounded-2xl"
+                                    src="/images/promo-1.jpg "
                                     alt="promo-1"
                                 />
                             </div>
                             <div>
                                 <img
-                                    className="object-cover h-[124px] md:h-[330px] xl:h-[439px] w-full object-top rounded-2xl"
-                                    src="https://c4.wallpaperflare.com/wallpaper/582/192/1024/assassin-s-creed-assassin-s-creed-black-flag-video-games-ship-wallpaper-preview.jpg"
-                                    alt="promo-2"
+                                    className=" md:object-cover h-[300px] md:h-[430px] xl:h-[439px] w-full  rounded-2xl"
+                                    src="/images/promo-2.jpg "
+                                    alt="promo-1"
                                 />
                             </div>
                             <div>
                                 <img
-                                    className="object-cover h-[124px] md:h-[330px] xl:h-[439px] w-full object-top rounded-2xl"
-                                    src="https://i.pinimg.com/originals/e1/97/f7/e197f7366496bfbf6653b76e5665c4cd.jpg"
-                                    alt="promo-3"
+                                    className=" md:object-cover h-[300px] md:h-[430px] xl:h-[439px] w-full  rounded-2xl"
+                                    src="/images/promo-3.jpg "
+                                    alt="promo-1"
                                 />
                             </div>
                         </Slider>
