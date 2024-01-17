@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
-
+import { FiLogOut } from "react-icons/fi";
 function SidebarDashboard() {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(true);
     const sidebarRef = useRef(null);
     // function for change statae by button
     const btnActive = () => {
@@ -67,7 +67,7 @@ function SidebarDashboard() {
                         {/* Home */}
                         <li>
                             <a
-                                href="#"
+                                href={`/`}
                                 className=" flex md:hidden items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group hover:text-black"
                             >
                                 <img
@@ -83,7 +83,7 @@ function SidebarDashboard() {
                         {/* Dashboard  */}
                         <li>
                             <a
-                                href="#"
+                                href={`proto/dashboard`}
                                 className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group hover:text-black"
                             >
                                 <img
@@ -99,7 +99,7 @@ function SidebarDashboard() {
                         {/* all unit  */}
                         <li>
                             <a
-                                href="#"
+                                href={"/dashboard/AllUnit"}
                                 className="flex items-center p-2 text-white rounded-lg dark:text-white hover:text-black hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
                                 <img
@@ -182,15 +182,11 @@ function SidebarDashboard() {
                         <li>
                             <a
                                 href="#"
-                                className="flex items-center p-2 text-white rounded-lg dark:text-white hover:text-black hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                                className="flex items-center p-2 text-red-500 font-bold rounded-lg  hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
-                                <img
-                                    src="/images/dashboard/Profile.svg"
-                                    className="h-5  mt-1"
-                                    alt="Dashboard"
-                                />
-                                <span className="flex-1 ms-3 whitespace-nowrap">
-                                    Account
+                                <FiLogOut />
+                                <span className="flex-1 ms-3 whitespace-nowrap font-bold text-red-500">
+                                    Logout
                                 </span>
                             </a>
                         </li>

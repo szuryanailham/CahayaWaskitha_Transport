@@ -8,7 +8,7 @@ export default function Success({ order }) {
             <Head title="Success" />
 
             <main className="w-full h-screen flex justify-evenly items-center">
-                <Card className=" mt-[20%] w-[80%] h-fit  md:w-[40%] bg-transparent xl:bg-gray-100 dark:bg-gray-800/50 rounded-lg shadow-md relative">
+                <Card className=" mt-[15%] w-[80%] h-fit  md:w-[40%] bg-transparent xl:bg-gray-100 dark:bg-gray-800/50 rounded-lg shadow-md relative">
                     {/* cart content */}
                     <CardContent className="relative pt-8 flex flex-col justify-center items-center">
                         <svg

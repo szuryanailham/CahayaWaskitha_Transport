@@ -10,14 +10,20 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import ModeToggle from "../ModeToggle";
 
 function NavDashboard() {
     const [position, setPosition] = React.useState("bottom");
     return (
         <div className="w-full flex">
+            {/* toggle dark mood */}
+
             {/* search input */}
             <form className="w-full mt-2">
                 <div className="flex">
+                    <div className=" m-auto">
+                        <ModeToggle />
+                    </div>
                     <div
                         id="search-dropdown"
                         className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"

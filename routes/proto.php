@@ -26,10 +26,21 @@ Route::prefix('/proto')->group(function () {
     // http://127.0.0.1:8000/proto/dashboard
     Route::inertia('/dashboard', 'Prototype/Dashboard/Dashboard');
 
+     // http://127.0.0.1:8000/proto/dashboard/addUnit
+     Route::inertia('/dashboard/addUnit', 'Prototype/Dashboard/AddUnit');
+
+      // http://127.0.0.1:8000/proto/dashboard/AllUnit
+      Route::inertia('/dashboard/AllUnit', 'Prototype/Dashboard/AllUnit');
     
     // http://127.0.0.1:8000/proto/dashboard/transaction
     Route::inertia('/dashboard/transaction', 'Prototype/Dashboard/AllTransaction_Des');
 
-        // http://127.0.0.1:8000/proto/dashboard/promo
-        Route::inertia('/dashboard/promo', 'Prototype/Dashboard/PromoForm');
+    // http://127.0.0.1:8000/proto/dashboard/promo
+    Route::inertia('/dashboard/promo', 'Prototype/Dashboard/PromoForm');
+
+      // http://127.0.0.1:8000/proto/dashboard/feedback
+      Route::inertia('/dashboard/feedback', 'Prototype/Dashboard/Feedback');
+
+      // http://127.0.0.1:8000/proto/dashboard/addTransaction
+      Route::inertia('/dashboard/addTransaction', 'Prototype/Dashboard/AddTransaction');
 });
