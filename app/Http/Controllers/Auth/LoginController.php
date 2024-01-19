@@ -21,7 +21,7 @@ class LoginController extends Controller
         $credentials = $request->validated();
 
         if (Auth::attempt($credentials)) {
-            return redirect()->route('discussions.index');
+            return redirect('/admin/dashboard');
         }
 
         return redirect()->back()->withInput()

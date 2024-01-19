@@ -7,6 +7,7 @@ import { Textarea } from "@/Components/ui/textarea";
 import { Head, Link, useForm } from "@inertiajs/react";
 import { ArrowBigLeft } from "lucide-react";
 import { useEffect, useState } from "react";
+import { FormatRupiah } from "@arismun/format-rupiah";
 
 export default function Checkout({ unit }) {
     const [startDate, setStartDate] = useState("");
@@ -61,13 +62,19 @@ export default function Checkout({ unit }) {
         post("/checkout");
     };
 
+    // change format rupiah
+
     return (
         <>
             <Head title="Checkout" />
             <Navbar />
             <main className="w-full mt-24">
                 <section className="w-full h-full flex flex-col items-center justify-center gap-4 mb-10">
-                    <img src="/images/Whatsapp.png" alt="whatsapp-img" />
+                    <img
+                        className="p-5"
+                        src="/images/Whatsapp.png"
+                        alt="whatsapp-img"
+                    />
                     <div className="p-4 md:p-0 w-full md:w-[710px] flex flex-col gap-4 justify-center text-center ">
                         <h1 className="font-bold text-3xl">Bayu Waskitha</h1>
                         <p>
@@ -77,7 +84,9 @@ export default function Checkout({ unit }) {
                         </p>
                     </div>
                     <div className="flex flex-col items-center gap-4">
-                        <Button>Contact Us</Button>
+                        <Button className="dark:bg-blue-700 dark:text-white">
+                            <a href="https://wa.link/3iqnd5">Contact Us</a>
+                        </Button>
                         <Link href="/">
                             <Button className="w-fit p-2">
                                 <ArrowBigLeft />
@@ -85,6 +94,7 @@ export default function Checkout({ unit }) {
                         </Link>
                     </div>
                 </section>
+                {/* form input data  */}
                 <form className="px-10 flex flex-col gap-8" onSubmit={submit}>
                     <section className="w-full flex flex-col gap-8 items-center">
                         <div className="text-center">
@@ -97,6 +107,7 @@ export default function Checkout({ unit }) {
                         </div>
                         <div className="w-full flex flex-col gap-4">
                             <div>
+                                {/* Nama */}
                                 <Label htmlFor="name">Nama</Label>
                                 <Input
                                     type="text"
@@ -106,14 +117,16 @@ export default function Checkout({ unit }) {
                                     placeholder="Name"
                                     className={`form-control ${
                                         errors.name ? "is-invalid" : ""
-                                    } w-full`}
+                                    } w-full dark:bg-gray-800`}
                                     autoFocus
                                 />
                                 <span className="text-xs text-destructive">
-                                    {Object.values(errors).length > 0 &&
-                                        Object.values(errors)[0]}
+                                    {Object.values(errors).length > 0
+                                        ? errors.name
+                                        : ""}
                                 </span>
                             </div>
+                            {/* alamat */}
                             <div>
                                 <Label htmlFor="address">Alamat</Label>
                                 <Textarea
@@ -126,11 +139,12 @@ export default function Checkout({ unit }) {
                                     } w-full resize-none bg-gray-100 dark:bg-gray-800`}
                                 />
                                 <span className="text-xs text-destructive">
-                                    {Object.values(errors).length > 0 &&
-                                        Object.values(errors)[1]}
+                                    {Object.values(errors).length > 0
+                                        ? errors.address
+                                        : ""}
                                 </span>
                             </div>
-
+                            {/* no phone */}
                             <div>
                                 <Label htmlFor="phone">No.Handphone</Label>
                                 <Input
@@ -144,17 +158,22 @@ export default function Checkout({ unit }) {
                                     }w-full dark:bg-gray-800`}
                                 />
                                 <span className="text-xs text-destructive">
-                                    {Object.values(errors).length > 0 &&
-                                        Object.values(errors)[2]}
+                                    {Object.values(errors).length > 0
+                                        ? errors.phone
+                                        : ""}
                                 </span>
                             </div>
+
                             <div className="w-full flex gap-4">
                                 <div>
                                     Unit: <strong>{unit.data.name}</strong>
                                 </div>
                                 <div>
                                     Price:{" "}
-                                    <strong>{unit.data.price} / Hari</strong>
+                                    <strong>
+                                        <FormatRupiah value={unit.data.price} />
+                                        / Hari
+                                    </strong>
                                 </div>
                             </div>
                         </div>
@@ -169,6 +188,7 @@ export default function Checkout({ unit }) {
                             </p>
                         </div>
                         <div className="w-full flex flex-col gap-4">
+                            {/* lokasi penjemputan */}
                             <div>
                                 <Label htmlFor="pickup_address">
                                     Lokasi Penjemputan
@@ -182,13 +202,15 @@ export default function Checkout({ unit }) {
                                         errors.pickup_address
                                             ? "is-invalid"
                                             : ""
-                                    }w-full resize-none bg-gray-100`}
+                                    }w-full resize-none bg-gray-100 dark:bg-gray-800`}
                                 />
                                 <span className="text-xs text-destructive">
-                                    {Object.values(errors).length > 0 &&
-                                        Object.values(errors)[3]}
+                                    {Object.values(errors).length > 0
+                                        ? errors.pickup_address
+                                        : ""}
                                 </span>
                             </div>
+                            {/* waktu penjemputan */}
                             <div>
                                 <Label htmlFor="start_time">
                                     Waktu Penjemputan
@@ -201,13 +223,15 @@ export default function Checkout({ unit }) {
                                     placeholder="Start Time"
                                     className={`form-control ${
                                         errors.start_time ? "is-invalid" : ""
-                                    }w-full text-muted-foreground`}
+                                    }w-full text-muted-foreground dark:bg-gray-800`}
                                 />
                                 <span className="text-xs text-destructive">
-                                    {Object.values(errors).length > 0 &&
-                                        Object.values(errors)[5]}
+                                    {Object.values(errors).length > 0
+                                        ? errors.start_time
+                                        : ""}
                                 </span>
                             </div>
+                            {/* tanggal penjemputan  */}
                             <div>
                                 <Label htmlFor="start_date">
                                     Tanggal Penjemputan
@@ -220,15 +244,17 @@ export default function Checkout({ unit }) {
                                     placeholder="Start Date"
                                     className={`form-control ${
                                         errors.start_date ? "is-invalid" : ""
-                                    }w-full text-muted-foreground`}
+                                    }w-full p-2 text-muted-foreground dark:bg-gray-800`}
                                 />
                                 <span className="text-xs text-destructive">
-                                    {Object.values(errors).length > 0 &&
-                                        Object.values(errors)[4]}
+                                    {Object.values(errors).length > 0
+                                        ? errors.start_date
+                                        : ""}
                                 </span>
                             </div>
                         </div>
                     </section>
+                    {/* pengembalian ..... */}
                     <section className="w-full flex flex-col gap-8 items-center">
                         <div className="text-center">
                             <h2 className="font-bold text-xl md:text-2xl underline">
@@ -239,6 +265,7 @@ export default function Checkout({ unit }) {
                             </p>
                         </div>
                         <div className="w-full flex flex-col gap-4">
+                            {/* waktu pengembalian */}
                             <div>
                                 <Label htmlFor="end_time">
                                     Waktu Pengambilan
@@ -251,13 +278,15 @@ export default function Checkout({ unit }) {
                                     placeholder="End Time"
                                     className={`form-control ${
                                         errors.end_time ? "is-invalid" : ""
-                                    }w-full text-muted-foreground`}
+                                    }w-full text-muted-foreground dark:bg-gray-800 p-2`}
                                 />
                                 <span className="text-xs text-destructive">
-                                    {Object.values(errors).length > 0 &&
-                                        Object.values(errors)[7]}
+                                    {Object.values(errors).length > 0
+                                        ? errors.end_time
+                                        : ""}
                                 </span>
                             </div>
+                            {/* tanggal pengembalian */}
                             <div>
                                 <Label htmlFor="end_date">
                                     Tanggal Pengambilan
@@ -270,11 +299,12 @@ export default function Checkout({ unit }) {
                                     placeholder="End Date"
                                     className={`form-control ${
                                         errors.end_date ? "is-invalid" : ""
-                                    }w-full text-muted-foreground`}
+                                    }w-full text-muted-foreground dark:bg-gray-800 p-2`}
                                 />
                                 <span className="text-xs text-destructive">
-                                    {Object.values(errors).length > 0 &&
-                                        Object.values(errors)[6]}
+                                    {Object.values(errors).length > 0
+                                        ? errors.end_date
+                                        : ""}
                                 </span>
                             </div>
                         </div>
@@ -290,6 +320,7 @@ export default function Checkout({ unit }) {
                         </div>
 
                         <div className="w-full flex flex-col gap-4">
+                            {/* durasi penyewaan */}
                             <div>
                                 <Label htmlFor="duration">
                                     Durasi Penyewaan / Hari
@@ -302,12 +333,12 @@ export default function Checkout({ unit }) {
                                     placeholder="Duration"
                                     className={`form-control ${
                                         errors.duration ? "is-invalid" : ""
-                                    }w-full text-muted-foreground`}
+                                    }w-full text-muted-foreground dark:bg-gray-800 p-2`}
                                     value={data.duration}
                                     readOnly
                                 />
                             </div>
-
+                            {/* total harga */}
                             <div>
                                 <Label htmlFor="total_price">Total Harga</Label>
                                 <Input
@@ -317,7 +348,7 @@ export default function Checkout({ unit }) {
                                     placeholder="Total Price"
                                     className={`form-control ${
                                         errors.total_price ? "is-invalid" : ""
-                                    }w-full text-muted-foreground`}
+                                    }w-full text-muted-foreground dark:bg-gray-800 p-2`}
                                     value={data.total_price}
                                     readOnly
                                 />
@@ -326,12 +357,12 @@ export default function Checkout({ unit }) {
                     </section>
 
                     <Button
-                        className="self-center"
+                        className="self-center text-md dark:bg-blue-500 dark:text-white "
                         size="lg"
                         type="submit"
                         disabled={processing}
                     >
-                        {processing ? "Loading..." : "Submit"}
+                        {processing ? "Loading..." : "Order"}
                     </Button>
                 </form>
             </main>
