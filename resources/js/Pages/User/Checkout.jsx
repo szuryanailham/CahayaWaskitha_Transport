@@ -123,7 +123,7 @@ export default function Checkout({ unit }) {
                                     placeholder="Alamat"
                                     className={`form-control ${
                                         errors.address ? "is-invalid" : ""
-                                    } w-full resize-none bg-gray-100`}
+                                    } w-full resize-none bg-gray-100 dark:bg-gray-800`}
                                 />
                                 <span className="text-xs text-destructive">
                                     {Object.values(errors).length > 0 &&
@@ -141,7 +141,7 @@ export default function Checkout({ unit }) {
                                     placeholder="Phone"
                                     className={`form-control ${
                                         errors.phone ? "is-invalid" : ""
-                                    }w-full`}
+                                    }w-full dark:bg-gray-800`}
                                 />
                                 <span className="text-xs text-destructive">
                                     {Object.values(errors).length > 0 &&
