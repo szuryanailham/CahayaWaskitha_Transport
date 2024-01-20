@@ -2,16 +2,18 @@ import { Head } from "@inertiajs/react";
 import ProductCard from "@/Components/home-page/ProductCard";
 import Navbar from "@/Components/home-page/Navbar";
 import Footer from "@/Components/home-page/Footer";
+import { Button } from "@/Components/ui/button";
+import PaketWisataCard from "@/Components/home-page/PaketWisataCard";
 
 export default function Home({ categories, units }) {
     const renderProduct = () => {
         return Array.from({ length: 9 }, (_, index) =>
             index === 8 ? (
                 <div className="col-span-1 md:col-span-2 place-self-center md:place-self-center xl:col-span-1  ">
-                    <ProductCard key={index} />
+                    <PaketWisataCard key={index} />
                 </div>
             ) : (
-                <ProductCard key={index} />
+                <PaketWisataCard key={index} />
             )
         );
     };

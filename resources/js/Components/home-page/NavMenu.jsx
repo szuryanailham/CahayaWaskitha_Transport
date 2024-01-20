@@ -16,7 +16,6 @@ import {
 } from "@/components/ui/navigation-menu";
 
 export function NavigationMenuDemo({ categories, units }) {
-    console.log(categories);
     return (
         <NavigationMenu>
             <NavigationMenuList>
@@ -71,7 +70,10 @@ export function NavigationMenuDemo({ categories, units }) {
                                     title={unit.name}
                                     href={`/unit/${unit.slug}`}
                                 >
-                                    {unit.price}
+                                    Rp
+                                    {unit.price.toLocaleString("id-ID", {
+                                        currency: "IDR",
+                                    })}
                                 </ListItem>
                             ))}
                         </ul>
@@ -82,7 +84,7 @@ export function NavigationMenuDemo({ categories, units }) {
                         <NavigationMenuLink
                             className={`${navigationMenuTriggerStyle()}text-xs md:text-base`}
                         >
-                            Semua Kendaraan
+                            Paket Wisata
                         </NavigationMenuLink>
                     </Link>
                 </NavigationMenuItem>
