@@ -43,14 +43,16 @@ const PaketWisataCard = () => {
                     </li>
                 </ul>
                 <div className="py-4 px-2 flex flex-col bg-[#ffede1] dark:text-black">
-                    <span>Include:</span>
+                    <span className="font-semibold italic underline">
+                        Include:
+                    </span>
                     <p>
                         Transport, Hotel, Guide (Group) BBM, Air Mineral, Makan,
                         Parkir, Jeep Merapi, Tipping
                     </p>
                 </div>
             </CardContent>
-            <CardFooter className=" flex justify-center py-6">
+            <CardFooter className="flex justify-center py-6">
                 <Button className="bg-[#1ba0e2] rounded-[2rem] text-xl h-16 px-16">
                     <FaWhatsapp className="mr-2" />
                     Info Detail
