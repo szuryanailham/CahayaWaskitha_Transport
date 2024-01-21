@@ -6,6 +6,10 @@ use App\Http\Controllers\Controller;
 
 // use model here
 use App\Models\Unit;
+use App\Models\Category;
+
+// resources
+use App\Http\Resources\UnitResource;
 
 // request
 use App\Http\Requests\Unit\StoreUnitRequest;
@@ -32,7 +36,7 @@ class UnitController extends Controller
             ->withQueryString();
 
         return Inertia::render('Admin/Unit/Index', [
-            'units' => $units
+            'units' => UnitResource::collection($units),
         ]);
     }
 
@@ -41,7 +45,11 @@ class UnitController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Admin/Unit/Create');
+        $categories = Category::get();
+
+        return Inertia::render('Admin/Unit/Create', [
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -106,9 +114,11 @@ class UnitController extends Controller
     public function edit($id)
     {
         $unit = Unit::with('image')->findOrFail($id);
+        $categories = Category::get();
 
         return Inertia::render('Admin/Unit/Edit', [
-            'unit' => $unit
+            'unit' => $unit,
+            'categories' => $categories
         ]);
     }
 

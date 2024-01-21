@@ -1,8 +1,10 @@
 import { Head, Link, usePage } from "@inertiajs/react";
 
-export default function Dashboard() {
+export default function Dashboard({ total }) {
     const { auth } = usePage().props;
     const { component } = usePage();
+
+    console.log(total);
 
     return (
         <>

@@ -26,6 +26,7 @@ class UnitResource extends JsonResource
             'category' => $this->category->name,
             'featured_image' => UnitImage::where('unit_id', $this->id)->first()->url ?? null,
             'images' => UnitImage::where('unit_id', $this->id)->get(),
+            'is_deleted' => $this->deleted_at ? true : false,
         ];
     }
 }
