@@ -11,4 +11,7 @@ Route::namespace('App\Http\Controllers\User')->group(function () {
     Route::get('/testimony', 'TestimonyController@index');
 
     Route::get('/{slug?}', 'HomeController@index')->name('home');
+
+    Route::inertia('/gallery', 'User/Gallery');
+    Route::inertia('/paket_wisata', 'User/PaketWisata');
 });
