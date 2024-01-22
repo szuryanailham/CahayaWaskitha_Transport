@@ -8,8 +8,6 @@ export default function Dashboard({ order, units, unit, time }) {
         end_time: time.end_time,
     });
 
-    console.log(time);
-
     const [selectUnit, setSelectUnit] = useState(false);
     const [startDate, setStartDate] = useState("");
     const [endDate, setEndDate] = useState("");

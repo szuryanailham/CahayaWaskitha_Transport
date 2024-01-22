@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 
 // use model here
 use App\Models\Unit;
+use App\Models\UnitImage;
 use App\Models\Category;
 
 // resources
@@ -16,6 +17,7 @@ use App\Http\Requests\Unit\StoreUnitRequest;
 use App\Http\Requests\Unit\UpdateUnitRequest;
 
 // use
+use Storage;
 use Inertia\Inertia;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -133,32 +135,41 @@ class UnitController extends Controller
         // update to database
         $unit = Unit::findOrFail($id);
 
+        // delete image where not in ids and unit_id = $id
+        if ($request->has('ids')) {
+            $unit->image()->where('unit_id', $id)->whereNotIn('id', $request->ids)->delete();
+        }
+
         // upload process here
-        if ($request->hasFile('image')) {
-            $path = 'images/units/' . now()->format('Y/m/d');
+        if ($request->hasFile('image.*')) {
 
-            if (!Storage::has('public/' . $path)) {
-                Storage::makeDirectory('public/' . $path);
-            }
+            $firstImage = null;
 
-            // store file
-            $input['image'] = $input['image']->store($path, 'public');
+            foreach ($input['image'] as $image) {
 
-            if ($unit->image) {
+                $path = 'images/units/' . now()->format('Y/m/d');
 
-                // first checking old image to delete from storage
-                $get_item = $unit->image;
-
-                // delete old photo from storage
-                $input_old = 'storage/' . $get_item;
-
-                if (File::exists($input_old)) {
-                    File::delete($input_old);
-                } else {
-                    File::delete('storage/app/public/' . $get_item);
+                if (!Storage::has('public/' . $path)) {
+                    Storage::makeDirectory('public/' . $path);
                 }
+
+                // store file
+                $imagePath = $image->store($path, 'public');
+
+                UnitImage::create([
+                    'unit_id' => $unit->id,
+                    'image' => $imagePath,
+                ]);
             }
         }
+
+        // get first image with id
+        $firstImage = UnitImage::where('unit_id', $unit->id)->first()->id;
+
+        // Update featured_image_id
+        $unit->update([
+            'featured_image_id' => $firstImage,
+        ]);
 
         $unit->update($input);
 

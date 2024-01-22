@@ -7,10 +7,20 @@ export default function Create({ categories }) {
         description: "",
         capacity: "",
         price: "",
+        image: [],
     });
 
     const onHandleChange = (event) => {
-        setData(event.target.name, event.target.value);
+        if (event.target.type === "file") {
+            const files = event.target.files;
+
+            if (files.length > 0) {
+                const fileArray = Array.from(files);
+                setData(event.target.name, fileArray);
+            }
+        } else {
+            setData(event.target.name, event.target.value);
+        }
     };
 
     const submit = (e) => {
@@ -86,6 +96,14 @@ export default function Create({ categories }) {
                     } border border-gray-200 p-2 w-full mb-3 dark:bg-gray-800`}
                 />
                 {Object.values(errors).length > 0 ? errors.price : ""}
+
+                <input
+                    type="file"
+                    name="image"
+                    id=""
+                    onChange={(e) => onHandleChange(e)}
+                    multiple
+                />
 
                 <button
                     type="submit"

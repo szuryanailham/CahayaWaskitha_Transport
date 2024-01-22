@@ -1,26 +1,49 @@
 import { Head, Link, router, useForm } from "@inertiajs/react";
+import { useEffect, useState } from "react";
 
 export default function Dashboard({ unit, categories }) {
     const { data, setData, processing, errors } = useForm({
         ...unit,
+        image: [],
     });
 
+    const [images, setImages] = useState(unit.image);
+    const [ids, setIds] = useState(unit.image.map((image) => image.id));
+
+    useEffect(() => {
+        setData("ids", ids);
+    }, [ids]);
+
     const onHandleChange = (event) => {
-        setData(
-            event.target.name,
-            event.target.type === "file"
-                ? event.target.files[0]
-                : event.target.value
-        );
+        if (event.target.type === "file") {
+            const files = event.target.files;
+
+            if (files.length > 0) {
+                const fileArray = Array.from(files);
+                setData(event.target.name, fileArray);
+            }
+        } else {
+            setData(event.target.name, event.target.value);
+        }
     };
 
     const submit = (e) => {
         e.preventDefault();
 
-        router.post('/admin/unit/' + unit.id, {
+        router.post("/admin/unit/" + unit.id, {
             _method: "PUT",
             ...data,
         });
+    };
+
+    const removeImage = (indexToRemove) => {
+        setImages((prevImages) =>
+            prevImages.filter((_, index) => index !== indexToRemove)
+        );
+
+        setIds((prevImages) =>
+            prevImages.filter((_, index) => index !== indexToRemove)
+        );
     };
 
     return (
@@ -95,6 +118,32 @@ export default function Dashboard({ unit, categories }) {
                     } border border-gray-200 p-2 w-full mb-3 dark:bg-gray-800`}
                 />
                 {Object.values(errors).length > 0 ? errors.price : ""}
+
+                <input
+                    type="file"
+                    name="image"
+                    id=""
+                    onChange={(e) => onHandleChange(e)}
+                    multiple
+                />
+
+                <div>
+                    {images &&
+                        images.map((img, index) => {
+                            return (
+                                <div key={img.id}>
+                                    <img
+                                        src={`/storage/${img.image}`}
+                                        alt=""
+                                        className="w-1/2 h-40 object-cover"
+                                    />
+                                    <button onClick={() => removeImage(index)}>
+                                        X
+                                    </button>
+                                </div>
+                            );
+                        })}
+                </div>
 
                 <button
                     type="submit"
