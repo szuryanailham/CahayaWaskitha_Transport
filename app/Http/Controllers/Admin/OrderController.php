@@ -13,6 +13,7 @@ use App\Http\Resources\OrderResource;
 
 // request
 use App\Http\Requests\Order\StoreOrderRequest;
+use App\Http\Requests\Order\UpdateOrderRequest;
 
 // use
 use Inertia\Inertia;
@@ -86,6 +87,48 @@ class OrderController extends Controller
         }
 
         return abort(500);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Request $request, $id)
+    {
+        if ($request->unit_id) {
+            $unit = Unit::find($request->unit_id);
+        }
+
+        $order = Order::findOrFail($id);
+        $units = Unit::get();
+
+        return Inertia::render('Admin/Order/Edit', [
+            'order' => $order,
+            'units' => $units,
+            'unit' => $unit ?? null,
+            'time' => [
+                'start_time' => $order->start_time->format('H:i'),
+                'end_time' => $order->end_time->format('H:i'),
+            ],
+        ]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(UpdateOrderRequest $request, $id)
+    {
+        // get all request
+        $input = $request->validated();
+
+        // update to database
+        $order = Order::findOrFail($id);
+
+        $order->update($input);
+
+        return redirect()->route('admin.order.index')->with([
+            'message' => "Order Successfully Updated",
+            'type' => 'success'
+        ]);
     }
 
     /**

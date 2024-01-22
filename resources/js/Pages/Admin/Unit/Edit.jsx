@@ -34,7 +34,7 @@ export default function Dashboard({ unit, categories }) {
                 <input
                     type="text"
                     name="name"
-                    defaultValue={unit.name}
+                    defaultValue={data.name}
                     onChange={(e) => onHandleChange(e)}
                     placeholder="Name"
                     className={`${
@@ -46,7 +46,7 @@ export default function Dashboard({ unit, categories }) {
 
                 <select
                     name="category_id"
-                    value={unit.category_id}
+                    defaultValue={data.category_id}
                     onChange={(e) => onHandleChange(e)}
                     className={`${
                         errors.category_id ? "is-invalid" : ""
@@ -63,7 +63,7 @@ export default function Dashboard({ unit, categories }) {
 
                 <textarea
                     name="description"
-                    defaultValue={unit.description}
+                    defaultValue={data.description}
                     onChange={(e) => onHandleChange(e)}
                     placeholder="Description"
                     className={`${
@@ -75,7 +75,7 @@ export default function Dashboard({ unit, categories }) {
                 <input
                     type="number"
                     name="capacity"
-                    defaultValue={unit.capacity}
+                    defaultValue={data.capacity}
                     onChange={(e) => onHandleChange(e)}
                     placeholder="Capacity"
                     className={`${
@@ -87,7 +87,7 @@ export default function Dashboard({ unit, categories }) {
                 <input
                     type="number"
                     name="price"
-                    defaultValue={unit.price}
+                    defaultValue={data.price}
                     onChange={(e) => onHandleChange(e)}
                     placeholder="Price"
                     className={`${

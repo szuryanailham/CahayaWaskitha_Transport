@@ -1,9 +1,14 @@
 import { Head, Link, router, useForm } from "@inertiajs/react";
+import { useEffect, useState } from "react";
 
-export default function Dashboard({ order, units, unit }) {
-    const { data, setData, processing, errors } = useForm({
+export default function Dashboard({ order, units, unit, time }) {
+    const { data, setData, get, processing, errors } = useForm({
         ...order,
+        start_time: time.start_time,
+        end_time: time.end_time,
     });
+
+    console.log(time);
 
     const [selectUnit, setSelectUnit] = useState(false);
     const [startDate, setStartDate] = useState("");
@@ -13,7 +18,7 @@ export default function Dashboard({ order, units, unit }) {
         // tidak dijalankan ketika pertama kali onload
         if (selectUnit !== false) {
             const delay = setTimeout(() => {
-                get("/admin/order/create", {
+                get(`/admin/order/${order.id}/edit`, {
                     preserveState: true,
                     replace: true,
                 });
@@ -74,6 +79,7 @@ export default function Dashboard({ order, units, unit }) {
                 <input
                     type="text"
                     name="name"
+                    defaultValue={data.name}
                     onChange={(e) => onHandleChange(e)}
                     placeholder="Name"
                     className={`${
@@ -85,6 +91,7 @@ export default function Dashboard({ order, units, unit }) {
 
                 <textarea
                     name="address"
+                    defaultValue={data.address}
                     onChange={(e) => onHandleChange(e)}
                     placeholder="Address"
                     className={`${
@@ -96,6 +103,7 @@ export default function Dashboard({ order, units, unit }) {
                 <input
                     type="text"
                     name="phone"
+                    defaultValue={data.phone}
                     onChange={(e) => onHandleChange(e)}
                     placeholder="Phone"
                     className={`${
@@ -106,6 +114,7 @@ export default function Dashboard({ order, units, unit }) {
 
                 <select
                     name="unit_id"
+                    defaultValue={data.unit_id}
                     onChange={(e) => onHandleChange(e)}
                     className={`${
                         errors.category_id ? "is-invalid" : ""
@@ -123,8 +132,9 @@ export default function Dashboard({ order, units, unit }) {
                 <input
                     type="text"
                     name="price"
+                    defaultValue={data.price}
                     placeholder="Price"
-                    value={unit ? unit.price : 0}
+                    value={unit ? unit.price : order.price}
                     className={`${
                         errors.price ? "is-invalid" : ""
                     } border border-gray-200 p-2 w-full mb-3 dark:bg-gray-800`}
@@ -134,6 +144,7 @@ export default function Dashboard({ order, units, unit }) {
 
                 <textarea
                     name="pickup_address"
+                    defaultValue={data.pickup_address}
                     onChange={(e) => onHandleChange(e)}
                     placeholder="Pickup Address"
                     className={`${
@@ -145,6 +156,7 @@ export default function Dashboard({ order, units, unit }) {
                 <input
                     type="date"
                     name="start_date"
+                    defaultValue={data.start_date}
                     onChange={(e) => onHandleChange(e)}
                     placeholder="Start Date"
                     className={`${
@@ -156,6 +168,7 @@ export default function Dashboard({ order, units, unit }) {
                 <input
                     type="time"
                     name="start_time"
+                    defaultValue={data.start_time}
                     onChange={(e) => onHandleChange(e)}
                     placeholder="Start Time"
                     className={`${
@@ -167,6 +180,7 @@ export default function Dashboard({ order, units, unit }) {
                 <input
                     type="date"
                     name="end_date"
+                    defaultValue={data.end_date}
                     onChange={(e) => onHandleChange(e)}
                     placeholder="End Date"
                     className={`${
@@ -178,6 +192,7 @@ export default function Dashboard({ order, units, unit }) {
                 <input
                     type="time"
                     name="end_time"
+                    defaultValue={data.end_time}
                     onChange={(e) => onHandleChange(e)}
                     placeholder="End Time"
                     className={`${
@@ -189,6 +204,7 @@ export default function Dashboard({ order, units, unit }) {
                 <input
                     type="text"
                     name="duration"
+                    defaultValue={data.duration}
                     value={data.duration}
                     placeholder="Duration"
                     className={`${
@@ -201,6 +217,7 @@ export default function Dashboard({ order, units, unit }) {
                 <input
                     type="text"
                     name="total_price"
+                    defaultValue={data.total_price}
                     value={data.total_price}
                     placeholder="Total Price"
                     className={`${
