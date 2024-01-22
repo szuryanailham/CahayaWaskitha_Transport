@@ -23,7 +23,7 @@ class UpdateUnitRequest extends FormRequest
     {
         return [
             'category_id' => ['required', 'exists:category,id'],
-            'name' => ['required', 'string', 'max:255', 'unique:unit,name,' . $this->unit->id],
+            'name' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string', 'max:255'],
             'price' => ['required', 'numeric'],
             'capacity' => ['required', 'numeric'],

@@ -23,7 +23,7 @@ class StoreUnitRequest extends FormRequest
     {
         return [
             'category_id' => ['required', 'exists:category,id'],
-            'name' => ['required', 'string', 'unique:unit,name', 'max:100'],
+            'name' => ['required', 'string', 'max:100'],
             'description' => ['nullable', 'string', 'max:255'],
             'price' => ['required', 'numeric'],
             'capacity' => ['required', 'numeric'],
