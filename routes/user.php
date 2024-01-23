@@ -8,10 +8,12 @@ Route::namespace('App\Http\Controllers\User')->group(function () {
     Route::post('/checkout', 'CheckoutController@store');
 
     Route::get('/about', 'AboutController@index');
+
     Route::get('/testimony', 'TestimonyController@index');
+    Route::post('/testimony', 'TestimonyController@store');
 
     Route::inertia('/gallery', 'User/Gallery');
-    Route::inertia('/paket_wisata', 'User/PaketWisata');
+    Route::inertia('/paket-wisata', 'User/PaketWisata');
 
     Route::get('/{slug?}', 'HomeController@index')->name('home');
 });
