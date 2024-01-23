@@ -57,7 +57,7 @@ export default function Dashboard({ total }) {
                     <Link
                         href="/admin/testimony"
                         className={
-                            component === "Admin/Testimony/Index" ? "active" : ""
+                            component === "Admin/Testimony" ? "active" : ""
                         }
                     >
                         Testimony
@@ -65,12 +65,12 @@ export default function Dashboard({ total }) {
                 </li>
                 <li>
                     <Link
-                        href="/admin/promo"
+                        href="/admin/promo-banner"
                         className={
-                            component === "Admin/Promo/Index" ? "active" : ""
+                            component === "Admin/PromoBanner" ? "active" : ""
                         }
                     >
-                        Promo
+                        Promo Banner
                     </Link>
                 </li>
             </ul>

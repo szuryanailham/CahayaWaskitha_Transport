@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Testimony;
+namespace App\Http\Requests\PromoBanner;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreTestimonyRequest extends FormRequest
+class StorePromoBannerRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,17 +22,11 @@ class StoreTestimonyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => [
+            'title' => [
                 'required', 'string'
             ],
-            'email' => [
-                'required', 'string'
-            ],
-            'testimony' => [
-                'required', 'string'
-            ],
-            'rating' => [
-                'required', 'integer', 'between:0,5'
+            'image' => [
+                'required', 'image'
             ]
         ];
     }
