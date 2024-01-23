@@ -29,6 +29,7 @@ class OrderResource extends JsonResource
             'end_time' => $this->end_time,
             'duration' => $this->duration,
             'total_price' => $this->total_price,
+            'is_deleted' => $this->deleted_at ? true : false,
         ];
     }
 }

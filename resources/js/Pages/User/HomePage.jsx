@@ -64,7 +64,7 @@ export default function HomePage({ categories, units }) {
                         <NavigationMenuDemo
                             categories={categories?.data}
                             units={units.data}
-                            className="P-10"
+                            className="p-10"
                         />
                         {/* category */}
                     </div>

@@ -3,7 +3,7 @@
 Route::prefix('/proto')->group(function () {
 
     // http://127.0.0.1:8000/proto/
-    Route::inertia('/', 'Prototype/HomePage');
+    Route::inertia('/', 'Prototype/PaketWisata');
 
     // http://127.0.0.1:8000/proto/login
     Route::inertia('/login', 'Prototype/LoginPage');

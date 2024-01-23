@@ -2,9 +2,7 @@
 
 import * as React from "react";
 import { Link } from "@inertiajs/react";
-
 import { cn } from "@/lib/utils";
-
 import {
     NavigationMenu,
     NavigationMenuContent,
@@ -14,6 +12,7 @@ import {
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+
 
 export function NavigationMenuDemo({ categories, units }) {
     return (
