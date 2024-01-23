@@ -10,8 +10,17 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
+import { useForm } from "@inertiajs/inertia-react";
 
 function FormTestimony() {
+    const { data, setData, post, processing, errors } = useForm({
+        name: "",
+        email: "",
+        category: "",
+        testimony: "",
+        rating: 0,
+    });
+
     const ratingRef = useRef(null);
     const [rating, setRating] = useState(0);
 
@@ -27,24 +36,47 @@ function FormTestimony() {
             document.removeEventListener("click", handleOutsideClick);
         };
     }, []);
+
+    useEffect(() => {
+        setData("rating", rating);
+    }, [rating]);
+
+    const onHandleChange = (event) => {
+        setData(event.target.name, event.target.value);
+    };
+
+    const submit = (e) => {
+        e.preventDefault();
+
+        post("/testimony");
+    };
+
     return (
-        <form className="w-full md:w-[60%] mx-auto p-10 md:p-2 mb-2 mt-3 ">
+        <form
+            onSubmit={submit}
+            className="w-full md:w-[60%] mx-auto p-10 md:p-2 mb-2 mt-3 "
+        >
             {/* Nama */}
             <Input
                 id="name"
+                name="name"
+                onChange={(e) => onHandleChange(e)}
                 className="dark:bg-gray-800"
                 type="text"
                 placeholder="name....."
+                autoFocus
             />
             {/* email */}
             <Input
-                className="mt-7 dark:bg-gray-800"
                 id="email"
+                name="email"
+                onChange={(e) => onHandleChange(e)}
+                className="mt-7 dark:bg-gray-800"
                 type="email"
                 placeholder="email....."
             />
             {/* category */}
-            <Select>
+            <Select name="category" onChange={(e) => onHandleChange(e)}>
                 <SelectTrigger className="w-full mt-5 dark:bg-gray-800">
                     <SelectValue placeholder="pilih category..." />
                 </SelectTrigger>
@@ -59,6 +91,7 @@ function FormTestimony() {
             <div className="text-center mt-5 italic">
                 <p>beri kami penilaian:</p>
                 <Rating
+                    name="rating"
                     className="mx-auto mt-5"
                     style={{ maxWidth: 150 }}
                     ref={ratingRef}
@@ -69,11 +102,21 @@ function FormTestimony() {
             {/* description */}
             <div className="mt-3">
                 <label htmlFor="">Comment</label>
-                <Textarea className="dark:bg-gray-800" />
+                <Textarea
+                    name="testimony"
+                    onChange={(e) => onHandleChange(e)}
+                    className="dark:bg-gray-800"
+                />
             </div>
             {/* submit button */}
             <div className="w-full flex flex-row justify-center mt-5">
-                <Button className="dark:bg-blue-500">Submit</Button>
+                <Button
+                    type="submit"
+                    disabled={processing}
+                    className="dark:bg-blue-500"
+                >
+                    {processing ? "Loading..." : "Submit"}
+                </Button>
             </div>
         </form>
     );
