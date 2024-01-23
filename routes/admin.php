@@ -7,12 +7,16 @@ Route::namespace('App\Http\Controllers\Admin')->group(function () {
 
     // Admin Only
     Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth:sanctum', 'role:admin']], function () {
-        Route::get('dashboard', 'DashboardController@index');
+        Route::get('/dashboard', 'DashboardController@index');
 
-        Route::put('unit/{unit}/restore', [UnitController::class, 'restore']);
+        Route::put('/unit/{unit}/restore', [UnitController::class, 'restore']);
         Route::resource('unit', UnitController::class)->only('index', 'create', 'store', 'edit', 'update', 'destroy');
 
-        Route::put('order/{order}/restore', [OrderController::class, 'restore']);
+        Route::put('/order/{order}/restore', [OrderController::class, 'restore']);
         Route::resource('order', OrderController::class)->only('index', 'create', 'store', 'edit', 'update', 'destroy');
+
+        Route::get('/testimony', 'TestimonyController@index');
+
+        Route::get('/promo-banner', 'PromoBannerController@index');
     });
 });
