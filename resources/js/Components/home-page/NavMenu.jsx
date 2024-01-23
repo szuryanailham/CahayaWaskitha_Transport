@@ -83,7 +83,7 @@ export function NavigationMenuDemo({ categories, units }) {
                         <NavigationMenuLink
                             className={`${navigationMenuTriggerStyle()}text-xs md:text-base`}
                         >
-                            Paket Wisata
+                            Semua Kendaraan
                         </NavigationMenuLink>
                     </Link>
                 </NavigationMenuItem>

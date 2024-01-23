@@ -145,12 +145,12 @@ export default function Dashboard({ total }) {
                 </li>
                 <li>
                     <Link
-                        href="/admin/promo"
+                        href="/admin/promo-banner"
                         className={
-                            component === "Admin/Promo/Index" ? "active" : ""
+                            component === "Admin/PromoBanner" ? "active" : ""
                         }
                     >
-                        Promo
+                        Promo Banner
                     </Link>
                 </li>
             </ul> */}

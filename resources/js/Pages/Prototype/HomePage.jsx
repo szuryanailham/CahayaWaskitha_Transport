@@ -5,18 +5,8 @@ import Footer from "@/Components/home-page/Footer";
 import { Button } from "@/Components/ui/button";
 import PaketWisataCard from "@/Components/home-page/PaketWisataCard";
 
+
 export default function Home({ categories, units }) {
-    const renderProduct = () => {
-        return Array.from({ length: 9 }, (_, index) =>
-            index === 8 ? (
-                <div className="col-span-1 md:col-span-2 place-self-center md:place-self-center xl:col-span-1  ">
-                    <PaketWisataCard key={index} />
-                </div>
-            ) : (
-                <PaketWisataCard key={index} />
-            )
-        );
-    };
     return (
         <>
             <Head title="Home" />
@@ -59,7 +49,9 @@ export default function Home({ categories, units }) {
                     id="products-section"
                 >
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-6 gap-y-4 lg:gap-y-12 place-items-stretch justify-items-center">
-                        {renderProduct()}
+                        {tourPackages.map((tourpackage, index) => {
+                            return <PaketWisataCard></PaketWisataCard>;
+                        })}
                     </div>
                 </section>
             </main>
