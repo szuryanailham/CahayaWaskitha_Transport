@@ -1,11 +1,13 @@
-import { Head, Link, router, useForm } from "@inertiajs/react";
+import { Head, Link, router, useForm, usePage } from "@inertiajs/react";
 import { useEffect, useState } from "react";
 
 export default function Dashboard({ unit, categories }) {
-    const { data, setData, processing, errors } = useForm({
+    const { data, setData, processing } = useForm({
         ...unit,
         image: [],
     });
+
+    const { errors } = usePage().props
 
     const [images, setImages] = useState(unit.image);
     const [ids, setIds] = useState(unit.image.map((image) => image.id));
