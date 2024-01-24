@@ -1,7 +1,7 @@
 import { Head, Link, useForm } from "@inertiajs/react";
 import { useEffect, useState } from "react";
 
-export default function Index({ orders }) {
+export default function Index({ statusMessage, orders }) {
     const {
         delete: destroy,
         put,
@@ -46,6 +46,8 @@ export default function Index({ orders }) {
     return (
         <>
             <Head title="Order" />
+
+            {statusMessage?.message && alert(statusMessage.message)}
 
             <Link className="text-blue-500" href="/admin/dashboard">
                 Back
