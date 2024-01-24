@@ -28,10 +28,12 @@ class Order extends Model
         'total_price',
     ];
 
-    protected $casts = [
-        'start_time' => 'datetime',
-        'end_time' => 'datetime',
-    ];
+    protected static function booted()
+    {
+        static::creating(function ($order) {
+            $order->no_order = 'TX' . now()->format('ym') . sprintf('%03d', static::count() + 1);
+        });
+    }
 
     public function unit()
     {

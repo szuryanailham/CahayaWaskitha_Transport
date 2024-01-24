@@ -67,7 +67,7 @@ class OrderController extends Controller
         $input['price'] = Unit::find($input['unit_id'])->price;
 
         // Generate unique random number
-        $input['no_order'] = Str::uuid();
+        // $input['no_order'] = Str::uuid();
 
         // Convert string date to Carbon instances
         $startDate = Carbon::parse($input['start_date']);

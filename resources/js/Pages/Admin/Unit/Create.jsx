@@ -6,6 +6,7 @@ export default function Create({ categories }) {
         category_id: "",
         description: "",
         capacity: "",
+        steering: "",
         price: "",
         image: [],
     });
@@ -85,6 +86,19 @@ export default function Create({ categories }) {
                     } border border-gray-200 p-2 w-full mb-3 dark:bg-gray-800`}
                 />
                 {Object.values(errors).length > 0 ? errors.capacity : ""}
+
+                <select
+                    name="steering"
+                    onChange={(e) => onHandleChange(e)}
+                    className={`${
+                        errors.steering ? "is-invalid" : ""
+                    } border border-gray-200 p-2 w-full mb-3 dark:bg-gray-800`}
+                >
+                    <option value="">Select Steering</option>
+                    <option value="Auto">Auto</option>
+                    <option value="Manual">Manual</option>
+                </select>
+                {Object.values(errors).length > 0 ? errors.steering : ""}
 
                 <input
                     type="number"

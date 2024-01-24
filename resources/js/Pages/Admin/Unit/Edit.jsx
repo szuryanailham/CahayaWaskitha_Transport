@@ -107,6 +107,20 @@ export default function Dashboard({ unit, categories }) {
                 />
                 {Object.values(errors).length > 0 ? errors.capacity : ""}
 
+                <select
+                    name="steering"
+                    defaultValue={data.steering}
+                    onChange={(e) => onHandleChange(e)}
+                    className={`${
+                        errors.steering ? "is-invalid" : ""
+                    } border border-gray-200 p-2 w-full mb-3 dark:bg-gray-800`}
+                >
+                    <option value="">Select Steering</option>
+                    <option value="Auto">Auto</option>
+                    <option value="Manual">Manual</option>
+                </select>
+                {Object.values(errors).length > 0 ? errors.steering : ""}
+
                 <input
                     type="number"
                     name="price"
