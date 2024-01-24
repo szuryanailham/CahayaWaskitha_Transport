@@ -143,8 +143,6 @@ class UnitController extends Controller
         // upload process here
         if ($request->hasFile('image.*')) {
 
-            $firstImage = null;
-
             foreach ($input['image'] as $image) {
 
                 $path = 'images/units/' . now()->format('Y/m/d');
@@ -163,13 +161,17 @@ class UnitController extends Controller
             }
         }
 
-        // get first image with id
-        $firstImage = UnitImage::where('unit_id', $unit->id)->first()->id;
+        // cek apakah unitimage exist
+        if (UnitImage::where('unit_id', $unit->id)->exists()) {
 
-        // Update featured_image_id
-        $unit->update([
-            'featured_image_id' => $firstImage,
-        ]);
+            // get first image with id
+            $firstImage = UnitImage::where('unit_id', $unit->id)->first()->id;
+
+            // Update featured_image_id
+            $unit->update([
+                'featured_image_id' => $firstImage,
+            ]);
+        }
 
         $unit->update($input);
 

@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
-export default function HomePage({ categories, units }) {
+export default function HomePage({ categories, units, banners }) {
     var settings = {
         dots: true,
         infinite: true,
@@ -17,7 +17,7 @@ export default function HomePage({ categories, units }) {
         slidesToScroll: 1,
     };
 
-    console.log(units, categories);
+    console.log(units, categories, banners);
     return (
         <>
             <Head title="Home" />
