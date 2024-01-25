@@ -36,7 +36,7 @@ class Order extends Model
     protected static function booted()
     {
         static::creating(function ($order) {
-            $order->no_order = 'TX' . now()->format('ym') . sprintf('%03d', static::count() + 1);
+            $order->no_order = 'TX' . now()->format('ymd') . sprintf('%03d', static::count() + 1);
         });
     }
 
