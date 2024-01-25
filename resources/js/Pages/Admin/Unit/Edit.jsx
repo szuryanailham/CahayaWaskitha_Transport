@@ -1,11 +1,13 @@
-import { Head, Link, router, useForm } from "@inertiajs/react";
+import { Head, Link, router, useForm, usePage } from "@inertiajs/react";
 import { useEffect, useState } from "react";
 
 export default function Dashboard({ unit, categories }) {
-    const { data, setData, processing, errors } = useForm({
+    const { data, setData, processing } = useForm({
         ...unit,
         image: [],
     });
+
+    const { errors } = usePage().props
 
     const [images, setImages] = useState(unit.image);
     const [ids, setIds] = useState(unit.image.map((image) => image.id));
@@ -106,6 +108,20 @@ export default function Dashboard({ unit, categories }) {
                     } border border-gray-200 p-2 w-full mb-3 dark:bg-gray-800`}
                 />
                 {Object.values(errors).length > 0 ? errors.capacity : ""}
+
+                <select
+                    name="steering"
+                    defaultValue={data.steering}
+                    onChange={(e) => onHandleChange(e)}
+                    className={`${
+                        errors.steering ? "is-invalid" : ""
+                    } border border-gray-200 p-2 w-full mb-3 dark:bg-gray-800`}
+                >
+                    <option value="">Select Steering</option>
+                    <option value="Auto">Auto</option>
+                    <option value="Manual">Manual</option>
+                </select>
+                {Object.values(errors).length > 0 ? errors.steering : ""}
 
                 <input
                     type="number"

@@ -1,6 +1,6 @@
 import { Head, useForm } from "@inertiajs/react";
 
-export default function PromoBanner({ banners }) {
+export default function PromoBanner({ statusMessage, banners }) {
     console.log(banners);
 
     const { data, setData, post, processing, reset, errors } = useForm({
@@ -29,6 +29,8 @@ export default function PromoBanner({ banners }) {
     return (
         <>
             <Head title="Promo Banner" />
+
+            {statusMessage?.message && alert(statusMessage.message)}
 
             <form onSubmit={submit}>
                 <input
