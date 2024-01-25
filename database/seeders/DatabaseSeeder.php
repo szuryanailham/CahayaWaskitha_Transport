@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             RoleTableSeeder::class,
             UserTableSeeder::class,
             UnitTableSeeder::class,
+            UnitImageTableSeeder::class,
         ]);
     }
 }
