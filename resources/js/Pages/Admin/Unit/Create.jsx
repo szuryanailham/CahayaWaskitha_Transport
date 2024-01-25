@@ -19,6 +19,7 @@ export default function Create({ categories }) {
         name: "",
         category_id: "",
         description: "",
+        steering: "",
         capacity: "",
         price: "",
         image: [],
@@ -264,6 +265,20 @@ export default function Create({ categories }) {
                                 </ul>
                             </div>
                         </div>
+                        <select
+                            name="steering"
+                            onChange={(e) => onHandleChange(e)}
+                            className={`${
+                                errors.steering ? "is-invalid" : ""
+                            } border border-gray-200 p-2 w-full mb-3 dark:bg-gray-800`}
+                        >
+                            <option value="">Select Steering</option>
+                            <option value="Auto">Auto</option>
+                            <option value="Manual">Manual</option>
+                        </select>
+                        {Object.values(errors).length > 0
+                            ? errors.steering
+                            : ""}
 
                         <div className="flex justify-center mt-5 gap-4">
                             <Link className="text-blue-500" href="/admin/unit">
