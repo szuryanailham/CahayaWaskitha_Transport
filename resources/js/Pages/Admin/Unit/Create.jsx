@@ -11,6 +11,7 @@ import {
     SelectItem,
     SelectLabel,
     SelectTrigger,
+    SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/Components/ui/button";
 
@@ -19,6 +20,7 @@ export default function Create({ categories }) {
         name: "",
         category_id: "",
         description: "",
+        steering: "",
         capacity: "",
         price: "",
         image: [],
@@ -196,6 +198,50 @@ export default function Create({ categories }) {
                                 {" "}
                                 {Object.values(errors).length > 0
                                     ? errors.capacity
+                                    : ""}
+                            </span>
+                        </div>
+                        <div>
+                            <label className="font-bold" htmlFor="category_id">
+                                Steering
+                            </label>
+                            <Select
+                                onValueChange={(value) => {
+                                    setData((current) => ({
+                                        ...current,
+                                        steering: value,
+                                    }));
+                                }}
+                                id="steering"
+                                name="steering"
+                            >
+                                <SelectTrigger
+                                    className={`${
+                                        errors.steering ? "is-invalid" : ""
+                                    } dark:bg-gray-800 mt-3`}
+                                >
+                                    <SelectValue placeholder="Select Steering" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectGroup>
+                                        <SelectLabel>
+                                            Select Steering
+                                        </SelectLabel>
+                                        <SelectItem key={"Auto"} value={"Auto"}>
+                                            Auto
+                                        </SelectItem>
+                                        <SelectItem
+                                            key={"Manual"}
+                                            value={"Manual"}
+                                        >
+                                            Manual
+                                        </SelectItem>
+                                    </SelectGroup>
+                                </SelectContent>
+                            </Select>
+                            <span>
+                                {Object.values(errors).length > 0
+                                    ? errors.steering
                                     : ""}
                             </span>
                         </div>
