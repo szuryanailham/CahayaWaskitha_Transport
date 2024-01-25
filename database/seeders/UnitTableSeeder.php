@@ -16,6 +16,22 @@ class UnitTableSeeder extends Seeder
         $units = [
             [
                 'category_id' => 1,
+                'name' => 'Agya',
+                'slug' => 'agya',
+                'description' => 'Quisque varius diam vel metus mattis, id aliquam diam rhoncus.
+                Proin vitae magna in dui finibus malesuada et at nulla.
+                Morbi elit ex, viverra vitae ante vel, blandit feugiat ligula.
+                Fusce fermentum iaculis nibh, at sodales leo maximus a.
+                Nullam ultricies sodales nunc, in pellentesque lorem mattis quis.
+                Cras imperdiet est in nunc tristique lacinia.
+                Nullam aliquam mauris eu accumsan tincidunt.
+                Suspendisse velit ex, aliquet vel ornare vel, dignissim a tortor.',
+                'price' => 300000,
+                'capacity' => 3,
+                'steering' => 'Auto',
+            ],
+            [
+                'category_id' => 1,
                 'name' => 'Alphard',
                 'slug' => 'alphard',
                 'description' => 'Quisque varius diam vel metus mattis, id aliquam diam rhoncus.
@@ -32,8 +48,24 @@ class UnitTableSeeder extends Seeder
             ],
             [
                 'category_id' => 1,
-                'name' => 'Camry',
-                'slug' => 'camry',
+                'name' => 'Ayla',
+                'slug' => 'ayla',
+                'description' => 'Quisque varius diam vel metus mattis, id aliquam diam rhoncus.
+                Proin vitae magna in dui finibus malesuada et at nulla.
+                Morbi elit ex, viverra vitae ante vel, blandit feugiat ligula.
+                Fusce fermentum iaculis nibh, at sodales leo maximus a.
+                Nullam ultricies sodales nunc, in pellentesque lorem mattis quis.
+                Cras imperdiet est in nunc tristique lacinia.
+                Nullam aliquam mauris eu accumsan tincidunt.
+                Suspendisse velit ex, aliquet vel ornare vel, dignissim a tortor.',
+                'price' => 250000,
+                'capacity' => 3,
+                'steering' => 'Manual',
+            ],
+            [
+                'category_id' => 1,
+                'name' => 'Calya',
+                'slug' => 'calya',
                 'description' => 'Quisque varius diam vel metus mattis, id aliquam diam rhoncus.
                 Proin vitae magna in dui finibus malesuada et at nulla.
                 Morbi elit ex, viverra vitae ante vel, blandit feugiat ligula.
@@ -64,8 +96,8 @@ class UnitTableSeeder extends Seeder
             ],
             [
                 'category_id' => 2,
-                'name' => 'Small Bus',
-                'slug' => 'small-bus',
+                'name' => 'Hiace',
+                'slug' => 'hiace',
                 'description' => 'Quisque varius diam vel metus mattis, id aliquam diam rhoncus.
                 Proin vitae magna in dui finibus malesuada et at nulla.
                 Morbi elit ex, viverra vitae ante vel, blandit feugiat ligula.
@@ -74,14 +106,30 @@ class UnitTableSeeder extends Seeder
                 Cras imperdiet est in nunc tristique lacinia.
                 Nullam aliquam mauris eu accumsan tincidunt.
                 Suspendisse velit ex, aliquet vel ornare vel, dignissim a tortor.',
-                'price' => 1000000,
-                'capacity' => 16,
+                'price' => 750000,
+                'capacity' => 15,
                 'steering' => 'Manual',
             ],
             [
                 'category_id' => 2,
-                'name' => 'Medium Bus',
-                'slug' => 'medium-bus',
+                'name' => 'Big Bus 48',
+                'slug' => 'big-bus-48',
+                'description' => 'Quisque varius diam vel metus mattis, id aliquam diam rhoncus.
+                Proin vitae magna in dui finibus malesuada et at nulla.
+                Morbi elit ex, viverra vitae ante vel, blandit feugiat ligula.
+                Fusce fermentum iaculis nibh, at sodales leo maximus a.
+                Nullam ultricies sodales nunc, in pellentesque lorem mattis quis.
+                Cras imperdiet est in nunc tristique lacinia.
+                Nullam aliquam mauris eu accumsan tincidunt.
+                Suspendisse velit ex, aliquet vel ornare vel, dignissim a tortor.',
+                'price' => 2400000,
+                'capacity' => 48,
+                'steering' => 'Manual',
+            ],
+            [
+                'category_id' => 2,
+                'name' => 'Luxury Bus Mercy',
+                'slug' => 'luxury-bus-mercy',
                 'description' => 'Quisque varius diam vel metus mattis, id aliquam diam rhoncus.
                 Proin vitae magna in dui finibus malesuada et at nulla.
                 Morbi elit ex, viverra vitae ante vel, blandit feugiat ligula.
@@ -91,13 +139,13 @@ class UnitTableSeeder extends Seeder
                 Nullam aliquam mauris eu accumsan tincidunt.
                 Suspendisse velit ex, aliquet vel ornare vel, dignissim a tortor.',
                 'price' => 1500000,
-                'capacity' => 35,
+                'capacity' => 15,
                 'steering' => 'Manual',
             ],
             [
                 'category_id' => 2,
-                'name' => 'Big Bus',
-                'slug' => 'big-bus',
+                'name' => 'Medium Bus 31',
+                'slug' => 'medium-bus-31',
                 'description' => 'Quisque varius diam vel metus mattis, id aliquam diam rhoncus.
                 Proin vitae magna in dui finibus malesuada et at nulla.
                 Morbi elit ex, viverra vitae ante vel, blandit feugiat ligula.
@@ -106,8 +154,40 @@ class UnitTableSeeder extends Seeder
                 Cras imperdiet est in nunc tristique lacinia.
                 Nullam aliquam mauris eu accumsan tincidunt.
                 Suspendisse velit ex, aliquet vel ornare vel, dignissim a tortor.',
-                'price' => 2000000,
-                'capacity' => 48,
+                'price' => 1500000,
+                'capacity' => 31,
+                'steering' => 'Manual',
+            ],
+            [
+                'category_id' => 2,
+                'name' => 'Medium Bus 35',
+                'slug' => 'medium-bus-35',
+                'description' => 'Quisque varius diam vel metus mattis, id aliquam diam rhoncus.
+                Proin vitae magna in dui finibus malesuada et at nulla.
+                Morbi elit ex, viverra vitae ante vel, blandit feugiat ligula.
+                Fusce fermentum iaculis nibh, at sodales leo maximus a.
+                Nullam ultricies sodales nunc, in pellentesque lorem mattis quis.
+                Cras imperdiet est in nunc tristique lacinia.
+                Nullam aliquam mauris eu accumsan tincidunt.
+                Suspendisse velit ex, aliquet vel ornare vel, dignissim a tortor.',
+                'price' => 1800000,
+                'capacity' => 35,
+                'steering' => 'Manual',
+            ],
+            [
+                'category_id' => 2,
+                'name' => 'Medium Bus Luxury',
+                'slug' => 'medium-bus-luxury',
+                'description' => 'Quisque varius diam vel metus mattis, id aliquam diam rhoncus.
+                Proin vitae magna in dui finibus malesuada et at nulla.
+                Morbi elit ex, viverra vitae ante vel, blandit feugiat ligula.
+                Fusce fermentum iaculis nibh, at sodales leo maximus a.
+                Nullam ultricies sodales nunc, in pellentesque lorem mattis quis.
+                Cras imperdiet est in nunc tristique lacinia.
+                Nullam aliquam mauris eu accumsan tincidunt.
+                Suspendisse velit ex, aliquet vel ornare vel, dignissim a tortor.',
+                'price' => 1200000,
+                'capacity' => 12,
                 'steering' => 'Manual',
             ],
             [
