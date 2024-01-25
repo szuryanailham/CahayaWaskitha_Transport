@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('unit', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('category_id')->nullable();
-            $table->string('name')->unique();
+            $table->string('name');
             $table->string('slug')->unique();
             $table->unsignedBigInteger('featured_image_id')->nullable();
             $table->text('description')->nullable();
             $table->integer('price')->default(0);
             $table->integer('capacity')->default(0);
-            $table->boolean('status')->default(1);
+            $table->string('steering');
             $table->softDeletes();
             $table->timestamps();
         });

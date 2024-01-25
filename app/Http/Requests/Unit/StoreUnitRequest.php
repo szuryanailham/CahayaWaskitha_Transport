@@ -27,6 +27,7 @@ class StoreUnitRequest extends FormRequest
             'description' => ['nullable', 'string', 'max:255'],
             'price' => ['required', 'numeric'],
             'capacity' => ['required', 'numeric'],
+            'steering' => ['required', 'string'],
             'image' => ['array'],
             'image.*' => ['image', 'mimes:jpeg,png,jpg,gif,svg', 'max:10240'],
         ];

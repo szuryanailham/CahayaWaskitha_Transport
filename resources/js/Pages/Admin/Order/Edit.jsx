@@ -2,11 +2,13 @@ import { Head, Link, router, useForm } from "@inertiajs/react";
 import { useEffect, useState } from "react";
 
 export default function Dashboard({ order, units, unit, time }) {
-    const { data, setData, get, processing, errors } = useForm({
+    const { data, setData, get, processing } = useForm({
         ...order,
         start_time: time.start_time,
         end_time: time.end_time,
     });
+
+    const { errors } = usePage().props;
 
     const [selectUnit, setSelectUnit] = useState(false);
     const [startDate, setStartDate] = useState("");

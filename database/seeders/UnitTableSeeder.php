@@ -13,15 +13,6 @@ class UnitTableSeeder extends Seeder
      */
     public function run(): void
     {
-
-        // 'category_id',
-        // 'name',
-        // 'featured_image_id',
-        // 'description',
-        // 'price',
-        // 'capacity',
-        // 'status',
-
         $units = [
             [
                 'category_id' => 1,
@@ -37,7 +28,7 @@ class UnitTableSeeder extends Seeder
                 Suspendisse velit ex, aliquet vel ornare vel, dignissim a tortor.',
                 'price' => 500000,
                 'capacity' => 5,
-                'status' => 1,
+                'steering' => 'Auto',
             ],
             [
                 'category_id' => 1,
@@ -53,7 +44,7 @@ class UnitTableSeeder extends Seeder
                 Suspendisse velit ex, aliquet vel ornare vel, dignissim a tortor.',
                 'price' => 300000,
                 'capacity' => 3,
-                'status' => 1,
+                'steering' => 'Manual',
             ],
             [
                 'category_id' => 1,
@@ -69,7 +60,7 @@ class UnitTableSeeder extends Seeder
                 Suspendisse velit ex, aliquet vel ornare vel, dignissim a tortor.',
                 'price' => 500000,
                 'capacity' => 5,
-                'status' => 1,
+                'steering' => 'Auto',
             ],
             [
                 'category_id' => 2,
@@ -85,7 +76,7 @@ class UnitTableSeeder extends Seeder
                 Suspendisse velit ex, aliquet vel ornare vel, dignissim a tortor.',
                 'price' => 1000000,
                 'capacity' => 16,
-                'status' => 1,
+                'steering' => 'Manual',
             ],
             [
                 'category_id' => 2,
@@ -101,7 +92,7 @@ class UnitTableSeeder extends Seeder
                 Suspendisse velit ex, aliquet vel ornare vel, dignissim a tortor.',
                 'price' => 1500000,
                 'capacity' => 35,
-                'status' => 1,
+                'steering' => 'Manual',
             ],
             [
                 'category_id' => 2,
@@ -117,7 +108,7 @@ class UnitTableSeeder extends Seeder
                 Suspendisse velit ex, aliquet vel ornare vel, dignissim a tortor.',
                 'price' => 2000000,
                 'capacity' => 48,
-                'status' => 1,
+                'steering' => 'Manual',
             ],
             [
                 'category_id' => 3,
@@ -133,7 +124,7 @@ class UnitTableSeeder extends Seeder
                 Suspendisse velit ex, aliquet vel ornare vel, dignissim a tortor.',
                 'price' => 100000,
                 'capacity' => 2,
-                'status' => 1,
+                'steering' => 'Auto',
             ],
             [
                 'category_id' => 3,
@@ -149,7 +140,7 @@ class UnitTableSeeder extends Seeder
                 Suspendisse velit ex, aliquet vel ornare vel, dignissim a tortor.',
                 'price' => 100000,
                 'capacity' => 2,
-                'status' => 1,
+                'steering' => 'Auto',
             ],
             [
                 'category_id' => 3,
@@ -165,7 +156,7 @@ class UnitTableSeeder extends Seeder
                 Suspendisse velit ex, aliquet vel ornare vel, dignissim a tortor.',
                 'price' => 100000,
                 'capacity' => 2,
-                'status' => 1,
+                'steering' => 'Manual',
             ],
         ];
 

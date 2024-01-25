@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 // models
 use App\Models\Category;
 use App\Models\Unit;
+use App\Models\PromoBanner;
 
 // resources
 use App\Http\Resources\CategoryResource;
@@ -73,6 +74,7 @@ class HomeController extends Controller
         return Inertia::render('User/HomePage', [
             'categories' => CategoryResource::collection($categories),
             'units' => UnitResource::collection($units),
+            'banners' => PromoBanner::all(),
         ]);
     }
 

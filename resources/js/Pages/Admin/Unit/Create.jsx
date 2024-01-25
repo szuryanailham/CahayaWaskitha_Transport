@@ -20,6 +20,7 @@ export default function Create({ categories }) {
         category_id: "",
         description: "",
         capacity: "",
+        steering: "",
         price: "",
         image: [],
     });
@@ -158,6 +159,7 @@ export default function Create({ categories }) {
                             </span>
                         </div>
 
+<<<<<<< lana-branch
                         <div>
                             <label className="font-bold" htmlFor="price">
                                 Harga
@@ -230,56 +232,28 @@ export default function Create({ categories }) {
                                         PNG, JPG (MAX. 800x400px)
                                     </p>
                                 </div>
+=======
+                <select
+                    name="steering"
+                    onChange={(e) => onHandleChange(e)}
+                    className={`${
+                        errors.steering ? "is-invalid" : ""
+                    } border border-gray-200 p-2 w-full mb-3 dark:bg-gray-800`}
+                >
+                    <option value="">Select Steering</option>
+                    <option value="Auto">Auto</option>
+                    <option value="Manual">Manual</option>
+                </select>
+                {Object.values(errors).length > 0 ? errors.steering : ""}
 
-                                <input
-                                    id="image"
-                                    type="file"
-                                    name="image"
-                                    className="hidden"
-                                    onChange={(e) => onHandleChange(e)}
-                                    multiple
-                                />
-                            </label>
+                <input
+                    type="number"
+                    name="price"
+                    onChange={(e) => onHandleChange(e)}
+                    placeholder="Price"
+                    className={`${
+                        errors.price ? "is-invalid" : ""
+                    } border border-gray-200 p-2 w-full mb-3 dark:bg-gray-800`}
+                />
+                {Object.values(errors).length > 0 ? errors.price : ""}
 
-                            {/* kriteria uploud */}
-                            <div className="w-[50%] p-5">
-                                <h1 className=" text-sm md:text-2xl font-bold mb-4">
-                                    Ketentuan Unggah Gambar:
-                                </h1>
-                                <ul className="list-disc text-xs md:text-xl pl-5">
-                                    <li className="mb-2">
-                                        Unggah 4 gambar untuk setiap unit baru
-                                    </li>
-                                    <li className="mb-2">
-                                        Unggah 4 gambar : 1 full body (png) dan
-                                        3 foto tambahan (jpg)
-                                    </li>
-                                    <li className="mb-2">
-                                        Unggah gambar dengan resolusi ....
-                                    </li>
-                                    <li>
-                                        edit gambar dan unggah ulang jika gambar
-                                        mengalami kerusakan atau lag
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div className="flex justify-center mt-5 gap-4">
-                            <Link className="text-blue-500" href="/admin/unit">
-                                <Button variant="outline">Back</Button>
-                            </Link>
-                            <Button
-                                disabled={processing}
-                                type="submit"
-                                className="bg-blue-600 text-white"
-                            >
-                                {processing ? "Loading..." : "Submit"}
-                            </Button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </>
-    );
-}

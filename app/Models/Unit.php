@@ -20,7 +20,7 @@ class Unit extends Model
         'description',
         'price',
         'capacity',
-        'status',
+        'steering',
     ];
 
     /**
