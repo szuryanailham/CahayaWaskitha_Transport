@@ -1,7 +1,25 @@
 import { Head, Link, useForm } from "@inertiajs/react";
 import { useEffect, useState } from "react";
+import NavDashboard from "@/Components/DashboardComponent/NavDashboard";
+import SidebarDashboard from "@/Components/DashboardComponent/SidebarDashboard";
+import React from "react";
+import { FaPenToSquare } from "react-icons/fa6";
+import { MdDeleteOutline } from "react-icons/md";
+import { IoMdAddCircle } from "react-icons/io";
+import { FormatRupiah } from "@arismun/format-rupiah";
+import {
+    Table,
+    TableBody,
+    TableCaption,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "@/components/ui/table";
+import { Button } from "@/Components/ui/button";
 
 export default function Index({ units }) {
+    console.log(units);
     const {
         delete: destroy,
         put,
@@ -46,72 +64,123 @@ export default function Index({ units }) {
     return (
         <>
             <Head title="Unit" />
-
-            <Link className="text-blue-500" href="/admin/dashboard">
-                Back
-            </Link>
-            <Link className="ml-2 text-blue-500" href="/admin/unit/create">
-                Create
-            </Link>
-
-            <input
-                type="text"
-                name="q"
-                onChange={(e) => onHandleChange(e)}
-                value={data.q}
-                className="w-1/3 p-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white flex"
-                placeholder="Search..."
-            />
-
-            {units.data.map((unit) => (
-                <div key={unit.id}>
-                    <Link>{unit.name}</Link>
-                    {unit.is_deleted ? (
-                        <span className="ml-2 text-gray-500">Edit</span>
-                    ) : (
-                        <Link
-                            className="ml-2 text-blue-500"
-                            href={`/admin/unit/${unit.id}/edit`}
-                        >
-                            Edit
-                        </Link>
-                    )}
-
-                    <button
-                        className={`ml-2 text-red-500 ${
-                            unit.is_deleted ? "text-green-500" : ""
-                        }`}
-                        onClick={() => {
-                            unit.is_deleted
-                                ? put(`/admin/unit/${unit.id}/restore`)
-                                : onHandleDelete(unit.id);
-                        }}
-                    >
-                        <a className="btn sm danger">
-                            {unit.is_deleted ? "Restore" : "Delete"}
-                        </a>
-                    </button>
+            <SidebarDashboard />
+            <div class="p-4 sm:ml-64">
+                <NavDashboard />
+                <div className="">
+                    {/* button add unit */}
+                    <div className="flex justify-end p-3">
+                        <Button className="bg-blue-700 dark:text-white mt-5">
+                            <Link href="/admin/unit/create" className="flex">
+                                <IoMdAddCircle className="text-lg m-1" />
+                                <p>Add Unit</p>
+                            </Link>
+                        </Button>
+                    </div>
+                    {/* end button */}
+                    <h1 className="text-xl font-bold text-center">
+                        List All Unit
+                    </h1>
+                    {/* TABEL */}
+                    <Table className="mt-3">
+                        <TableHeader>
+                            <TableRow>
+                                <TableHead>no</TableHead>
+                                <TableHead className="w-[150px]">
+                                    KD-unit
+                                </TableHead>
+                                <TableHead>Nama Unit</TableHead>
+                                <TableHead>Image</TableHead>
+                                <TableHead>price</TableHead>
+                                <TableHead>Category</TableHead>
+                                <TableHead className="w-[150px]">
+                                    Action
+                                </TableHead>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                            {/* content of table */}
+                            {units.data.map((unit) => (
+                                <TableRow key={unit.id}>
+                                    <TableCell className="font-medium">
+                                        1
+                                    </TableCell>
+                                    <TableCell className="font-medium">
+                                        {unit.id}
+                                    </TableCell>
+                                    <TableCell className="font-medium">
+                                        {unit.name}
+                                    </TableCell>
+                                    <TableCell>
+                                        <img
+                                            className="w-18 h-12"
+                                            src="/images/promo.png"
+                                            alt="Promo lebaran"
+                                        />
+                                    </TableCell>
+                                    <TableCell className="font-medium">
+                                        {<FormatRupiah value={unit.price} />}
+                                    </TableCell>
+                                    <TableCell className="font-medium">
+                                        {unit.category}
+                                    </TableCell>
+                                    {/* button update */}
+                                    <TableCell className="font-medium flex gap-1">
+                                        <Button className=" bg-yellow-500  flex justify-center">
+                                            <Link
+                                                href={`/admin/unit/${unit.id}/edit`}
+                                            >
+                                                <FaPenToSquare className="text-md text-black" />
+                                            </Link>
+                                        </Button>
+                                        {/* deleted  button */}
+                                        <Button
+                                            className="bg-red-600"
+                                            onClick={() => {
+                                                unit.is_deleted
+                                                    ? put(
+                                                          `/admin/unit/${unit.id}/restore`
+                                                      )
+                                                    : onHandleDelete(unit.id);
+                                            }}
+                                        >
+                                            <MdDeleteOutline className="text-lg" />
+                                        </Button>
+                                    </TableCell>
+                                </TableRow>
+                            ))}
+                            <TableRow className="w-full ">
+                                <TableCell>
+                                    <div className="pagination">
+                                        {units.meta.links.map((data) => {
+                                            return (
+                                                <Link
+                                                    key={data.label}
+                                                    href={data.url}
+                                                    className={`px-3 py-1 hover:bg-indigo-500 text-white-700 rounded-md ${
+                                                        data.active
+                                                            ? "bg-indigo-500"
+                                                            : ""
+                                                    }`}
+                                                >
+                                                    {data.label ===
+                                                    "&laquo; Previous"
+                                                        ? "«"
+                                                        : data.label ===
+                                                          "Next &raquo;"
+                                                        ? "»"
+                                                        : data.label}
+                                                </Link>
+                                            );
+                                        })}
+                                    </div>
+                                </TableCell>
+                            </TableRow>
+                            {/* end  content of table */}
+                        </TableBody>
+                    </Table>
+                    {/* END OF TABLE */}
                 </div>
-            ))}
-
-            <div className="pagination">
-                {units.meta.links.map((data) => {
-                    return (
-                        <Link
-                            key={data.label}
-                            href={data.url}
-                            className={`px-3 py-1 hover:bg-indigo-500 text-white-700 rounded-md ${
-                                data.active ? "bg-indigo-500" : ""
-                            }`}
-                        >
-                            {data.label === "&laquo; Previous"
-                                ? "«"
-                                : data.label === "Next &raquo;"
-                                ? "»"
-                                : data.label}
-                        </Link>
-                    );
-                })}
             </div>
         </>
     );

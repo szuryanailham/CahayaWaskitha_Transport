@@ -1,5 +1,9 @@
 import { Head, Link, useForm } from "@inertiajs/react";
 import { useEffect, useState } from "react";
+import CardTransaction from "@/Components/DashboardComponent/CardTransaction";
+import NavDashboard from "@/Components/DashboardComponent/NavDashboard";
+import SidebarDashboard from "@/Components/DashboardComponent/SidebarDashboard";
+import React from "react";
 
 export default function Index({ orders }) {
     const {
@@ -42,10 +46,39 @@ export default function Index({ orders }) {
             return () => clearTimeout(delay);
         }
     }, [searchQuery]);
-
+    {
+    }
     return (
         <>
-            <Head title="Order" />
+            <SidebarDashboard />
+            <div class="p-4 sm:ml-64">
+                <NavDashboard />
+                <div className="mt-5">
+                    {/* table transaction */}
+                    {orders.data.map((order) => {
+                        console.log(order.is_deleted); // Moved console.log here
+                        return (
+                            <div key={order.id}>
+                                <CardTransaction
+                                    nama_unit={order.unit}
+                                    kode_unit={order.no_order}
+                                    pemesan_unit={order.name}
+                                    no_pemesan={order.phone}
+                                    alamat={order.address}
+                                    total_hari={order.duration}
+                                    total_harga={order.total_price}
+                                    tgl_mulai={order.start_date}
+                                    tgl_akhir={order.end_date}
+                                    lokasi_penjemputan={order.pickup_address}
+                                    id={order.id}
+                                    is_deleted={order.is_deleted}
+                                />
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+            {/* <Head title="Order" />
 
             <Link className="text-blue-500" href="/admin/dashboard">
                 Back
@@ -112,7 +145,7 @@ export default function Index({ orders }) {
                         </Link>
                     );
                 })}
-            </div>
+            </div> */}
         </>
     );
 }
