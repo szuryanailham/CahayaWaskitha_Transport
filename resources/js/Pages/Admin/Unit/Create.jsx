@@ -101,18 +101,7 @@ export default function Create({ categories }) {
                                         errors.category_id ? "is-invalid" : ""
                                     } dark:bg-gray-800 mt-3`}
                                 >
-                                    {!data.category_id
-                                        ? "Select Category"
-                                        : categories.map((category) => {
-                                              return (
-                                                  category.id ===
-                                                      +data.category_id && (
-                                                      <span key={category.id}>
-                                                          {category.name}
-                                                      </span>
-                                                  )
-                                              );
-                                          })}
+                                   
                                 </SelectTrigger>
                                 <SelectContent>
                                     <SelectGroup>
@@ -159,101 +148,4 @@ export default function Create({ categories }) {
                             </span>
                         </div>
 
-<<<<<<< lana-branch
-                        <div>
-                            <label className="font-bold" htmlFor="price">
-                                Harga
-                            </label>
-                            <Input
-                                type="number"
-                                id="price"
-                                name="price"
-                                onChange={(e) => onHandleChange(e)}
-                                placeholder="harga.."
-                                className={`${
-                                    errors.price ? "is-invalid" : ""
-                                } dark:bg-gray-800 mt-3`}
-                            />
-                            <span>
-                                {Object.values(errors).length > 0
-                                    ? errors.price
-                                    : ""}
-                            </span>
-                        </div>
-                        <div>
-                            <label className="font-bold" htmlFor="capacity">
-                                kapasitas
-                            </label>
-                            <Input
-                                id="capacity"
-                                name="capacity"
-                                type="number"
-                                placeholder="kapasitas unit....."
-                                onChange={(e) => onHandleChange(e)}
-                                className={`${
-                                    errors.capacity ? "is-invalid" : ""
-                                } dark:bg-gray-800 mt-3`}
-                            />
-                            <span>
-                                {" "}
-                                {Object.values(errors).length > 0
-                                    ? errors.capacity
-                                    : ""}
-                            </span>
-                        </div>
-                        <div className="flex items-center justify-evenly  w-full mt-5 gap-2">
-                            <label
-                                htmlFor="image"
-                                className="flex flex-col items-center justify-center w-[50%] h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
-                            >
-                                <div className="flex flex-col items-center justify-center p-6">
-                                    <svg
-                                        className="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400"
-                                        aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        fill="none"
-                                        viewBox="0 0 20 16"
-                                    >
-                                        <path
-                                            stroke="currentColor"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth="2"
-                                            d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"
-                                        />
-                                    </svg>
-                                    <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                                        <span className="font-semibold">
-                                            Click to upload
-                                        </span>{" "}
-                                        your promo here
-                                    </p>
-                                    <p className="text-xs text-gray-500 dark:text-gray-400">
-                                        PNG, JPG (MAX. 800x400px)
-                                    </p>
-                                </div>
-=======
-                <select
-                    name="steering"
-                    onChange={(e) => onHandleChange(e)}
-                    className={`${
-                        errors.steering ? "is-invalid" : ""
-                    } border border-gray-200 p-2 w-full mb-3 dark:bg-gray-800`}
-                >
-                    <option value="">Select Steering</option>
-                    <option value="Auto">Auto</option>
-                    <option value="Manual">Manual</option>
-                </select>
-                {Object.values(errors).length > 0 ? errors.steering : ""}
-
-                <input
-                    type="number"
-                    name="price"
-                    onChange={(e) => onHandleChange(e)}
-                    placeholder="Price"
-                    className={`${
-                        errors.price ? "is-invalid" : ""
-                    } border border-gray-200 p-2 w-full mb-3 dark:bg-gray-800`}
-                />
-                {Object.values(errors).length > 0 ? errors.price : ""}
-
+                      
