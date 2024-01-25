@@ -11,6 +11,7 @@ import {
     SelectItem,
     SelectLabel,
     SelectTrigger,
+    SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/Components/ui/button";
 
@@ -200,6 +201,50 @@ export default function Create({ categories }) {
                                     : ""}
                             </span>
                         </div>
+                        <div>
+                            <label className="font-bold" htmlFor="category_id">
+                                Steering
+                            </label>
+                            <Select
+                                onValueChange={(value) => {
+                                    setData((current) => ({
+                                        ...current,
+                                        steering: value,
+                                    }));
+                                }}
+                                id="steering"
+                                name="steering"
+                            >
+                                <SelectTrigger
+                                    className={`${
+                                        errors.steering ? "is-invalid" : ""
+                                    } dark:bg-gray-800 mt-3`}
+                                >
+                                    <SelectValue placeholder="Select Steering" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectGroup>
+                                        <SelectLabel>
+                                            Select Steering
+                                        </SelectLabel>
+                                        <SelectItem key={"Auto"} value={"Auto"}>
+                                            Auto
+                                        </SelectItem>
+                                        <SelectItem
+                                            key={"Manual"}
+                                            value={"Manual"}
+                                        >
+                                            Manual
+                                        </SelectItem>
+                                    </SelectGroup>
+                                </SelectContent>
+                            </Select>
+                            <span>
+                                {Object.values(errors).length > 0
+                                    ? errors.steering
+                                    : ""}
+                            </span>
+                        </div>
                         <div className="flex items-center justify-evenly  w-full mt-5 gap-2">
                             <label
                                 htmlFor="image"
@@ -265,20 +310,6 @@ export default function Create({ categories }) {
                                 </ul>
                             </div>
                         </div>
-                        <select
-                            name="steering"
-                            onChange={(e) => onHandleChange(e)}
-                            className={`${
-                                errors.steering ? "is-invalid" : ""
-                            } border border-gray-200 p-2 w-full mb-3 dark:bg-gray-800`}
-                        >
-                            <option value="">Select Steering</option>
-                            <option value="Auto">Auto</option>
-                            <option value="Manual">Manual</option>
-                        </select>
-                        {Object.values(errors).length > 0
-                            ? errors.steering
-                            : ""}
 
                         <div className="flex justify-center mt-5 gap-4">
                             <Link className="text-blue-500" href="/admin/unit">
