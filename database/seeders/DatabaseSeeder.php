@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             UserTableSeeder::class,
             UnitTableSeeder::class,
             UnitImageTableSeeder::class,
+            TestimonyTableSeeder::class,
         ]);
     }
 }
