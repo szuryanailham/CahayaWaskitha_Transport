@@ -13,7 +13,6 @@ import {
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
-
 export function NavigationMenuDemo({ categories, units }) {
     return (
         <NavigationMenu>
@@ -83,7 +82,7 @@ export function NavigationMenuDemo({ categories, units }) {
                         <NavigationMenuLink
                             className={`${navigationMenuTriggerStyle()}text-xs md:text-base`}
                         >
-                            Semua Kendaraan
+                            <Link href={"/paket-wisata"}>Paket wisata</Link>
                         </NavigationMenuLink>
                     </Link>
                 </NavigationMenuItem>

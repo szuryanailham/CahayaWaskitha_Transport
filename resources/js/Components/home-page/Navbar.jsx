@@ -92,6 +92,15 @@ function Navbar() {
                         </li>
                         {/* item nav link 4 */}
                         <li className="mt-3 md:mt-0">
+                            <a
+                                href={`/gallery`}
+                                className="block py-2 px-3 text-white hover:text-black md:hover:text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                            >
+                                Gallery
+                            </a>
+                        </li>
+                        {/* item nav link 5 */}
+                        <li className="mt-3 md:mt-0">
                             <ModeToggle />
                         </li>
                     </ul>
