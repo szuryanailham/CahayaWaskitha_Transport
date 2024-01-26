@@ -165,7 +165,7 @@ function SidebarDashboard() {
                         {/* Promo */}
                         <li>
                             <Link
-                                href="/admin/promo"
+                                href="/admin/promo-banner"
                                 className="flex items-center p-2 text-white rounded-lg dark:text-white hover:text-black hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
                                 <img

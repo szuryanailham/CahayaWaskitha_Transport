@@ -86,9 +86,12 @@ function CardTransaction(props) {
             <div className=" w-[30%]  flex justify-center m-auto">
                 <div className="flex justify-evenly flex-col gap-2 md:flex-row">
                     {/* edit */}
-                    <Button className="text-xs w-10 md:w-20 bg-yellow-400">
-                        <Link href={`/admin/order/${props.id}/edit`}>Edit</Link>
-                    </Button>
+                    <Link href={`/admin/order/${props.id}/edit`}>
+                        <Button className="text-xs w-10 md:w-20 bg-yellow-400">
+                            Edit
+                        </Button>
+                    </Link>
+
                     {/* delete */}
                     <Button
                         className={` bg-red-500 text-xs w-10 md:w-20 text-white hover:text-black ${

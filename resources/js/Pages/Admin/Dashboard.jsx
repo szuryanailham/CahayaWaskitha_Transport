@@ -7,7 +7,6 @@ import { FiLogOut } from "react-icons/fi";
 export default function Dashboard({ total }) {
     const { auth } = usePage().props;
     const { component } = usePage();
-    console.log(total.price);
     return (
         <>
             <SidebarDashboard />

@@ -8,6 +8,7 @@ export default function Success({ order }) {
     const componentRef = useRef();
     const handlePrint = useReactToPrint({
         documentTitle: "Struct penyewaan",
+
         content: () => componentRef.current,
     });
     const formatter = new Intl.DateTimeFormat("id-ID", {
@@ -28,6 +29,16 @@ export default function Success({ order }) {
                         ref={componentRef}
                         className="relative pt-8 flex flex-col justify-center items-center"
                     >
+                        <div>
+                            {/* cart content */}
+                            <div className="w-full p-3">
+                                <img
+                                    src="/images/logo_brand.svg"
+                                    className="h-8"
+                                    alt="Cahaya_waskitha"
+                                />
+                            </div>
+                        </div>
                         <svg
                             className="checkmark"
                             xmlns="http://www.w3.org/2000/svg"

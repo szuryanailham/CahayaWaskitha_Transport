@@ -4,6 +4,7 @@ import CardTransaction from "@/Components/DashboardComponent/CardTransaction";
 import NavDashboard from "@/Components/DashboardComponent/NavDashboard";
 import SidebarDashboard from "@/Components/DashboardComponent/SidebarDashboard";
 import React from "react";
+import { Input } from "@/Components/ui/input";
 
 export default function Index({ statusMessage, orders }) {
     const {
@@ -50,10 +51,22 @@ export default function Index({ statusMessage, orders }) {
     }
     return (
         <>
+            <Head title="Order" />
             <SidebarDashboard />
             <div class="p-4 sm:ml-64">
                 <NavDashboard />
                 <div className="mt-5">
+                    <div className="w-full flex justify-end mt-10">
+                        <Input
+                            type="text"
+                            name="q"
+                            onChange={(e) => onHandleChange(e)}
+                            value={data.q}
+                            className="w-full md:w-1/3 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white flex"
+                            placeholder="Search transaction ...."
+                        />
+                    </div>
+
                     {/* table transaction */}
                     {orders.data.map((order) => {
                         console.log(order.is_deleted); // Moved console.log here
@@ -78,7 +91,6 @@ export default function Index({ statusMessage, orders }) {
                     })}
                 </div>
             </div>
-            {/* <Head title="Order" />
 
             {statusMessage?.message && alert(statusMessage.message)}
 
@@ -89,47 +101,7 @@ export default function Index({ statusMessage, orders }) {
                 Create
             </Link>
 
-            <input
-                type="text"
-                name="q"
-                onChange={(e) => onHandleChange(e)}
-                value={data.q}
-                className="w-1/3 p-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white flex"
-                placeholder="Search..."
-            />
-
-            {orders.data.map((order) => (
-                <div key={order.id}>
-                    <Link>{order.name}</Link>
-                    {order.is_deleted ? (
-                        <span className="ml-2 text-gray-500">Edit</span>
-                    ) : (
-                        <Link
-                            className="ml-2 text-blue-500"
-                            href={`/admin/order/${order.id}/edit`}
-                        >
-                            Edit
-                        </Link>
-                    )}
-
-                    <button
-                        className={`ml-2 text-red-500 ${
-                            order.is_deleted ? "text-green-500" : ""
-                        }`}
-                        onClick={() => {
-                            order.is_deleted
-                                ? put(`/admin/order/${order.id}/restore`)
-                                : onHandleDelete(order.id);
-                        }}
-                    >
-                        <a className="btn sm danger">
-                            {order.is_deleted ? "Restore" : "Delete"}
-                        </a>
-                    </button>
-                </div>
-            ))}
-
-            <div className="pagination">
+            {/* <div className="pagination">
                 {orders.meta.links.map((data) => {
                     return (
                         <Link
