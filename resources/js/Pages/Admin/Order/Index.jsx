@@ -5,6 +5,7 @@ import NavDashboard from "@/Components/DashboardComponent/NavDashboard";
 import SidebarDashboard from "@/Components/DashboardComponent/SidebarDashboard";
 import React from "react";
 import { Input } from "@/Components/ui/input";
+import { Button } from "@/Components/ui/button";
 
 export default function Index({ statusMessage, orders }) {
     const {
@@ -56,7 +57,16 @@ export default function Index({ statusMessage, orders }) {
             <div class="p-4 sm:ml-64">
                 <NavDashboard />
                 <div className="mt-5">
-                    <div className="w-full flex justify-end mt-10">
+                    <div className="w-full flex gap-2 justify-end mt-10">
+                        <Link
+                            className="ml-2 text-blue-500"
+                            href="/admin/order/create"
+                        >
+                            <Button className="dark:bg-blue-600 dark:text-white">
+                                Create
+                            </Button>
+                        </Link>
+                        {/* search input */}
                         <Input
                             type="text"
                             name="q"
@@ -89,37 +99,29 @@ export default function Index({ statusMessage, orders }) {
                             </div>
                         );
                     })}
+                    <div className="pagination">
+                        {orders.meta.links.map((data) => {
+                            return (
+                                <Link
+                                    key={data.label}
+                                    href={data.url}
+                                    className={`px-3 py-1 hover:bg-indigo-500 text-white-700 rounded-md ${
+                                        data.active ? "bg-indigo-500" : ""
+                                    }`}
+                                >
+                                    {data.label === "&laquo; Previous"
+                                        ? "«"
+                                        : data.label === "Next &raquo;"
+                                        ? "»"
+                                        : data.label}
+                                </Link>
+                            );
+                        })}
+                    </div>
                 </div>
             </div>
 
             {statusMessage?.message && alert(statusMessage.message)}
-
-            <Link className="text-blue-500" href="/admin/dashboard">
-                Back
-            </Link>
-            <Link className="ml-2 text-blue-500" href="/admin/order/create">
-                Create
-            </Link>
-
-            {/* <div className="pagination">
-                {orders.meta.links.map((data) => {
-                    return (
-                        <Link
-                            key={data.label}
-                            href={data.url}
-                            className={`px-3 py-1 hover:bg-indigo-500 text-white-700 rounded-md ${
-                                data.active ? "bg-indigo-500" : ""
-                            }`}
-                        >
-                            {data.label === "&laquo; Previous"
-                                ? "«"
-                                : data.label === "Next &raquo;"
-                                ? "»"
-                                : data.label}
-                        </Link>
-                    );
-                })}
-            </div> */}
         </>
     );
 }

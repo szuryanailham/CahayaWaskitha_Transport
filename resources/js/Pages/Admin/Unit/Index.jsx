@@ -126,13 +126,14 @@ export default function Index({ units }) {
                                     </TableCell>
                                     {/* button update */}
                                     <TableCell className="font-medium flex gap-1">
-                                        <Button className=" bg-yellow-500  flex justify-center">
-                                            <Link
-                                                href={`/admin/unit/${unit.id}/edit`}
-                                            >
+                                        <Link
+                                            href={`/admin/unit/${unit.id}/edit`}
+                                        >
+                                            <Button className=" bg-yellow-500  flex justify-center">
                                                 <FaPenToSquare className="text-md text-black" />
-                                            </Link>
-                                        </Button>
+                                            </Button>
+                                        </Link>
+
                                         {/* deleted  button */}
                                         <Button
                                             className="bg-red-600"

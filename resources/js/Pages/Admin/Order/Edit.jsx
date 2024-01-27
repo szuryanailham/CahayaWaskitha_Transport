@@ -91,6 +91,12 @@ export default function Dashboard({ order, units, unit, time }) {
                 <div className="mt-5">
                     <Head title="Edit Order" />
                     <form onSubmit={submit} className=" w-full md:w-[70%]">
+                        {/* title */}
+                        <div className="w-full">
+                            <h1 className="font-bold text-2xl text-center">
+                                Edit transaction
+                            </h1>
+                        </div>
                         {/* name */}
                         <div>
                             <label className="font-bold" htmlFor="name">

@@ -87,14 +87,14 @@ function CardTransaction(props) {
                 <div className="flex justify-evenly flex-col gap-2 md:flex-row">
                     {/* edit */}
                     <Link href={`/admin/order/${props.id}/edit`}>
-                        <Button className="text-xs w-10 md:w-20 bg-yellow-400">
+                        <Button className="text-black hover:text-white dark:text-white text-xs w-10 md:w-20 bg-yellow-400">
                             Edit
                         </Button>
                     </Link>
 
                     {/* delete */}
                     <Button
-                        className={` bg-red-500 text-xs w-10 md:w-20 text-white hover:text-black ${
+                        className={` bg-red-500 text-xs w-10 md:w-20 text-white ${
                             props.is_deleted ? "" : ""
                         }`}
                         onClick={() => {
