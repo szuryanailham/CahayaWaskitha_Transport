@@ -24,7 +24,7 @@ class UnitResource extends JsonResource
             'price' => $this->price,
             'capacity' => $this->capacity,
             'category' => $this->category->name,
-            'featured_image' => UnitImage::where('unit_id', $this->id)->first()->url ?? null,
+            'featured_image' => UnitImage::where('id', $this->featured_image_id)->first()->image ?? null,
             'images' => UnitImage::where('unit_id', $this->id)->get(),
             'is_deleted' => $this->deleted_at ? true : false,
         ];
