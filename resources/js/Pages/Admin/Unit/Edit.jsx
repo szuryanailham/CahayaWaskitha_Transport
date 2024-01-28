@@ -85,7 +85,27 @@ export default function Dashboard({ unit, categories }) {
                             <label className="font-bold" htmlFor="nama_unit">
                                 Nama Unit
                             </label>
-                            <Input
+                            <div>
+                                <Input
+                                    id="name"
+                                    name="name"
+                                    defaultValue={data.name}
+                                    type="text"
+                                    onChange={(e) => onHandleChange(e)}
+                                    placeholder="name unit....."
+                                    className={`${
+                                        errors.name ? "is-invalid" : ""
+                                    } dark:bg-gray-800 mt-2 `}
+                                    autoFocus
+                                />
+                                <span>
+                                    {Object.values(errors).length > 0
+                                        ? errors.name
+                                        : ""}
+                                </span>
+                            </div>
+                            {/* <Input
+                                onChange={(e) => onHandleChange(e)}
                                 placeholder="Name"
                                 defaultValue={data.name}
                                 className={`${
@@ -99,7 +119,7 @@ export default function Dashboard({ unit, categories }) {
                                 </p>
                             ) : (
                                 ""
-                            )}
+                            )} */}
                         </div>
                         {/* category */}
                         <div>

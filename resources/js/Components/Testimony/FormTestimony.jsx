@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Rating } from "@smastrom/react-rating";
 import { Textarea } from "@/Components/ui/textarea";
 import { Button } from "@/components/ui/button";
+
 import {
     Select,
     SelectContent,
@@ -22,8 +23,15 @@ function FormTestimony() {
     });
 
     const ratingRef = useRef(null);
-    const [rating, setRating] = useState(0);
+    const [rating, setRating] = useState(null);
+    const [hover, setHover] = useState(null);
+    const [totalStars, setTotalStars] = useState(5);
 
+    const handleChange = (e) => {
+        setTotalStars(
+            parseInt(Boolean(e.target.value, 10) ? e.target.value : 5)
+        );
+    };
     useEffect(() => {
         const handleOutsideClick = (event) => {
             if (!ratingRef.current.contains(event.target)) {
@@ -50,7 +58,6 @@ function FormTestimony() {
 
         post("/testimony");
     };
-
     return (
         <form
             onSubmit={submit}
@@ -81,24 +88,46 @@ function FormTestimony() {
                     <SelectValue placeholder="pilih category..." />
                 </SelectTrigger>
                 <SelectContent>
-                    <SelectItem value="light">pelayanaan</SelectItem>
-                    <SelectItem value="dark">Unit</SelectItem>
-                    <SelectItem value="system">kebersihan</SelectItem>
-                    <SelectItem value="system">kenyamanan</SelectItem>
+                    <SelectItem value="Pelayanan">pelayanaan</SelectItem>
+                    <SelectItem value="unit">Unit</SelectItem>
+                    <SelectItem value="kebersihan">kebersihan</SelectItem>
+                    <SelectItem value="kenyamanan">kenyamanan</SelectItem>
                 </SelectContent>
             </Select>
             {/* rating */}
-            <div className="text-center mt-5 italic">
-                <p>beri kami penilaian:</p>
-                <Rating
-                    name="rating"
-                    className="mx-auto mt-5"
-                    style={{ maxWidth: 150 }}
-                    ref={ratingRef}
-                    value={rating}
-                    onChange={setRating}
-                />
+            <div className="w-full flex justify-center gap-2 p-3">
+                <h1 className="mt-2">Give us rating :</h1>
+                {[...Array(totalStars)].map((star, index) => {
+                    const currentRating = index + 1;
+                    return (
+                        <label key={index}>
+                            <input
+                                key={star}
+                                type="radio"
+                                name="rating"
+                                value={currentRating}
+                                onChange={() => setRating(currentRating)}
+                                className="hidden"
+                            />
+                            <span
+                                className="text-3xl"
+                                style={{
+                                    color:
+                                        currentRating <= (hover || rating)
+                                            ? "#ffc107"
+                                            : "#e4e5e9",
+                                }}
+                                onMouseEnter={() => setHover(currentRating)}
+                                onMouseLeave={() => setHover(null)}
+                            >
+                                &#9733;
+                            </span>
+                        </label>
+                    );
+                })}
             </div>
+            <p className="text-center">Your rating is: {rating}</p>
+
             {/* description */}
             <div className="mt-3">
                 <label htmlFor="">Comment</label>
