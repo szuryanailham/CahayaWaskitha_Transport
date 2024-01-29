@@ -16,8 +16,6 @@ export default function HomePage({ categories, units, banners }) {
         slidesToShow: 1,
         slidesToScroll: 1,
     };
-
-    console.log(units, categories, banners);
     return (
         <>
             <Head title="Home" />
@@ -76,10 +74,12 @@ export default function HomePage({ categories, units, banners }) {
                                         name={unit.name}
                                         capacity={unit.capacity}
                                         key={unit.slug}
+                                        image={unit.featured_image}
                                         price={unit.price}
                                         href={`/unit/${unit.slug}`}
                                         href_sewa={`/checkout/${unit.id}`}
                                     />
+                                    ;
                                 </div>
                             ) : (
                                 <ProductCard
@@ -87,7 +87,8 @@ export default function HomePage({ categories, units, banners }) {
                                     capacity={unit.capacity}
                                     key={unit.slug}
                                     price={unit.price}
-                                    href_detail={`/unit/${unit.slug}`}
+                                    image={unit.featured_image}
+                                    href_detail={unit.slug}
                                     href_sewa={`/checkout/${unit.id}`}
                                 />
                             )

@@ -1,9 +1,15 @@
-import { cn } from "@/lib/utils";
 import { Card, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
 import { Button } from "../ui/button";
 import { Link } from "@inertiajs/react";
 
-const ProductCard = ({ name, price, capacity, href_detail, href_sewa }) => {
+const ProductCard = ({
+    name,
+    price,
+    capacity,
+    href_detail,
+    href_sewa,
+    image,
+}) => {
     return (
         <Card className="max-w-[403px] w-full bg-transparent xl:bg-gray-100 dark:bg-gray-800/50 rounded-none shadow-card shadow relative">
             <CardContent className="flex w-full justify-between pt-4 xl:pt-0 xl:px-4 xl:absolute xl:left-0 xl:top-4 z-[2]">
@@ -19,7 +25,7 @@ const ProductCard = ({ name, price, capacity, href_detail, href_sewa }) => {
                 <div className="w-full h-full overflow-hidden">
                     <img
                         className="object-cover w-full hover:scale-110 transition-all duration-250 ease-in-out  mb-10"
-                        src="/pngwing.com_3_1.png"
+                        src={`storage/${image}`}
                         alt="card-img"
                         loading="lazy"
                     />
@@ -74,7 +80,7 @@ const ProductCard = ({ name, price, capacity, href_detail, href_sewa }) => {
                         </Button>
                     </Link>
 
-                    <Link href={href_detail}>
+                    <Link href={`/unit/${href_detail}`}>
                         <Button
                             size="lg"
                             className="bg-gray-300 hover:bg-gray-300/80 dark:text-gray-100 dark:bg-gray-700 dark:hover:bg-gray-700/80 rounded-none text-lg font-semibold"

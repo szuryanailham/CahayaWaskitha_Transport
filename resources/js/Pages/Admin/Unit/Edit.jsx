@@ -282,7 +282,6 @@ export default function Dashboard({ unit, categories }) {
                             )}
                         </div>
                         {/* image aploud */}
-                        {console.log(images)}
                         {images &&
                             images.map((img, index) => {
                                 return (

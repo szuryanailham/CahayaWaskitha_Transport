@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Input } from "@/components/ui/input";
-import { Rating } from "@smastrom/react-rating";
 import { Textarea } from "@/Components/ui/textarea";
 import { Button } from "@/components/ui/button";
 
