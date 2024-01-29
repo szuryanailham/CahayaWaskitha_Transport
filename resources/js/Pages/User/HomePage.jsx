@@ -6,6 +6,15 @@ import { Head, Link } from "@inertiajs/react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import {
+    Pagination,
+    PaginationContent,
+    PaginationEllipsis,
+    PaginationItem,
+    PaginationLink,
+    PaginationNext,
+    PaginationPrevious,
+} from "@/components/ui/pagination";
 
 export default function HomePage({ categories, units, banners }) {
     var settings = {
@@ -16,6 +25,7 @@ export default function HomePage({ categories, units, banners }) {
         slidesToShow: 1,
         slidesToScroll: 1,
     };
+    console.log(banners);
     return (
         <>
             <Head title="Home" />
@@ -97,6 +107,27 @@ export default function HomePage({ categories, units, banners }) {
                         )}
                     </div>
                 </section>
+                <div className="flex justify-center ">
+                    {units.meta.links.map((data) => {
+                        return (
+                            <Link
+                                key={data.label}
+                                href={data.url}
+                                className={`px-3 py-1 hover:bg-black hover:text-white text-white-700 rounded-md ${
+                                    data.active
+                                        ? "bg-black text-white hover:text-white"
+                                        : ""
+                                }`}
+                            >
+                                {data.label === "&laquo; Previous"
+                                    ? "«"
+                                    : data.label === "Next &raquo;"
+                                    ? "»"
+                                    : data.label}
+                            </Link>
+                        );
+                    })}
+                </div>
             </main>
             <Footer />
         </>

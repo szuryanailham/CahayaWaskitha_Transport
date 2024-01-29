@@ -158,7 +158,7 @@ export default function Dashboard({ order, units, unit, time }) {
                             </span>
                         </div>
                         {/* unit_id */}
-                        <div>
+                        {/* <div>
                             <label className="font-bold" htmlFor="phone">
                                 Unit
                             </label>
@@ -185,6 +185,26 @@ export default function Dashboard({ order, units, unit, time }) {
                                     ))}
                                 </SelectContent>
                             </Select>
+                        </div> */}
+                        <div>
+                            <label className="font-bold" htmlFor="phone">
+                                Unit
+                            </label>
+                            <select
+                                name="unit_id"
+                                id="unit_id"
+                                defaultValue={data.unit_id}
+                                onChange={(e) => onHandleChange(e)}
+                                className={`${
+                                    errors.category_id ? "is-invalid" : ""
+                                } border bg-white dark:bg-grey-800 border-gray-200 p-2 w-full mb-3 dark:bg-gray-800`}
+                            >
+                                {units.map((unit) => (
+                                    <option key={unit.id} value={unit.id}>
+                                        {unit.name}
+                                    </option>
+                                ))}
+                            </select>
                         </div>
 
                         {/* price */}
