@@ -30,7 +30,7 @@ function CardTransaction(props) {
                 </h1>
                 <img
                     className=" w-15 h-15 md:w-25 md:h-20"
-                    src="/pngwing.com_3_1.png"
+                    src={`/storage/${props.image}`}
                     alt="car image"
                 />
             </div>

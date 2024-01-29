@@ -50,6 +50,7 @@ export default function Index({ statusMessage, orders }) {
     }, [searchQuery]);
     {
     }
+    console.log(orders.data);
     return (
         <>
             <Head title="Order" />
@@ -95,6 +96,7 @@ export default function Index({ statusMessage, orders }) {
                                     lokasi_penjemputan={order.pickup_address}
                                     id={order.id}
                                     is_deleted={order.is_deleted}
+                                    image={order.unit_image}
                                 />
                             </div>
                         );

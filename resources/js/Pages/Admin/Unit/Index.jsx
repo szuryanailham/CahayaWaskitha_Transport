@@ -19,7 +19,7 @@ import {
 import { Button } from "@/Components/ui/button";
 
 export default function Index({ units }) {
-    console.log(units);
+    console.log(units.data);
     const {
         delete: destroy,
         put,
@@ -112,10 +112,11 @@ export default function Index({ units }) {
                                         {unit.name}
                                     </TableCell>
                                     <TableCell>
+                                        {console.log(unit.featured_image)}
                                         <img
                                             className="w-18 h-12"
-                                            src="/images/promo.png"
-                                            alt="Promo lebaran"
+                                            src={`/storage/${unit.featured_image}`}
+                                            alt="unit"
                                         />
                                     </TableCell>
                                     <TableCell className="font-medium">
