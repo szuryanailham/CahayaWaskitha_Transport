@@ -68,7 +68,7 @@ export default function HomePage({ categories, units, banners }) {
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-6 gap-y-4 lg:gap-y-12 place-items-stretch justify-items-center mt-5">
                         {units?.data?.map((unit, index) =>
-                            index === units?.data?.length - 1 ? (
+                            index === units?.data?.length ? (
                                 <div className="col-span-1 md:col-span-2 place-self-center md:place-self-center xl:col-span-1 ">
                                     <ProductCard
                                         name={unit.name}
@@ -82,15 +82,17 @@ export default function HomePage({ categories, units, banners }) {
                                     ;
                                 </div>
                             ) : (
-                                <ProductCard
-                                    name={unit.name}
-                                    capacity={unit.capacity}
-                                    key={unit.slug}
-                                    price={unit.price}
-                                    image={unit.featured_image}
-                                    href_detail={unit.slug}
-                                    href_sewa={`/checkout/${unit.id}`}
-                                />
+                                <div className="col-span-1 md:col-span-2 place-self-center md:place-self-center xl:col-span-1 ">
+                                    <ProductCard
+                                        name={unit.name}
+                                        capacity={unit.capacity}
+                                        key={unit.slug}
+                                        price={unit.price}
+                                        image={unit.featured_image}
+                                        href_detail={unit.slug}
+                                        href_sewa={`/checkout/${unit.id}`}
+                                    />
+                                </div>
                             )
                         )}
                     </div>
