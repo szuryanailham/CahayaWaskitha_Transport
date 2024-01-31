@@ -19,5 +19,6 @@ Route::namespace('App\Http\Controllers\Admin')->group(function () {
 
         Route::get('/promo-banner', 'PromoBannerController@index');
         Route::post('/promo-banner', 'PromoBannerController@store');
+        Route::delete('/promo-banner/{id}', 'PromoBannerController@destroy');
     });
 });

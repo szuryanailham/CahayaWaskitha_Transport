@@ -60,4 +60,19 @@ class PromoBannerController extends Controller
 
         return abort(500);
     }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy($id)
+    {
+        $banner = PromoBanner::findOrFail($id);
+
+        $banner->delete();
+
+        return back()->with([
+            'message' => "Banner Successfully Deleted",
+            'type' => 'error'
+        ]);
+    }
 }
