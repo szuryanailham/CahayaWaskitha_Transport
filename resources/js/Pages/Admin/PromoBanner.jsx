@@ -16,7 +16,15 @@ import { Button } from "@/Components/ui/button";
 export default function PromoBanner({ statusMessage, banners }) {
     console.log(banners);
 
-    const { data, setData, post, processing, reset, errors } = useForm({
+    const {
+        data,
+        setData,
+        post,
+        processing,
+        reset,
+        errors,
+        delete: destroy,
+    } = useForm({
         title: "",
         image: "",
     });
@@ -39,6 +47,17 @@ export default function PromoBanner({ statusMessage, banners }) {
             onSuccess: () => reset("title", "image"),
         });
     };
+
+    const onHandleDelete = (id) => {
+        const confirmation = window.confirm(
+            "Are you sure you want to delete this data?"
+        );
+
+        if (confirmation) {
+            destroy(`/admin/promo-banner/${id}`);
+        }
+    };
+
     console.log(statusMessage);
 
     return (
@@ -76,6 +95,17 @@ export default function PromoBanner({ statusMessage, banners }) {
                                             src={`/storage/${banner.image}`}
                                             alt="Promo lebaran"
                                         />
+                                    </TableCell>
+                                    <TableCell>
+                                        {/* DELETE */}
+                                        <Button
+                                            onClick={() =>
+                                                onHandleDelete(banner.id)
+                                            }
+                                            className="bg-red-500"
+                                        >
+                                            Delete
+                                        </Button>
                                     </TableCell>
                                 </TableRow>
                             ))}

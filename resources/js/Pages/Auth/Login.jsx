@@ -44,7 +44,7 @@ export default function Login() {
                     {/* email */}
                     <label htmlFor="email">Email</label>
                     <Input
-                        className="mt-2"
+                        className="mt-2 dark:text-black"
                         name="email"
                         type="email"
                         placeholder="Username or Email"

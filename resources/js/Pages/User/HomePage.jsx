@@ -38,27 +38,18 @@ export default function HomePage({ categories, units, banners }) {
                     {/* SLIDER AUTO FOR PROMO */}
                     <div className="w-full h-full mt-16">
                         <Slider {...settings}>
-                            <div>
-                                <img
-                                    className=" md:object-cover h-[300px] md:h-[430px] xl:h-[439px] w-full object-top rounded-2xl"
-                                    src="/images/promo-1.jpg "
-                                    alt="promo-1"
-                                />
-                            </div>
-                            <div>
-                                <img
-                                    className=" md:object-cover h-[300px] md:h-[430px] xl:h-[439px] w-full  rounded-2xl"
-                                    src="/images/promo-2.jpg "
-                                    alt="promo-1"
-                                />
-                            </div>
-                            <div>
-                                <img
-                                    className=" md:object-cover h-[300px] md:h-[430px] xl:h-[439px] w-full  rounded-2xl"
-                                    src="/images/promo-3.jpg "
-                                    alt="promo-1"
-                                />
-                            </div>
+                            {banners.map((banner) => {
+                                console.log(banner.image);
+                                return (
+                                    <div>
+                                        <img
+                                            className=" md:object-cover h-[300px] md:h-[430px] xl:h-[439px] w-full object-top rounded-2xl"
+                                            src={`/storage/${banner.image}`}
+                                            alt="promo-1"
+                                        />
+                                    </div>
+                                );
+                            })}
                         </Slider>
                     </div>
                     {/* END FOR SLIDER PROMO */}
