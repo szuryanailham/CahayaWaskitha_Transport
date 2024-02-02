@@ -45,12 +45,12 @@ class CheckoutController extends Controller
         // Generate unique random number
         // $input['no_order'] = Str::uuid();
 
-        // Convert string date to Carbon instances
-        $startDate = Carbon::parse($input['start_date']);
-        $endDate = Carbon::parse($input['end_date']);
+        // Convert string date and time to Carbon instances
+        $startTime = Carbon::parse($input['start_date'] . ' ' . $input['start_time']);
+        $endTime = Carbon::parse($input['end_date'] . ' ' . $input['end_time']);
 
-        // Calculate duration in days
-        $input['duration'] = $endDate->diffInDays($startDate);
+        // Calculate duration in days (rounded up)
+        $input['duration'] = ceil($endTime->floatDiffInDays($startTime));
         $input['total_price'] = $input['duration'] * $input['price'];
 
         $create = Order::create($input);
