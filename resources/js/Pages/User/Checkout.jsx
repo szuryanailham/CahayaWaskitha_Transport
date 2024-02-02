@@ -10,8 +10,22 @@ import { useEffect, useState } from "react";
 import { FormatRupiah } from "@arismun/format-rupiah";
 
 export default function Checkout({ unit }) {
-    const [startDate, setStartDate] = useState("");
-    const [endDate, setEndDate] = useState("");
+    const currentDate = new Date();
+    currentDate.setHours(currentDate.getHours() + 7); // Adjust for GMT+7
+
+    const [startDate, setStartDate] = useState(
+        currentDate.toISOString().split("T")[0]
+    );
+    const [endDate, setEndDate] = useState(
+        currentDate.toISOString().split("T")[0]
+    );
+
+    const [startTime, setStartTime] = useState(
+        currentDate.toISOString().split("T")[1].slice(0, 5)
+    );
+    const [endTime, setEndTime] = useState(
+        currentDate.toISOString().split("T")[1].slice(0, 5)
+    );
 
     const { data, setData, post, processing, errors } = useForm({
         name: "",
@@ -21,17 +35,20 @@ export default function Checkout({ unit }) {
         unit: unit.data.name,
         price: unit.data.price,
         pickup_address: "",
-        start_date: "",
-        start_time: "",
-        end_date: "",
-        end_time: "",
+        start_date: currentDate.toISOString().split("T")[0], // Current date in "YYYY-MM-DD" format
+        start_time: currentDate.toISOString().split("T")[1].slice(0, 5), // Current time in "HH:mm" format
+        end_date: currentDate.toISOString().split("T")[0], // Current date in "YYYY-MM-DD" format
+        end_time: currentDate.toISOString().split("T")[1].slice(0, 5), // Current time in "HH:mm" format
         duration: 0,
         total_price: 0,
     });
 
     useEffect(() => {
-        if (startDate && endDate) {
-            const diffTime = Math.abs(new Date(endDate) - new Date(startDate));
+        if (startDate && endDate && startTime && endTime) {
+            const startDateTime = new Date(`${startDate} ${startTime}`);
+            const endDateTime = new Date(`${endDate} ${endTime}`);
+
+            const diffTime = Math.abs(endDateTime - startDateTime);
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
             const newData = {
@@ -42,7 +59,7 @@ export default function Checkout({ unit }) {
 
             setData(newData);
         }
-    }, [startDate, endDate]);
+    }, [startDate, endDate, startTime, endTime]);
 
     const onHandleChange = (event) => {
         setData(event.target.name, event.target.value);
@@ -53,6 +70,14 @@ export default function Checkout({ unit }) {
 
         if (event.target.name === "end_date") {
             setEndDate(event.target.value);
+        }
+
+        if (event.target.name === "start_time") {
+            setStartTime(event.target.value);
+        }
+
+        if (event.target.name === "end_time") {
+            setEndTime(event.target.value);
         }
     };
 
@@ -219,6 +244,7 @@ export default function Checkout({ unit }) {
                                     id="start_time"
                                     type="time"
                                     name="start_time"
+                                    value={data.start_time}
                                     onChange={(e) => onHandleChange(e)}
                                     placeholder="Start Time"
                                     className={`form-control ${
@@ -240,6 +266,7 @@ export default function Checkout({ unit }) {
                                     id="start_date"
                                     type="date"
                                     name="start_date"
+                                    value={data.start_date}
                                     onChange={(e) => onHandleChange(e)}
                                     placeholder="Start Date"
                                     className={`form-control ${
@@ -274,6 +301,7 @@ export default function Checkout({ unit }) {
                                     id="end_time"
                                     type="time"
                                     name="end_time"
+                                    value={data.end_time}
                                     onChange={(e) => onHandleChange(e)}
                                     placeholder="End Time"
                                     className={`form-control ${
@@ -295,6 +323,7 @@ export default function Checkout({ unit }) {
                                     id="end_date"
                                     type="date"
                                     name="end_date"
+                                    value={data.end_date}
                                     onChange={(e) => onHandleChange(e)}
                                     placeholder="End Date"
                                     className={`form-control ${
