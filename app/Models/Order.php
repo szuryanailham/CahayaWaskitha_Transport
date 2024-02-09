@@ -33,6 +33,21 @@ class Order extends Model
         'end_time' => 'datetime',
     ];
 
+    protected static function booted()
+    {
+        static::creating(function ($order) {
+            $today = now()->format('ymd');
+
+            // Hitung jumlah order pada tanggal yang sama
+            $count = static::whereDate('created_at', now())->count() + 1;
+
+            // Add leading zeros to ensure three digits
+            $countFormatted = sprintf('%03d', $count);
+
+            $order->no_order = 'TX' . $today . $countFormatted;
+        });
+    }
+
     public function unit()
     {
         return $this->belongsTo(Unit::class);

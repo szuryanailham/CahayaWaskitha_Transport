@@ -1,9 +1,9 @@
+import { Link } from "@inertiajs/react";
 import React, { useState, useRef, useEffect } from "react";
 import { FiLogOut } from "react-icons/fi";
 function SidebarDashboard() {
     const [isOpen, setIsOpen] = useState(true);
     const sidebarRef = useRef(null);
-    // function for change statae by button
     const btnActive = () => {
         setIsOpen((current) => !current);
     };
@@ -53,7 +53,7 @@ function SidebarDashboard() {
                         </li>
                         {/* logo brandd */}
                         <li>
-                            <a
+                            <Link
                                 href="#"
                                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white dark:hover:bg-gray-700 group"
                             >
@@ -62,12 +62,12 @@ function SidebarDashboard() {
                                     className="h-8 mb-3"
                                     alt="Cahaya_waskitha"
                                 />
-                            </a>
+                            </Link>
                         </li>
                         {/* Home */}
                         <li>
-                            <a
-                                href={`/`}
+                            <Link
+                                href="/"
                                 className=" flex md:hidden items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group hover:text-black"
                             >
                                 <img
@@ -78,12 +78,12 @@ function SidebarDashboard() {
                                 <span className="flex-1 ms-3 whitespace-nowrap">
                                     Home
                                 </span>
-                            </a>
+                            </Link>
                         </li>
                         {/* Dashboard  */}
                         <li>
-                            <a
-                                href={`proto/dashboard`}
+                            <Link
+                                href="/admin/dashboard"
                                 className="flex items-center p-2 text-white rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group hover:text-black"
                             >
                                 <img
@@ -94,12 +94,12 @@ function SidebarDashboard() {
                                 <span className="flex-1 ms-3 whitespace-nowrap">
                                     Dashboard
                                 </span>
-                            </a>
+                            </Link>
                         </li>
                         {/* all unit  */}
                         <li>
-                            <a
-                                href={"/dashboard/AllUnit"}
+                            <Link
+                                href="/admin/unit"
                                 className="flex items-center p-2 text-white rounded-lg dark:text-white hover:text-black hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
                                 <img
@@ -110,12 +110,12 @@ function SidebarDashboard() {
                                 <span className="flex-1 ms-3 whitespace-nowrap">
                                     All Unit
                                 </span>
-                            </a>
+                            </Link>
                         </li>
                         {/* transaction  */}
                         <li>
-                            <a
-                                href="#"
+                            <Link
+                                href="/admin/order"
                                 className="flex items-center p-2 text-white rounded-lg dark:text-white hover:text-black hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
                                 <img
@@ -126,12 +126,12 @@ function SidebarDashboard() {
                                 <span className="flex-1 ms-3 whitespace-nowrap">
                                     Transaction
                                 </span>
-                            </a>
+                            </Link>
                         </li>
                         {/* feedback */}
                         <li>
-                            <a
-                                href="#"
+                            <Link
+                                href="/admin/testimony"
                                 className="flex items-center p-2 text-white rounded-lg dark:text-white hover:text-black hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
                                 <img
@@ -142,14 +142,14 @@ function SidebarDashboard() {
                                 <span className="flex-1 ms-3 whitespace-nowrap">
                                     Feed Back
                                 </span>
-                            </a>
+                            </Link>
                         </li>
 
                         <h1 className="mr-10 p-3 text-zinc-500">Other</h1>
                         {/* add unit */}
                         <li>
-                            <a
-                                href="#"
+                            <Link
+                                href="/admin/unit/create"
                                 className="flex items-center p-2 text-white rounded-lg dark:text-white hover:text-black hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
                                 <img
@@ -160,12 +160,12 @@ function SidebarDashboard() {
                                 <span className="flex-1 ms-3 whitespace-nowrap">
                                     Add Unit
                                 </span>
-                            </a>
+                            </Link>
                         </li>
                         {/* Promo */}
                         <li>
-                            <a
-                                href="#"
+                            <Link
+                                href="/admin/promo-banner"
                                 className="flex items-center p-2 text-white rounded-lg dark:text-white hover:text-black hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
                                 <img
@@ -176,21 +176,22 @@ function SidebarDashboard() {
                                 <span className="flex-1 ms-3 whitespace-nowrap">
                                     Promo
                                 </span>
-                            </a>
+                            </Link>
                         </li>
                         {/* Account */}
                         <li>
-                            <a
-                                href="#"
+                            <Link
+                                method="POST"
+                                as="button"
+                                href={"/logout"}
                                 className="flex items-center p-2 text-red-500 font-bold rounded-lg  hover:bg-gray-100 dark:hover:bg-gray-700 group"
                             >
                                 <FiLogOut />
                                 <span className="flex-1 ms-3 whitespace-nowrap font-bold text-red-500">
                                     Logout
                                 </span>
-                            </a>
+                            </Link>
                         </li>
-
                         {/* logout */}
                     </ul>
                 </div>

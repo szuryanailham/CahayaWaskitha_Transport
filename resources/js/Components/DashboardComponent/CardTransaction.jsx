@@ -1,32 +1,59 @@
 import React from "react";
+import { Head, Link, useForm } from "@inertiajs/react";
+import { FormatRupiah } from "@arismun/format-rupiah";
+import { Button } from "../ui/button";
+function CardTransaction(props) {
+    const {
+        delete: destroy,
+        put,
+        get,
+        data,
+        setData,
+    } = useForm({
+        q: new URLSearchParams(window.location.search).get("q") || "",
+    });
+    const onHandleDelete = (id) => {
+        const confirmation = window.confirm(
+            `Are you sure you want to delete this data ? ${id}`
+        );
 
-function CardTransaction() {
+        if (confirmation) {
+            destroy(`/admin/order/${id}`);
+        }
+    };
     return (
         <div className="w-full h-fit rounded-md shadow-md divide-x divide-slate-400 p-2 flex justify-evenly gap-1 mb-5">
             {/* card photo  and kode transaction */}
             <div className="w-[20%] pt-5">
-                <h1 className="mb-5 font-bold text-md md:text-xl">TR-001</h1>
+                <h1 className="mb-5 text-xs md:text-sm break-words">
+                    {props.kode_unit}
+                </h1>
                 <img
                     className=" w-15 h-15 md:w-25 md:h-20"
-                    src="/pngwing.com_3_1.png"
-                    alt=""
+                    src={`/storage/${props.image}`}
+                    alt="car image"
                 />
             </div>
             {/* info unit and  penyewa */}
             <div className="p-5 w-[40%]">
-                <h2 className="font-bold text-md md:text-xl">Toyotta Innova</h2>
+                <h2 className="font-bold text-md md:text-xl">
+                    {props.nama_unit}
+                </h2>
                 <p className="text-sm md:text-xl">
-                    <span className="font-bold">Bambang Sugeni </span>||
-                    0868686557
+                    <span className=" break-words p-2">
+                        {props.pemesan_unit}
+                    </span>
+                    ||
+                    <span className="text-sm p-2">{props.no_pemesan}</span>
                 </p>
-                <p>Alamat : Yogyakarata, Bantul, Nitikan</p>
+                <p>Alamat :{props.alamat}</p>
                 {/* durasi dan harga */}
                 <div className="mt-[30%] flex flex-col md:flex-row gap-5 text-sm md:text-2xl">
-                    <p className="font-bold text-xs md:text-sm md:w-16">
-                        1 hari (24 jam)
+                    <p className=" w-20 font-bold text-xs md:text-sm">
+                        {props.total_hari} hari/({props.total_hari * 24} jam)
                     </p>
                     <p className="mr-20 text-md md:text-xl font-bold">
-                        Rp.1.200.0000
+                        <FormatRupiah value={props.total_harga} />
                     </p>
                 </div>
             </div>
@@ -35,13 +62,11 @@ function CardTransaction() {
                 {/* from date and time */}
                 <div className="mt-10">
                     <p className=" w-15 md:w-24 break-words text-sm md:text-md">
-                        <span className="font-bold">Senin</span>, 15 January
-                        2024 09.00
+                        {props.tgl_mulai}
                     </p>
                     {/* until date and time */}
                     <p className=" w-15 md:w-24 break-words mt-10 text-sm md:text-md">
-                        <span className="font-bold">Selasa</span>, 16 January
-                        2024 09.00
+                        {props.tgl_akhir}
                     </p>
                 </div>
             </div>
@@ -53,27 +78,33 @@ function CardTransaction() {
                     alt=""
                 />
                 <p className="break-words md:w-20 text-xs md:text-sm font-bold">
-                    Station Tugu Yogyakarta
+                    {props.lokasi_penjemputan}
                 </p>
             </div>
             {/* action */}
 
-            <div className=" w-[20%] flex justify-center m-auto">
-                <div className="flex justify-between flex-col md:flex-row gap-2">
-                    <a href="#">
-                        <img
-                            className="sm:w-20 md:w-7"
-                            src="/images/dashboard/edit.svg"
-                            alt="edit_icon"
-                        />
-                    </a>
-                    <a href="#">
-                        <img
-                            className="w-7"
-                            src="/images/dashboard/trash.svg"
-                            alt="edit_icon"
-                        />
-                    </a>
+            <div className=" w-[30%]  flex justify-center m-auto">
+                <div className="flex justify-evenly flex-col gap-2 md:flex-row">
+                    {/* edit */}
+                    <Link href={`/admin/order/${props.id}/edit`}>
+                        <Button className="text-black hover:text-white dark:text-white text-xs w-10 md:w-20 bg-yellow-400">
+                            Edit
+                        </Button>
+                    </Link>
+
+                    {/* delete */}
+                    <Button
+                        className={` bg-red-500 text-xs w-10 md:w-20 text-white ${
+                            props.is_deleted ? "" : ""
+                        }`}
+                        onClick={() => {
+                            props.is_deleted
+                                ? put(`/admin/order/${order.id}/restore`)
+                                : onHandleDelete(props.id);
+                        }}
+                    >
+                        Delete
+                    </Button>
                 </div>
             </div>
         </div>

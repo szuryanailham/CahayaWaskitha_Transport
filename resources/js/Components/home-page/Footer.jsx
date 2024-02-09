@@ -1,9 +1,17 @@
 import React from "react";
 import { SlSocialFacebook, SlSocialYoutube } from "react-icons/sl";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { Link } from "@inertiajs/react";
+import { Button } from "../ui/button";
+
 function Footer() {
     return (
         <div className="w-full h-full mt-20">
+            <div className="w-full flex justify-center mb-10">
+                <Button>
+                    <Link href={"/"}>Home</Link>
+                </Button>
+            </div>
             <h1 className=" w-full font-bold mx-auto text-center text-2xl mb-20">
                 Cahaya Waskitha Transport
             </h1>

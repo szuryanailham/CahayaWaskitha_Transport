@@ -2,6 +2,8 @@
 
 namespace App\Http\Resources;
 
+use App\Models\UnitImage;
+
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -21,6 +23,7 @@ class OrderResource extends JsonResource
             'address' => $this->address,
             'phone' => $this->phone,
             'unit' => $this->unit,
+            'unit_image' => UnitImage::where('unit_id', $this->unit_id)->first()->image ?? null,
             'price' => $this->price,
             'pickup_address' => $this->pickup_address,
             'start_date' => $this->start_date,

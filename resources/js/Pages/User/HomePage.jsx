@@ -6,8 +6,17 @@ import { Head, Link } from "@inertiajs/react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import {
+    Pagination,
+    PaginationContent,
+    PaginationEllipsis,
+    PaginationItem,
+    PaginationLink,
+    PaginationNext,
+    PaginationPrevious,
+} from "@/components/ui/pagination";
 
-export default function HomePage({ categories, units }) {
+export default function HomePage({ categories, units, banners }) {
     var settings = {
         dots: true,
         infinite: true,
@@ -16,8 +25,7 @@ export default function HomePage({ categories, units }) {
         slidesToShow: 1,
         slidesToScroll: 1,
     };
-
-    console.log(units, categories);
+    console.log(banners);
     return (
         <>
             <Head title="Home" />
@@ -30,27 +38,18 @@ export default function HomePage({ categories, units }) {
                     {/* SLIDER AUTO FOR PROMO */}
                     <div className="w-full h-full mt-16">
                         <Slider {...settings}>
-                            <div>
-                                <img
-                                    className=" md:object-cover h-[300px] md:h-[430px] xl:h-[439px] w-full object-top rounded-2xl"
-                                    src="/images/promo-1.jpg "
-                                    alt="promo-1"
-                                />
-                            </div>
-                            <div>
-                                <img
-                                    className=" md:object-cover h-[300px] md:h-[430px] xl:h-[439px] w-full  rounded-2xl"
-                                    src="/images/promo-2.jpg "
-                                    alt="promo-1"
-                                />
-                            </div>
-                            <div>
-                                <img
-                                    className=" md:object-cover h-[300px] md:h-[430px] xl:h-[439px] w-full  rounded-2xl"
-                                    src="/images/promo-3.jpg "
-                                    alt="promo-1"
-                                />
-                            </div>
+                            {banners.map((banner) => {
+                                console.log(banner.image);
+                                return (
+                                    <div>
+                                        <img
+                                            className=" md:object-cover h-[300px] md:h-[430px] xl:h-[439px] w-full object-top rounded-2xl"
+                                            src={`/storage/${banner.image}`}
+                                            alt="promo-1"
+                                        />
+                                    </div>
+                                );
+                            })}
                         </Slider>
                     </div>
                     {/* END FOR SLIDER PROMO */}
@@ -64,36 +63,62 @@ export default function HomePage({ categories, units }) {
                         <NavigationMenuDemo
                             categories={categories?.data}
                             units={units.data}
-                            className="P-10"
+                            className="p-10"
                         />
                         {/* category */}
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-6 gap-y-4 lg:gap-y-12 place-items-stretch justify-items-center mt-5">
                         {units?.data?.map((unit, index) =>
-                            index === units?.data?.length - 1 ? (
+                            index === units?.data?.length ? (
+                                <div className="col-span-1 md:col-span-2 place-self-center md:place-self-center xl:col-span-1 ">
+                                    <ProductCard
+                                        name={unit.name}
+                                        capacity={unit.capacity}
+                                        key={unit.slug}
+                                        image={unit.featured_image}
+                                        price={unit.price}
+                                        href={`/unit/${unit.slug}`}
+                                        href_sewa={`/checkout/${unit.id}`}
+                                    />
+                                    ;
+                                </div>
+                            ) : (
                                 <div className="col-span-1 md:col-span-2 place-self-center md:place-self-center xl:col-span-1 ">
                                     <ProductCard
                                         name={unit.name}
                                         capacity={unit.capacity}
                                         key={unit.slug}
                                         price={unit.price}
-                                        href={`/unit/${unit.slug}`}
+                                        image={unit.featured_image}
+                                        href_detail={unit.slug}
                                         href_sewa={`/checkout/${unit.id}`}
                                     />
                                 </div>
-                            ) : (
-                                <ProductCard
-                                    name={unit.name}
-                                    capacity={unit.capacity}
-                                    key={unit.slug}
-                                    price={unit.price}
-                                    href_detail={`/unit/${unit.slug}`}
-                                    href_sewa={`/checkout/${unit.id}`}
-                                />
                             )
                         )}
                     </div>
                 </section>
+                <div className="flex justify-center ">
+                    {units.meta.links.map((data) => {
+                        return (
+                            <Link
+                                key={data.label}
+                                href={data.url}
+                                className={`px-3 py-1 hover:bg-black hover:text-white text-white-700 rounded-md ${
+                                    data.active
+                                        ? "bg-black text-white hover:text-white"
+                                        : ""
+                                }`}
+                            >
+                                {data.label === "&laquo; Previous"
+                                    ? "«"
+                                    : data.label === "Next &raquo;"
+                                    ? "»"
+                                    : data.label}
+                            </Link>
+                        );
+                    })}
+                </div>
             </main>
             <Footer />
         </>

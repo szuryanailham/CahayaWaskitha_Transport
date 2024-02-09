@@ -4,15 +4,13 @@ import { Button } from "@/components/ui/button";
 import {
     DropdownMenu,
     DropdownMenuContent,
-    DropdownMenuLabel,
     DropdownMenuRadioGroup,
     DropdownMenuRadioItem,
-    DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import ModeToggle from "../ModeToggle";
 
-function NavDashboard() {
+function NavDashboard(props) {
     const [position, setPosition] = React.useState("bottom");
     return (
         <div className="w-full flex">
@@ -43,7 +41,7 @@ function NavDashboard() {
                             {/* ... (ul li yang lain) ... */}
                         </ul>
                     </div>
-                    <div className="ml-[5%] md:ml-[27%] relative w-[90%] md:w-[65%] ">
+                    <div className="ml-[5%] md:ml-[25%] relative w-[90%] md:w-[65%] ">
                         <input
                             type="search"
                             id="search-dropdown"
@@ -68,7 +66,7 @@ function NavDashboard() {
                         asChild
                     >
                         <h1 style={{ whiteSpace: "nowrap" }} variant="outline">
-                            Cahaya Waskitha
+                            {props.username}
                         </h1>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="w-56">

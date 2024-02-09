@@ -1,6 +1,6 @@
 import React from "react";
-
-function LandingPage_dash() {
+import { FormatRupiah } from "@arismun/format-rupiah";
+function LandingPage_dash(result) {
     const CardInfo = (props) => {
         return (
             <div className="w-full md:w-[35%] max-h-[40%] bg-[#3D74B4] rounded-md p-5 text-white font-bold">
@@ -17,17 +17,17 @@ function LandingPage_dash() {
             <section className="flex flex-col md:flex-row gap-3">
                 {/* box conclusion */}
                 <CardInfo
-                    number={11}
+                    number={result.order}
                     desc="Detail Order"
                     icon="/images/dashboard/box.svg"
                 />
                 <CardInfo
-                    number="Rp.300.000"
+                    number={<FormatRupiah value={result.total} />}
                     desc="Total Order"
                     icon="/images/dashboard/card_dash.svg"
                 />
                 <CardInfo
-                    number={11}
+                    number={result.order}
                     desc="People Order"
                     icon="/images/dashboard/people.svg"
                 />

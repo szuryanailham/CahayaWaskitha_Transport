@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../ui/button";
 import { Link } from "@inertiajs/react";
-function Detail({ name, description, href, capacity }) {
+function Detail({ name, description, href, capacity, image }) {
     return (
         <section className="flex items-center flex-col-reverse md:flex-row  lg:mb-5 md:px-4 xl:px-14 ">
             <div className="p-6 md:p-8 w-full md:w-1/2">
@@ -30,7 +30,7 @@ function Detail({ name, description, href, capacity }) {
             <div className="h-full flex w-full min-w-[399px]  md:w-1/2  overflow-hidden">
                 <img
                     className="object-cover p-10 md:p-0 xl:p-5 "
-                    src="/pngwing.com_3_1.png"
+                    src={`/storage/${image}`}
                     alt="card-img"
                     loading="lazy"
                 />

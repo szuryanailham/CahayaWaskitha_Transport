@@ -2,9 +2,7 @@
 
 import * as React from "react";
 import { Link } from "@inertiajs/react";
-
 import { cn } from "@/lib/utils";
-
 import {
     NavigationMenu,
     NavigationMenuContent,
@@ -84,7 +82,7 @@ export function NavigationMenuDemo({ categories, units }) {
                         <NavigationMenuLink
                             className={`${navigationMenuTriggerStyle()}text-xs md:text-base`}
                         >
-                            Semua Kendaraan
+                            <Link href={"/paket-wisata"}>Paket wisata</Link>
                         </NavigationMenuLink>
                     </Link>
                 </NavigationMenuItem>
