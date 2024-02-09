@@ -50,12 +50,11 @@ export default function Index({ statusMessage, orders }) {
     }, [searchQuery]);
     {
     }
-    console.log(orders.data);
     return (
         <>
             <Head title="Order" />
             <SidebarDashboard />
-            <div class="p-4 sm:ml-64">
+            <div className="p-4 sm:ml-64">
                 <NavDashboard />
                 <div className="mt-5">
                     <div className="w-full flex gap-2 justify-end mt-10">
@@ -80,7 +79,6 @@ export default function Index({ statusMessage, orders }) {
 
                     {/* table transaction */}
                     {orders.data.map((order) => {
-                        console.log(order.is_deleted); // Moved console.log here
                         return (
                             <div key={order.id}>
                                 <CardTransaction
@@ -105,7 +103,7 @@ export default function Index({ statusMessage, orders }) {
                         {orders.meta.links.map((data) => {
                             return (
                                 <Link
-                                    key={data.label}
+                                    key={data.id}
                                     href={data.url}
                                     className={`px-3 py-1 hover:bg-indigo-500 text-white-700 rounded-md ${
                                         data.active ? "bg-indigo-500" : ""

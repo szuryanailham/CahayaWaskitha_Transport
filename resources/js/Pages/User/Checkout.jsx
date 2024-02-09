@@ -249,7 +249,7 @@ export default function Checkout({ unit }) {
                                     placeholder="Start Time"
                                     className={`form-control ${
                                         errors.start_time ? "is-invalid" : ""
-                                    }w-full text-muted-foreground dark:bg-gray-800`}
+                                    }w-full text-muted-foreground dark:bg-gray-800 p-2`}
                                 />
                                 <span className="text-xs text-destructive">
                                     {Object.values(errors).length > 0
@@ -281,21 +281,21 @@ export default function Checkout({ unit }) {
                             </div>
                         </div>
                     </section>
-                    {/* pengembalian ..... */}
+                    {/* akhir sewa ..... */}
                     <section className="w-full flex flex-col gap-8 items-center">
                         <div className="text-center">
                             <h2 className="font-bold text-xl md:text-2xl underline">
-                                Pengembalian
+                                akhir sewa
                             </h2>
                             <p className="text-muted-foreground">
-                                Masukan info penyewaan
+                                Masukan akhir sewa
                             </p>
                         </div>
                         <div className="w-full flex flex-col gap-4">
-                            {/* waktu pengembalian */}
+                            {/* waktu akhir sewa */}
                             <div>
                                 <Label htmlFor="end_time">
-                                    Waktu Pengambilan
+                                    Waktu akhir sewa
                                 </Label>
                                 <Input
                                     id="end_time"
@@ -314,10 +314,10 @@ export default function Checkout({ unit }) {
                                         : ""}
                                 </span>
                             </div>
-                            {/* tanggal pengembalian */}
+                            {/* tanggal akhir sewa */}
                             <div>
                                 <Label htmlFor="end_date">
-                                    Tanggal Pengambilan
+                                    Tanggal akhir sewa
                                 </Label>
                                 <Input
                                     id="end_date"

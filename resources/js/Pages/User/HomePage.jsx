@@ -25,7 +25,6 @@ export default function HomePage({ categories, units, banners }) {
         slidesToShow: 1,
         slidesToScroll: 1,
     };
-    console.log(banners);
     return (
         <>
             <Head title="Home" />
@@ -39,9 +38,8 @@ export default function HomePage({ categories, units, banners }) {
                     <div className="w-full h-full mt-16">
                         <Slider {...settings}>
                             {banners.map((banner) => {
-                                console.log(banner.image);
                                 return (
-                                    <div>
+                                    <div key={banner.id}>
                                         <img
                                             className=" md:object-cover h-[300px] md:h-[430px] xl:h-[439px] w-full object-top rounded-2xl"
                                             src={`/storage/${banner.image}`}
@@ -61,6 +59,7 @@ export default function HomePage({ categories, units, banners }) {
                     {/* category */}
                     <div className="w-full flex justify-center  mb-4  ">
                         <NavigationMenuDemo
+                            key={categories.id}
                             categories={categories?.data}
                             units={units.data}
                             className="p-10"
@@ -70,11 +69,13 @@ export default function HomePage({ categories, units, banners }) {
                     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-x-6 gap-y-4 lg:gap-y-12 place-items-stretch justify-items-center mt-5">
                         {units?.data?.map((unit, index) =>
                             index === units?.data?.length ? (
-                                <div className="col-span-1 md:col-span-2 place-self-center md:place-self-center xl:col-span-1 ">
+                                <div
+                                    key={unit.slug}
+                                    className="col-span-1 md:col-span-2 place-self-center md:place-self-center xl:col-span-1 "
+                                >
                                     <ProductCard
                                         name={unit.name}
                                         capacity={unit.capacity}
-                                        key={unit.slug}
                                         image={unit.featured_image}
                                         price={unit.price}
                                         href={`/unit/${unit.slug}`}
@@ -83,11 +84,13 @@ export default function HomePage({ categories, units, banners }) {
                                     ;
                                 </div>
                             ) : (
-                                <div className="col-span-1 md:col-span-2 place-self-center md:place-self-center xl:col-span-1 ">
+                                <div
+                                    key={unit.slug}
+                                    className="col-span-1 md:col-span-2 place-self-center md:place-self-center xl:col-span-1 "
+                                >
                                     <ProductCard
                                         name={unit.name}
                                         capacity={unit.capacity}
-                                        key={unit.slug}
                                         price={unit.price}
                                         image={unit.featured_image}
                                         href_detail={unit.slug}

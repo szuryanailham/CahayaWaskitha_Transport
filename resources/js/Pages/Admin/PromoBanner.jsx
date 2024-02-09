@@ -84,7 +84,7 @@ export default function PromoBanner({ statusMessage, banners }) {
                         </TableHeader>
                         <TableBody>
                             {banners.map((banner) => (
-                                <TableRow>
+                                <TableRow key={banner.id}>
                                     <TableCell className="font-medium">
                                         INV00{banner.id}
                                     </TableCell>

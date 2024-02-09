@@ -25,7 +25,7 @@ export function NavigationMenuDemo({ categories, units }) {
                         <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr] bg-white shadow-md">
                             <li className="row-span-3">
                                 <NavigationMenuLink asChild>
-                                    <a
+                                    <Link
                                         className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md overflow-hidden"
                                         href="/"
                                     >
@@ -40,12 +40,13 @@ export function NavigationMenuDemo({ categories, units }) {
                                             Penyedia Layanan Penyewaan Kendaraan
                                             dengan Tarif Terjangkau
                                         </p>
-                                    </a>
+                                    </Link>
                                 </NavigationMenuLink>
                             </li>
 
                             {categories?.map((category) => (
                                 <ListItem
+                                    key={category.id}
                                     href={`/${category.slug}`}
                                     title={category.name}
                                 >
@@ -61,7 +62,7 @@ export function NavigationMenuDemo({ categories, units }) {
                         List Kendaraan
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-white shadow-md ">
+                        <div className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-white shadow-md ">
                             {units?.map((unit) => (
                                 <ListItem
                                     key={unit.id}
@@ -74,7 +75,7 @@ export function NavigationMenuDemo({ categories, units }) {
                                     })}
                                 </ListItem>
                             ))}
-                        </ul>
+                        </div>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
@@ -95,7 +96,7 @@ const ListItem = ({ className, title, children, ...props }) => {
     return (
         <li>
             <NavigationMenuLink asChild>
-                <a
+                <Link
                     className={cn(
                         "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
                         className
@@ -108,7 +109,7 @@ const ListItem = ({ className, title, children, ...props }) => {
                     <p className="line-clamp-2 text-sm leading-none text-muted-foreground">
                         {children}
                     </p>
-                </a>
+                </Link>
             </NavigationMenuLink>
         </li>
     );

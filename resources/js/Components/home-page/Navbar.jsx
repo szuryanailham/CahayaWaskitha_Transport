@@ -41,9 +41,9 @@ function Navbar() {
                         type="checkbox"
                         id="isActive"
                         checked={displayMenu}
+                        onChange={changeActive}
                     />
                     <label
-                        onClick={changeActive}
                         htmlFor="isActive"
                         className="absolute top-3 right-2"
                     >
@@ -97,6 +97,15 @@ function Navbar() {
                                 className="block py-2 px-3 text-white hover:text-black md:hover:text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                             >
                                 Gallery
+                            </a>
+                        </li>
+                        {/* item nav link 4 */}
+                        <li className="mt-3 md:mt-0">
+                            <a
+                                href={`/paket-wisata`}
+                                className="block py-2 px-3 text-white hover:text-black md:hover:text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                            >
+                                paket wisata
                             </a>
                         </li>
                         {/* item nav link 5 */}

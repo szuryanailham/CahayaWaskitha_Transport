@@ -10,7 +10,7 @@ export default function Dashboard({ total }) {
     return (
         <>
             <SidebarDashboard />
-            <div class="p-4 sm:ml-64">
+            <div className="p-4 sm:ml-64">
                 <NavDashboard username={auth.user.name} />
                 <div className="mt-5">
                     <LandingPage_dash order={total.order} total={total.price} />
