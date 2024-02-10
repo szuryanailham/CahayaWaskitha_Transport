@@ -5,7 +5,6 @@ import NavDashboard from "@/Components/DashboardComponent/NavDashboard";
 import {
     Table,
     TableBody,
-    TableCaption,
     TableCell,
     TableHead,
     TableHeader,
