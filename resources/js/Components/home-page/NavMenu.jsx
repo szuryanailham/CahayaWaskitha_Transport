@@ -1,5 +1,3 @@
-"use client";
-
 import * as React from "react";
 import { Link } from "@inertiajs/react";
 import { cn } from "@/lib/utils";
@@ -11,7 +9,7 @@ import {
     NavigationMenuList,
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+} from "@/Components/ui/navigation-menu";
 
 export function NavigationMenuDemo({ categories, units }) {
     return (

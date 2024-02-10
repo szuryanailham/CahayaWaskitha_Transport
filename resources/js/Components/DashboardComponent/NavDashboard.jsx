@@ -1,6 +1,5 @@
 import React from "react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
+import { Avatar, AvatarFallback } from "@/Components/ui/avatar";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -85,7 +84,6 @@ function NavDashboard(props) {
                     </DropdownMenuContent>
                 </DropdownMenu>
                 <Avatar>
-                    <AvatarImage src="" />
                     <AvatarFallback>B</AvatarFallback>
                 </Avatar>
 
