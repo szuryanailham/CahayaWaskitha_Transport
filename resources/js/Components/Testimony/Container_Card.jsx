@@ -1,6 +1,6 @@
 import React from "react";
-import CardTestimony from "./cardTestimony";
-import FormTestimony from "./FormTestimony";
+import CardTestimony from "@/Components/Testimony/Container_Card";
+import FormTestimony from "@/Components/Testimony/FormTestimony";
 import Footer from "../home-page/Footer";
 function Container_Card() {
     return (
