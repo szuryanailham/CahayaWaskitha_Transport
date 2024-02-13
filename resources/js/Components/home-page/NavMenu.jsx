@@ -11,7 +11,7 @@ import {
     NavigationMenuList,
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
+} from "@/Components/ui/navigation-menu";
 
 export function NavigationMenuDemo({ categories, units }) {
     return (

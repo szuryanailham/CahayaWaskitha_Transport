@@ -1,4 +1,4 @@
-import { Card, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardTitle } from "@/Components/ui/card";
 import { Button } from "../ui/button";
 import { Link } from "@inertiajs/react";
 

@@ -101,7 +101,10 @@ export default function Index({ units }) {
                         <TableBody>
                             {/* content of table */}
                             {units.data.map((unit) => (
-                                <TableRow key={unit.id}>
+                                <TableRow
+                                    key={unit.id}
+                                    className={unit.is_deleted ? "hidden" : ""}
+                                >
                                     <TableCell className="font-medium">
                                         1
                                     </TableCell>

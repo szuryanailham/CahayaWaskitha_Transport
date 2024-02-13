@@ -2,7 +2,6 @@ import React from "react";
 import { HiMiniBuildingOffice } from "react-icons/hi2";
 import { IoPersonSharp } from "react-icons/io5";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import { FastForward } from "lucide-react";
 function AboutDesc() {
     return (
         <div className="w-full h-fit md:mt-10">

@@ -1,48 +1,20 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Input } from "@/components/ui/input";
+import { Input } from "@/Components/ui/input";
 import { Textarea } from "@/Components/ui/textarea";
-import { Button } from "@/components/ui/button";
-
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select";
+import { Button } from "@/Components/ui/button";
 import { useForm } from "@inertiajs/inertia-react";
 
 function FormTestimony() {
     const { data, setData, post, processing, errors } = useForm({
         name: "",
         email: "",
-        category: "",
         testimony: "",
         rating: 0,
     });
 
-    const ratingRef = useRef(null);
     const [rating, setRating] = useState(null);
     const [hover, setHover] = useState(null);
     const [totalStars, setTotalStars] = useState(5);
-
-    const handleChange = (e) => {
-        setTotalStars(
-            parseInt(Boolean(e.target.value, 10) ? e.target.value : 5)
-        );
-    };
-    useEffect(() => {
-        const handleOutsideClick = (event) => {
-            if (!ratingRef.current.contains(event.target)) {
-                setRating(0);
-            }
-        };
-
-        document.addEventListener("click", handleOutsideClick);
-        return () => {
-            document.removeEventListener("click", handleOutsideClick);
-        };
-    }, []);
 
     useEffect(() => {
         setData("rating", rating);
@@ -81,18 +53,6 @@ function FormTestimony() {
                 type="email"
                 placeholder="email....."
             />
-            {/* category */}
-            <Select name="category" onChange={(e) => onHandleChange(e)}>
-                <SelectTrigger className="w-full mt-5 dark:bg-gray-800">
-                    <SelectValue placeholder="pilih category..." />
-                </SelectTrigger>
-                <SelectContent>
-                    <SelectItem value="Pelayanan">pelayanaan</SelectItem>
-                    <SelectItem value="unit">Unit</SelectItem>
-                    <SelectItem value="kebersihan">kebersihan</SelectItem>
-                    <SelectItem value="kenyamanan">kenyamanan</SelectItem>
-                </SelectContent>
-            </Select>
             {/* rating */}
             <div className="w-full flex justify-center gap-2 p-3">
                 <h1 className="mt-2">Give us rating :</h1>

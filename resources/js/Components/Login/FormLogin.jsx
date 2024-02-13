@@ -1,6 +1,6 @@
 import React from "react";
 import { Input } from "../ui/input";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/Components/ui/button";
 function FormLogin() {
     return (
         <div className="w-full md:w-[60%] mx-auto mb-2 h-fit mt-14 p-10">
