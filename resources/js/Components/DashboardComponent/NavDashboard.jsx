@@ -1,6 +1,5 @@
 import React from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -9,6 +8,7 @@ import {
     DropdownMenuTrigger,
 } from "@/Components/ui/dropdown-menu";
 import ModeToggle from "../ModeToggle";
+import { Link } from "@inertiajs/react";
 
 function NavDashboard(props) {
     const [position, setPosition] = React.useState("bottom");
@@ -95,11 +95,13 @@ function NavDashboard(props) {
                     className="p-3"
                 />
                 {/* home  */}
-                <img
-                    src="/images/dashboard/Home.svg"
-                    alt="Notif-icon"
-                    className="w-5 h-5 mr-10"
-                />
+                <Link href={"/"}>
+                    <img
+                        src="/images/dashboard/Home.svg"
+                        alt="Notif-icon"
+                        className="w-5 h-5 mr-10"
+                    />
+                </Link>
             </div>
 
             {/* notification */}
