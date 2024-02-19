@@ -7,8 +7,8 @@ import Footer from "@/Components/home-page/Footer";
 
 export default function Login() {
     const { data, setData, post, processing, errors, reset } = useForm({
-        email: "admin@test.com",
-        password: "admin1234",
+        email: "",
+        password: "",
         remember: false,
     });
 
@@ -21,7 +21,15 @@ export default function Login() {
     const submit = (e) => {
         e.preventDefault();
 
-        post("/login");
+        post("/login", {
+            onSuccess: () => {
+                console.log("Login successful!");
+            },
+            onError: (errors) => {
+                console.log("Login failed:", errors);
+                reset();
+            },
+        });
     };
 
     return (
@@ -39,6 +47,11 @@ export default function Login() {
                 <h1 className="text-center text-xl font-bold mt-4 mb-3">
                     Login As Admin
                 </h1>
+                {errors && errors.credentials && (
+                    <div className="text-red-500 text-center mt-2">
+                        {errors.credentials}
+                    </div>
+                )}
                 {/* form */}
                 <form onSubmit={submit} className="flex flex-col jusify-center">
                     {/* email */}

@@ -20,9 +20,13 @@ function Testimony({ testimonies }) {
                 Top Testimony
             </h1>
             <div className="flex flex-col  mt-3 md:flex-row">
-                <CardTestimony />
-                <CardTestimony />
-                <CardTestimony />
+                {testimonies.slice(0, 3).map((testimony) => (
+                    <CardTestimony
+                        rating={testimony.rating}
+                        name={testimony.name}
+                        comment={testimony.testimony}
+                    />
+                ))}
             </div>
             <h1 className="text-center text-2xl font-bold mt-3">
                 Testimony Form

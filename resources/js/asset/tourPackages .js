@@ -66,7 +66,7 @@ export const tourPackages = [
         ],
     },
     {
-        image: "/images/paket-wisata/wisata3.jpg",
+        image: "/images/paket-wisata/wisata4.jpg",
         title: "Paket CW 1  Rp. 1.300.000/Pax",
         destinations: [
             { day: 1, place: "Keraton Jogja" },
@@ -91,7 +91,7 @@ export const tourPackages = [
         ],
     },
     {
-        image: "/images/paket-wisata/wisata3.jpg",
+        image: "/images/paket-wisata/wisata5.jpg",
         title: "Paket CW 3 (Gold) HARGA Rp. 2.240.000",
         destinations: [
             { day: 1, place: "Rafting Elo" },
@@ -116,7 +116,7 @@ export const tourPackages = [
         ],
     },
     {
-        image: "/images/paket-wisata/wisata3.jpg",
+        image: "/images/paket-wisata/wisata6.jpg",
         title: "Paket CW 3 (EKSEKUTF) HARGA 2.050.000",
         destinations: [
             { day: 1, place: "Keraton Yogyakarta" },
@@ -141,7 +141,7 @@ export const tourPackages = [
         ],
     },
     {
-        image: "/images/paket-wisata/wisata3.jpg",
+        image: "/images/paket-wisata/wisata7.jpg",
         title: "PAKET WASKITA HEMAT Harga 1.590.000/pax",
         destinations: [
             { day: 1, place: "Keraton Yogyakarta" },
@@ -169,7 +169,7 @@ export const tourPackages = [
         ],
     },
     {
-        image: "/images/paket-wisata/wisata3.jpg",
+        image: "/images/paket-wisata/wisata8.jpg",
         title: "Paket waskitha Eksekutf (CUKUPAN) HARGA 2.650.000",
         destinations: [
             { day: 1, place: "Keraton Yogyakarta" },
@@ -197,7 +197,7 @@ export const tourPackages = [
         ],
     },
     {
-        image: "/images/paket-wisata/wisata3.jpg",
+        image: "/images/paket-wisata/wisata9.jpg",
         title: "Paket waskitha Eksekutf (CUKUPAN) HARGA 2.650.000",
         destinations: [
             { day: 1, place: "Lava Tour Merapi" },

@@ -1,13 +1,12 @@
 import Footer from "@/Components/home-page/Footer";
 import { tourPackages } from "@/asset/tourPackages ";
 import Navbar from "@/Components/home-page/Navbar";
-
 import { Head, Link } from "@inertiajs/react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import PaketWisataCard from "@/Components/home-page/PaketWisataCard";
-
+import Meta from "@/Components/Meta";
 export default function PaketWisata({ banners }) {
     var settings = {
         dots: true,
@@ -17,11 +16,16 @@ export default function PaketWisata({ banners }) {
         slidesToShow: 1,
         slidesToScroll: 1,
     };
+    console.log(banners);
 
     return (
         <>
             <Head title="PaketWisata" />
             <Navbar />
+            <Meta
+                title="paket wisata"
+                description="cahaya waskitha transport jogjakarta menyiadakan berbagai macam pakaet wisata lengkap di yogyakarta ,dengan harga terjangkau dan pelayanan memasukan siap memanntu perjalanan anda aman ,mudah dan menyenangkan"
+            />
             <main className="w-full ">
                 <section
                     className="w-full px-4 md:px-6 xl:px-14"
@@ -30,27 +34,17 @@ export default function PaketWisata({ banners }) {
                     {/* SLIDER AUTO FOR PROMO */}
                     <div className="w-full h-full mt-16">
                         <Slider {...settings}>
-                            <div>
-                                <img
-                                    className=" md:object-cover h-[300px] md:h-[430px] xl:h-[439px] w-full object-top rounded-2xl"
-                                    src="/images/promo-1.jpg "
-                                    alt="promo-1"
-                                />
-                            </div>
-                            <div>
-                                <img
-                                    className=" md:object-cover h-[300px] md:h-[430px] xl:h-[439px] w-full  rounded-2xl"
-                                    src="/images/promo-2.jpg "
-                                    alt="promo-1"
-                                />
-                            </div>
-                            <div>
-                                <img
-                                    className=" md:object-cover h-[300px] md:h-[430px] xl:h-[439px] w-full  rounded-2xl"
-                                    src="/images/promo-3.jpg "
-                                    alt="promo-1"
-                                />
-                            </div>
+                            {banners.map((banner) => {
+                                return (
+                                    <div key={banner.id}>
+                                        <img
+                                            className=" md:object-cover h-[300px] md:h-[430px] xl:h-[439px] w-full object-top rounded-2xl"
+                                            src={`/storage/${banner.image}`}
+                                            alt="promo-1"
+                                        />
+                                    </div>
+                                );
+                            })}
                         </Slider>
                     </div>
                     {/* END FOR SLIDER PROMO */}
