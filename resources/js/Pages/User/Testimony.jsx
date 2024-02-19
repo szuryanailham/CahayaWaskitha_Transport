@@ -6,8 +6,8 @@ import CardTestimony from "@/Components/Testimony/CardTestimony";
 import FormTestimony from "@/Components/Testimony/FormTestimony";
 import Footer from "@/Components/home-page/Footer";
 CardTestimony;
-function Testimony({ testimony }) {
-    console.log(testimony);
+function Testimony({ testimonies }) {
+    console.log(testimonies);
     return (
         <>
             <Head title="Testimony" />
