@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\PromoBanner;
+
 Route::namespace('App\Http\Controllers\User')->group(function () {
     Route::get('/unit/{slug}', 'HomeController@show');
 
@@ -13,7 +15,9 @@ Route::namespace('App\Http\Controllers\User')->group(function () {
     Route::post('/testimony', 'TestimonyController@store');
 
     Route::inertia('/gallery', 'User/Gallery');
-    Route::inertia('/paket-wisata', 'User/PaketWisata');
+    Route::inertia('/paket-wisata', 'User/PaketWisata', [
+        'banners' => PromoBanner::all(),
+    ]);
 
     Route::get('/{slug?}', 'HomeController@index')->name('home');
 });
