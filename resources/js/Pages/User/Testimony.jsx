@@ -6,8 +6,8 @@ import FormTestimony from "@/Components/Testimony/FormTestimony";
 import Footer from "@/Components/home-page/Footer";
 import Meta from "@/Components/Meta";
 CardTestimony;
-function Testimony({ testimony }) {
-    console.log(testimony);
+function Testimony({ testimonies }) {
+    console.log(testimonies);
     return (
         <>
             <Meta

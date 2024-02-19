@@ -20,8 +20,11 @@ class TestimonyController extends Controller
      */
     public function index()
     {
+        $testimonies = Testimony::latest()->get();
 
-        return Inertia::render('User/Testimony');
+        return Inertia::render('User/Testimony', [
+            'testimonies' => $testimonies
+        ]);
     }
 
     /**

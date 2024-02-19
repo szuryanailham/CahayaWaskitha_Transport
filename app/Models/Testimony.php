@@ -11,7 +11,6 @@ class Testimony extends Model
     protected $fillable = [
         'name',
         'email',
-        'category',
         'testimony',
         'rating',
     ];
