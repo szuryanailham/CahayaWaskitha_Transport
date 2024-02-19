@@ -22,7 +22,7 @@ function Navbar() {
     return (
         <nav
             ref={navbar}
-            className="z-[100] w-full mb-10 bg-navcolor border-gray-200 dark:bg-gray-900 fixed top-0 select-none"
+            className="z-[100] w-full mb-10 bg-navcolor border-gray-200 dark:bg-gray-900 fixed top-0 select-none px-2"
         >
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-3">
                 <button className=" space-x-3 rtl:space-x-reverse">
@@ -91,14 +91,14 @@ function Navbar() {
                             </a>
                         </li>
                         {/* item nav link 4 */}
-                        <li className="mt-3 md:mt-0">
+                        {/* <li className="mt-3 md:mt-0">
                             <a
                                 href={`/gallery`}
                                 className="block py-2 px-3 text-white hover:text-black md:hover:text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                             >
                                 Gallery
                             </a>
-                        </li>
+                        </li> */}
                         {/* item nav link 4 */}
                         <li className="mt-3 md:mt-0">
                             <a

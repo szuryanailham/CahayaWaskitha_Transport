@@ -6,16 +6,7 @@ import { Head, Link } from "@inertiajs/react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import {
-    Pagination,
-    PaginationContent,
-    PaginationEllipsis,
-    PaginationItem,
-    PaginationLink,
-    PaginationNext,
-    PaginationPrevious,
-} from "@/components/ui/pagination";
-
+import Meta from "@/Components/Meta";
 export default function HomePage({ categories, units, banners }) {
     var settings = {
         dots: true,
@@ -27,7 +18,10 @@ export default function HomePage({ categories, units, banners }) {
     };
     return (
         <>
-            <Head title="Home" />
+            <Meta
+                title="Home"
+                description="Temukan layanan rental mobil terbaik di Yogyakarta bersama kami. Armada terlengkap, harga terjangkau, dan layanan berkualitas, siap membuat perjalanan jogja anda semakin mudah dan menyenangkan"
+            />
             <Navbar />
             <main className="w-full ">
                 <section
@@ -86,7 +80,7 @@ export default function HomePage({ categories, units, banners }) {
                             ) : (
                                 <div
                                     key={unit.slug}
-                                    className="col-span-1 md:col-span-2 place-self-center md:place-self-center xl:col-span-1 "
+                                    className="col-span-1 md:col-span-1 place-self-center md:place-self-center xl:col-span-1 "
                                 >
                                     <ProductCard
                                         name={unit.name}

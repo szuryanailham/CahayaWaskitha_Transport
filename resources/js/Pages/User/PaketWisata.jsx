@@ -75,7 +75,7 @@ export default function PaketWisata() {
                             return (
                                 <PaketWisataCard
                                     includes={tourPackage.includes}
-                                    prices={tourPackage.prices}
+                                    destinations={tourPackage.destinations}
                                     title={tourPackage.title}
                                     lists={tourPackage.lists}
                                     key={index}
@@ -84,6 +84,10 @@ export default function PaketWisata() {
                             );
                         })}
                     </div>
+                    <p className="text-center mt-10 italic">
+                        silahkan hubungi kontak admin untuk informasi lebih
+                        lanjut
+                    </p>
                 </section>
             </main>
             <Footer />

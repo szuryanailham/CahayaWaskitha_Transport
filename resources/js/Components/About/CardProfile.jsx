@@ -11,8 +11,7 @@ function CardProfile(props) {
             />
             {/* Descrp Card */}
             <div className="text-center text-md p-5">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde,
-                provident.
+                <p>{props.text}</p>
             </div>
         </div>
     );

@@ -1,16 +1,19 @@
 import React from "react";
-import { Head } from "@inertiajs/react";
 import Navbar from "@/Components/home-page/Navbar";
 import Jumbotron from "@/Components/About/Jumbotron";
 import CardTestimony from "@/Components/Testimony/CardTestimony";
 import FormTestimony from "@/Components/Testimony/FormTestimony";
 import Footer from "@/Components/home-page/Footer";
+import Meta from "@/Components/Meta";
 CardTestimony;
 function Testimony({ testimony }) {
     console.log(testimony);
     return (
         <>
-            <Head title="Testimony" />
+            <Meta
+                description="Deskripsi Testimony dari client tentang pelayanan kami "
+                title="Testimony"
+            />
             <Navbar />
             <Jumbotron />
             <h1 className="text-center text-2xl font-bold p-3">

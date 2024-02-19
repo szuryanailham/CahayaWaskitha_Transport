@@ -4,9 +4,14 @@ import Jumbotron from "@/Components/About/Jumbotron";
 import Navbar from "@/Components/home-page/Navbar";
 import Footer from "@/Components/home-page/Footer";
 import React from "react";
+import Meta from "@/Components/Meta";
 function About() {
     return (
         <>
+            <Meta
+                title="about"
+                description="Informasi tentang kami dan layanan kami sebagai mitra jasa pelayananan rental mobil dan paket wisata di Jogjakarta."
+            />
             <Navbar />
             <div className="flex flex-col md:flex-row-reverse mt-0 md:mt-5">
                 <Jumbotron />

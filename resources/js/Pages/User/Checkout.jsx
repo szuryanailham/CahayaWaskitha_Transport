@@ -103,9 +103,10 @@ export default function Checkout({ unit }) {
                     <div className="p-4 md:p-0 w-full md:w-[710px] flex flex-col gap-4 justify-center text-center ">
                         <h1 className="font-bold text-3xl">Bayu Waskitha</h1>
                         <p>
-                            NISMO has become the embodiment of Nissan's
-                            outstanding performance, inspired by the most
-                            unforgiving proving ground, the "race track".
+                            Silakan hubungi kami melalui kontak amin jika Anda
+                            ingin berkonsultasi sebelum melakukan pemesanan
+                            penyewaan. Kami siap membantu dan menjawab
+                            pertanyaan Anda. Terima kasih
                         </p>
                     </div>
                     <div className="flex flex-col items-center gap-4">

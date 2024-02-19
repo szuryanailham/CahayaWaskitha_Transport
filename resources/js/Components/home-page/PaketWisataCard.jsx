@@ -9,15 +9,14 @@ import {
 } from "../ui/card";
 import { Link } from "@inertiajs/react";
 
-const PaketWisataCard = ({ src, title, prices, includes, lists }) => {
-    console;
+const PaketWisataCard = ({ src, title, destinations, includes }) => {
     return (
         <Card className="w-full h-full bg-transparent xl:bg-white dark:bg-gray-800 rounded-none shadow-card shadow rounded-b-lg">
             <CardHeader className="p-0">
                 <img
                     className="h-[212px] w-full object-cover"
                     src={src}
-                    alt="image of paket wisata card"
+                    alt={title}
                 />
             </CardHeader>
             <CardContent className="flex flex-col items-center px-3 py-0 ">
@@ -28,16 +27,10 @@ const PaketWisataCard = ({ src, title, prices, includes, lists }) => {
                 </div>
                 <div className="w-full">
                     <ul className="w-full text-center text-gray-700 bg-gray-200 py-4 text-xl flex flex-col gap-1">
-                        {prices?.map((item, index) => (
-                            <li key={index}>
-                                <strong>{item.pax}</strong> pax = Rp{" "}
-                                {item.price}
-                                /pax
-                            </li>
-                        ))}
-                        {lists?.map((list, index) => (
-                            <li key={index}>
-                                <strong>{list}</strong>
+                        {destinations?.map((item, index) => (
+                            <li key={index} className="flex p-2">
+                                <strong className="mr-5">{item.day} day</strong>
+                                {item.place}
                             </li>
                         ))}
                     </ul>

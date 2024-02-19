@@ -23,10 +23,10 @@ class DatabaseSeeder extends Seeder
             CategoryTableSeeder::class,
             RoleTableSeeder::class,
             UserTableSeeder::class,
-            UnitTableSeeder::class,
-            UnitImageTableSeeder::class,
+            // UnitTableSeeder::class,
+            // UnitImageTableSeeder::class,
             TestimonyTableSeeder::class,
-            OrderTableSeeder::class,
+            // OrderTableSeeder::class,
         ]);
     }
 }

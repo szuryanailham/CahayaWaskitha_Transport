@@ -1,10 +1,10 @@
 import Footer from "@/Components/home-page/Footer";
 import { tourPackages } from "@/asset/tourPackages ";
 import Navbar from "@/Components/home-page/Navbar";
-
 import { Head } from "@inertiajs/react";
 import Jumbotron from "@/Components/About/Jumbotron";
 import { galleryImages } from "@/asset/gallery-images";
+import Meta from "@/Components/Meta";
 
 const MAX_COLUMNS = 3;
 
@@ -14,8 +14,10 @@ export default function Gallery() {
     }
     return (
         <>
-            <Head title="Gallery" />
-            <Navbar />
+            <Meta
+                title="Gallery"
+                description="berikut adalah gallery photo dari mitra kami penyedia jasa rental dan paket wisata jogjakarta."
+            />
 
             <Jumbotron />
             <section className="w-full px-2 xl:px-16 mt-10">

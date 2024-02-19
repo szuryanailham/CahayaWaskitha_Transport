@@ -9,18 +9,29 @@ function AboutDesc() {
                 About Us
             </h1>
             <div className=" text-center mx-auto w-[90%]">
-                <p class="text-md text-gray-800 dark:text-white leading-relaxed">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Aspernatur animi, eius, impedit ducimus magni vero dolorem
-                    fugit consectetur vitae ipsum explicabo repellendus dolor
-                    natus non assumenda, laborum quos. Cum dolorum natus, itaque
-                    quisquam nulla numquam reprehenderit eaque molestiae error,
-                    consectetur vitae odit cumque perferendis doloribus.
-                    Laudantium ratione accusamus nisi ex. Veniam quidem odio,
-                    labore accusamus eaque id totam vel blanditiis iure sint
-                    perspiciatis soluta quod recusandae officia amet at
-                    consequuntur suscipit eius commodi.
-                </p>
+                <div className="p-3">
+                    <p class="text-md text-gray-800 dark:text-white leading-relaxed text-left">
+                        Cahaya Waskitha Jogja dengan senang hati melayani
+                        berbagai kebutuhan perjalanan Anda. Kami menyediakan
+                        armada mobil untuk keperluan perjalanan pribadi,
+                        keluarga, atau bisnis. Dengan berbagai paket Wisata yang
+                        kami tawarkan, Anda dapat memilih sesuai dengan
+                        kebutuhan Anda Kami menawarkan armada terlengkap dengan
+                        pilihan transmisi manual maupun otomatis (matic). Semua
+                        unit kendaraan kami dalam kondisi terbaik
+                    </p>
+                    <p class="text-md text-gray-800 dark:text-white leading-relaxed text-left mt-2">
+                        Cahaya Waskitha Jogja dengan senang hati melayani
+                        berbagai kebutuhan perjalanan Anda. Kami menyediakan
+                        armada mobil untuk keperluan perjalanan pribadi,
+                        keluarga, atau bisnis. Dengan berbagai paket Wisata yang
+                        kami tawarkan, Anda dapat memilih sesuai dengan
+                        kebutuhan Anda.Kami menawarkan armada terlengkap dengan
+                        pilihan transmisi manual maupun otomatis (matic). Semua
+                        unit kendaraan kami dalam kondisi terbaik
+                    </p>
+                </div>
+
                 <div className="p-10 text-center">
                     <span className="flex">
                         <HiMiniBuildingOffice className="text-2xl mr-3" />

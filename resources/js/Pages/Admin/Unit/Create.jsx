@@ -2,7 +2,7 @@ import { Head, Link, useForm } from "@inertiajs/react";
 import NavDashboard from "@/Components/DashboardComponent/NavDashboard";
 import SidebarDashboard from "@/Components/DashboardComponent/SidebarDashboard";
 import { Input } from "@/Components/ui/input";
-import React from "react";
+import React, { useState } from "react";
 import { Textarea } from "@/Components/ui/textarea";
 import {
     Select,
@@ -16,6 +16,7 @@ import {
 import { Button } from "@/Components/ui/button";
 
 export default function Create({ categories }) {
+    const [nameFile, SetNameFile] = useState([]);
     const { data, setData, post, processing, errors } = useForm({
         name: "",
         category_id: "",
@@ -26,14 +27,14 @@ export default function Create({ categories }) {
         image: [],
     });
 
-    console.log(data);
-
     const onHandleChange = (event) => {
         if (event.target.type === "file") {
             const files = event.target.files;
 
             if (files.length > 0) {
                 const fileArray = Array.from(files);
+                const names = fileArray.map((e) => e.name);
+                SetNameFile([names]);
                 setData(event.target.name, fileArray);
             }
         } else {
@@ -267,11 +268,17 @@ export default function Create({ categories }) {
                                         />
                                     </svg>
                                     <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                                        <span className="font-semibold">
-                                            Click to upload
-                                        </span>{" "}
-                                        your promo here
+                                        {nameFile && nameFile.length > 0 ? (
+                                            nameFile.map((e, index) => (
+                                                <span key={index}>{e}</span>
+                                            ))
+                                        ) : (
+                                            <span className="font-semibold">
+                                                Click to upload Image
+                                            </span>
+                                        )}
                                     </p>
+
                                     <p className="text-xs text-gray-500 dark:text-gray-400">
                                         PNG, JPG (MAX. 800x400px)
                                     </p>
