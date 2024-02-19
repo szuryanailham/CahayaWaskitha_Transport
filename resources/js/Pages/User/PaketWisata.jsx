@@ -8,7 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import PaketWisataCard from "@/Components/home-page/PaketWisataCard";
 
-export default function PaketWisata() {
+export default function PaketWisata({ banners }) {
     var settings = {
         dots: true,
         infinite: true,
