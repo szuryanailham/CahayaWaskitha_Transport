@@ -3,13 +3,6 @@ import SidebarDashboard from "@/Components/DashboardComponent/SidebarDashboard";
 import { Input } from "@/Components/ui/input";
 import { Textarea } from "@/Components/ui/textarea";
 import { Head, Link, router, useForm, usePage } from "@inertiajs/react";
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select";
 
 import { useEffect, useState } from "react";
 import { Button } from "@/Components/ui/button";
