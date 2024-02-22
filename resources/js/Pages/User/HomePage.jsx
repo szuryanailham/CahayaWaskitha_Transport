@@ -2,7 +2,7 @@ import Footer from "@/Components/home-page/Footer";
 import { NavigationMenuDemo } from "@/Components/home-page/NavMenu";
 import Navbar from "@/Components/home-page/Navbar";
 import ProductCard from "@/Components/home-page/ProductCard";
-import { Head, Link } from "@inertiajs/react";
+import { Link } from "@inertiajs/react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";

@@ -20,16 +20,6 @@ function AboutDesc() {
                         pilihan transmisi manual maupun otomatis (matic). Semua
                         unit kendaraan kami dalam kondisi terbaik
                     </p>
-                    <p class="text-md text-gray-800 dark:text-white leading-relaxed text-left mt-2">
-                        Cahaya Waskitha Jogja dengan senang hati melayani
-                        berbagai kebutuhan perjalanan Anda. Kami menyediakan
-                        armada mobil untuk keperluan perjalanan pribadi,
-                        keluarga, atau bisnis. Dengan berbagai paket Wisata yang
-                        kami tawarkan, Anda dapat memilih sesuai dengan
-                        kebutuhan Anda.Kami menawarkan armada terlengkap dengan
-                        pilihan transmisi manual maupun otomatis (matic). Semua
-                        unit kendaraan kami dalam kondisi terbaik
-                    </p>
                 </div>
 
                 <div className="p-10 text-center">
