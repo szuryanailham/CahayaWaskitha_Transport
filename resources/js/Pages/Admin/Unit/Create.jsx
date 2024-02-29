@@ -12,7 +12,7 @@ import {
     SelectLabel,
     SelectTrigger,
     SelectValue,
-} from "@/components/ui/select";
+} from "@/Components/ui/select";
 import { Button } from "@/Components/ui/button";
 
 export default function Create({ categories }) {

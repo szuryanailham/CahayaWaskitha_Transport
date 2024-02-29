@@ -7,7 +7,7 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from "@/components/ui/table";
+} from "@/Components/ui/table";
 import { Head, usePage } from "@inertiajs/react";
 
 export default function Testimony({ testimonies }) {

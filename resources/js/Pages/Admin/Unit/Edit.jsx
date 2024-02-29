@@ -4,7 +4,7 @@ import NavDashboard from "@/Components/DashboardComponent/NavDashboard";
 import SidebarDashboard from "@/Components/DashboardComponent/SidebarDashboard";
 import LandingPage_dash from "@/Components/DashboardComponent/LandingPage_dash";
 import { Input } from "@/Components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
+import { Textarea } from "@/Components/ui/textarea";
 
 import {
     Select,
@@ -14,7 +14,7 @@ import {
     SelectValue,
     SelectGroup,
     SelectLabel,
-} from "@/components/ui/select";
+} from "@/Components/ui/select";
 import { Button } from "@/Components/ui/button";
 
 export default function Dashboard({ unit, categories }) {

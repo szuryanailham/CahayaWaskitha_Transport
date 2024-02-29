@@ -1,5 +1,5 @@
 import { FiSun, FiMoon } from "react-icons/fi";
-import { useTheme } from "@/components/theme-provider";
+import { useTheme } from "@/Components/theme-provider";
 
 export default function ModeToggle() {
     const { setTheme, theme } = useTheme();

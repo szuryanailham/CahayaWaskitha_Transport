@@ -1,5 +1,5 @@
 import { Head } from "@inertiajs/react";
-import { Card, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardTitle } from "@/Components/ui/card";
 import { Button } from "@/Components/ui/button";
 import { FormatRupiah } from "@arismun/format-rupiah";
 import ReactToPrint, { useReactToPrint } from "react-to-print";
