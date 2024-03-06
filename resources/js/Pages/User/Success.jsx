@@ -2,7 +2,7 @@ import { Head } from "@inertiajs/react";
 import { Card, CardContent, CardFooter, CardTitle } from "@/components/ui/card";
 import { Button } from "@/Components/ui/button";
 import { FormatRupiah } from "@arismun/format-rupiah";
-import ReactToPrint, { useReactToPrint } from "react-to-print";
+import { useReactToPrint } from "react-to-print";
 import { useRef } from "react";
 export default function Success({ order }) {
     const componentRef = useRef();

@@ -1,5 +1,5 @@
 import React from "react";
-import { SlSocialFacebook, SlSocialYoutube } from "react-icons/sl";
+import { SlSocialFacebook } from "react-icons/sl";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { Link } from "@inertiajs/react";
 import { Button } from "../ui/button";
@@ -17,10 +17,15 @@ function Footer() {
             </h1>
             {/* social media logo */}
             <div className="flex justify-evenly text-3xl md:text-4xl mb-20">
-                <SlSocialYoutube />
-                <FaInstagram />
-                <SlSocialFacebook />
-                <FaWhatsapp />
+                <a href="https://www.instagram.com/cahaya_waskitha?igsh=MnAyems2c2xzcWNo">
+                    <FaInstagram />
+                </a>
+                <a href="#">
+                    <SlSocialFacebook />
+                </a>
+                <a href="https://wa.link/3iqnd5">
+                    <FaWhatsapp />
+                </a>
             </div>
             <div className="w-[80%] md:w-[100%] m-auto flex flex-wrap justify-around ">
                 {/* Box 1 */}
